@@ -19,8 +19,9 @@ Todo
 ## Getting started
 ### Step 1: Install `anyapp`:
 
-cd dist/project
+npm run build:<project>
+cd dist/<project>
 npm publish --access=public
 
-ng generate library .... --prefix=...
+ng generate library <project> --prefix=<prefix>
 

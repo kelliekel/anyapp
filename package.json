@@ -9,8 +9,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "npm:pack:core": "cd dist/core && npm pack",
+    "build:changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
     "build:core": "ng build --prod core",
-    "build:changelog": "conventional-changelog -i CHANGELOG.md -s -p angular"   
+    "build:components": "ng build --prod components",
+    "build:tools": "ng build --prod tools"
   },
   "private": true,
   "dependencies": {

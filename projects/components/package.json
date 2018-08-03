@@ -1,14 +1,14 @@
 {
-  "name": "@anyapp/core",
+  "name": "@anyapp/components",
   "version": "0.0.1",
-  "description": "A simple core for any app",
+  "description": "A few simple components for any app",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kelliekel/anyapp.git"
   },
   "keywords": [
     "anyapp",
-    "core"
+    "components"
   ],
   "author": "anyapp <kelliekel@dinkelvalley.com>",
   "license": "MIT",

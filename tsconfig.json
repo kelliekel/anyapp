@@ -23,6 +23,18 @@
       ],
       "core/*": [
         "dist/core/*"
+      ],
+      "components": [
+        "dist/components"
+      ],
+      "components/*": [
+        "dist/components/*"
+      ],
+      "tools": [
+        "dist/tools"
+      ],
+      "tools/*": [
+        "dist/tools/*"
       ]
     }
   }

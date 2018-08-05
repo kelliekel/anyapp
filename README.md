@@ -72,12 +72,14 @@ AnyApp depends on Angular Material predefined themes and MDL (https://getmdl.io)
 ### Step 5: Include MDL script
 AnyApp depends also depends on MDL. If you're using the Angular CLI, you can add include the js in .angular-cli.json (Angular v5 and below) or angular.json (Angular v6 onwards).
 ```json
-~@anyapp/components/assets/scripts/scripts.bundle.css
+~@anyapp/components/assets/scripts/scripts.bundle.js
 ```
+<!---
 Alternatively you can use a CDN:
 ```html
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 ```
+--->
 
 ### Step 6 (Optional): Configuration
 You can also set global configuration by providing custom ANYAPP_DEFAULT_CONFIG

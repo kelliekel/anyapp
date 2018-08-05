@@ -43,7 +43,7 @@ A simple framework for any (angular) app
 ## Getting started
 
 ### Step 1: Install anyapp dependencies:
-`npm install --save @angular/material @angular/cdk @hammerjs @moment`
+`npm install --save @angular/material @angular/cdk hammerjs moment`
 
 ### Step 2: Install `anyapp`:
 `npm install --save @anyapp/components @anyapp/core @anyapp/tools`

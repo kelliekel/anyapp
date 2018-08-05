@@ -64,12 +64,22 @@ export class AppModule {}
 ```
 
 ### Step 4: Include a theme
-AnyApp currently depends on Angular Material themes. You can include any of their themes in your project. If you're using the Angular CLI, you can add this to your styles.scss or include it in .angular-cli.json (Angular v5 and below) or angular.json (Angular v6 onwards). For example:
+AnyApp depends on Angular Material predefined themes and MDL (https://getmdl.io). If you're using the Angular CLI, you can add this to your styles.scss or include it in .angular-cli.json (Angular v5 and below) or angular.json (Angular v6 onwards).
 ```css
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@anyapp/components/assets/styles/styles.bundle.css";
 ```
 
-### Step 5 (Optional): Configuration
+### Step 5: Include MDL script
+AnyApp depends also depends on MDL. If you're using the Angular CLI, you can add include the js in .angular-cli.json (Angular v5 and below) or angular.json (Angular v6 onwards).
+```json
+~@anyapp/components/assets/scripts/scripts.bundle.css
+```
+Alternatively you can use a CDN:
+```html
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+```
+
+### Step 6 (Optional): Configuration
 You can also set global configuration by providing custom ANYAPP_DEFAULT_CONFIG
 `todo`
 

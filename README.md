@@ -44,6 +44,7 @@ A simple framework for any (angular) app
 
 ### Step 1: Install anyapp dependencies:
 `npm install --save @angular/material @angular/cdk @angular/material-moment-adapter`
+
 Optional dependencies (read below):
 `npm install --save hammerjs moment material-design-lite`
 
@@ -85,8 +86,29 @@ node_modules/@anyapp/components/assets/scripts/individual/moment.js
 Or you can include the scripts on your own (by either referencing it from your own node_modules or using a CDN
 
 ### Step 6 (Optional): Configuration
-You can also set global configuration by providing custom ANYAPP_DEFAULT_CONFIG
-`todo`
+You can also set global configuration by providing custom ANYAPP_DEFAULT_COMPONENTS_CONFIG
+```js
+<AnyAppComponentsConfig>{
+  messageDuration: 2000,
+  locale: "nl",
+  errorMessages: {          
+    required: "This field is required",
+    email: "This has to be an e-mailaddress",
+    pattern: "This field doesn't match the pattern",
+    minLength: "This field doesn't match the min length",
+    maxLength: "This field doens't match the max length",
+    invalidFormMessage: "The form is invalid"
+  },
+  tableConfig: {
+    pageSize: 50,
+    selectOption: TableSelectEnum.NoSelect
+  },
+  buttonConfig: {
+    buttonTimeoutThreshold: 250
+  },
+  formConfig: {
+  }
+```
 
 
 <!---

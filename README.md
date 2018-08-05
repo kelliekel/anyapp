@@ -12,6 +12,7 @@ A simple framework for any (angular) app
 # Table of contents
   * [Features](#features)
   * [Getting started](#getting-started)
+  * [Configuration](#configuration)
   
 ## Features
 ### Components
@@ -85,8 +86,9 @@ node_modules/@anyapp/components/assets/scripts/individual/moment.js
 ```
 Or you can include the scripts on your own (by either referencing it from your own node_modules or using a CDN
 
-### Step 6 (Optional): Configuration
-You can also set global configuration by providing custom ANYAPP_DEFAULT_COMPONENTS_CONFIG
+
+## Configuration
+You can set global configuration by providing custom ANYAPP_DEFAULT_COMPONENTS_CONFIG
 ```js
 <AnyAppComponentsConfig>{
   messageDuration: 2000,

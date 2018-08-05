@@ -6,7 +6,7 @@
 
 
 # anyapp
-A simple framework for any app
+A simple framework for any (angular) app
 
 
 # Table of contents
@@ -37,9 +37,40 @@ A simple framework for any app
  - [ ] Http
  - [ ] Exception and error
  - [ ] Application
+### Tools
+ - [ ] Helper
  
 ## Getting started
-### Step 1: Install `anyapp`:
+
+### Step 1: Install anyapp dependencies:
+`npm install --save @angular/material @angular/cdk @hammerjs @moment`
+
+### Step 2: Install `anyapp`:
+`npm install --save @anyapp/components @anyapp/core @anyapp/tools`
+
+### Step 3: Import AnyAppComponentsModule and the angular FormsModule:
+`
+import { FormsModule } from '@angular/forms';
+import { AnyAppComponentsModule } from '@anyapp/components';
+import { AnyAppCoreModule } from '@anyapp/core';
+import { AnyAppToolsModule } from '@anyapp/tools';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [AnyAppComponentsModule, AnyAppCoreModule, AnyAppToolsModule, FormsModule],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+`
+
+### Step 4: Include a theme
+AnyApp currently depends on Angular Material themes. You can include any of their themes in your project. If you're using the Angular CLI, you can add this to your styles.scss or include it in .angular-cli.json (Angular v5 and below) or angular.json (Angular v6 onwards). For example:
+`@import "~@angular/material/prebuilt-themes/indigo-pink.css";`
+
+### Step 5 (Optional): Configuration
+You can also set global configuration by providing custom ANYAPP_DEFAULT_CONFIG
+`todo`
+
 
 <!---
 npm run build:<project>

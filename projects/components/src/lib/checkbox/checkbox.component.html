@@ -1,0 +1,13 @@
+<mat-checkbox *ngIf="!slideToggle" #input [(ngModel)]="innerValue" [labelPosition]="labelPosition">
+  <aa-comp-label *ngIf="label">
+    {{label}}
+  </aa-comp-label>
+</mat-checkbox>
+
+<mat-slide-toggle *ngIf="slideToggle" #input [(ngModel)]="innerValue" [disabled]="disabled">
+  <aa-comp-label *ngIf="label">
+    {{label}}
+  </aa-comp-label>
+</mat-slide-toggle>
+
+<mat-hint *ngIf="hint">{{hint}}</mat-hint>

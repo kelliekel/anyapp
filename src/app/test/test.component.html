@@ -1,0 +1,224 @@
+<!--The content below is only a placeholder and can be replaced.-->
+ 
+
+<!-- <mat-toolbar color="primary" class="mat-elevation-z6">
+    <mat-toolbar-row>
+      <aa-comp-top-menu style="width: 100%;" [sideNavRef]="sidenav"></aa-comp-top-menu>
+  
+    </mat-toolbar-row>
+  </mat-toolbar> -->
+
+  <table>
+    <tr>
+      <td>
+        Button
+      </td>
+      <td>
+        <aa-comp-button>This is a button from @anyapp/components</aa-comp-button>
+      </td>
+      <td>
+        <code>
+          &lt;aa-comp-button&gt;This is a button from @anyapp/components&lt;/aa-comp-button&gt;
+        </code>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Checkbox
+      </td>
+      <td>
+        <aa-comp-checkbox [label]="'This is a checkbox'"></aa-comp-checkbox>
+      </td>
+      <td>
+          <code>
+              &lt;aa-comp-checkbox [label]=&quot;'This is a checkbox'&quot;&gt;&lt;/aa-comp-checkbox&gt;
+  
+          </code>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Slide toggle
+      </td>
+      <td>
+        <aa-comp-checkbox [slideToggle]="true" [label]="'This is a slide toggle'"></aa-comp-checkbox>
+      </td>
+      <td>
+          <code>
+              &lt;aa-comp-checkbox [slideToggle]=&quot;true&quot; [label]=&quot;'This is a slide toggle'&quot;&gt;&lt;/aa-comp-checkbox&gt;
+  
+          </code>
+  
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Datepicker
+      </td>
+      <td>
+        <aa-comp-datepicker [placeholder]="'This is a simple datepicker'"></aa-comp-datepicker>
+      </td>
+      <td>
+          <code>
+              &lt;aa-comp-datepicker [placeholder]=&quot;'This is a simple datepicker'&quot;&gt;&lt;/aa-comp-datepicker&gt;
+  
+          </code>
+  
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Icon
+      </td>
+      <td>
+        <aa-comp-icon style="font-size:10px;" [icon]="'face'"></aa-comp-icon>
+        <aa-comp-icon style="font-size:16px;" [icon]="'face'"></aa-comp-icon>
+        <aa-comp-icon style="font-size:24px;" [icon]="'face'"></aa-comp-icon>
+        <aa-comp-icon style="font-size:32px;" [icon]="'face'"></aa-comp-icon>
+      </td>
+      <td>
+          <code>
+              &lt;aa-comp-icon [icon]=&quot;'face'&quot;&gt;&lt;/aa-comp-icon&gt;
+  
+          </code>
+  
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Input
+      </td>
+      <td>
+        <aa-comp-input [placeholder]="'This is a simple input'"></aa-comp-input>
+      </td>
+      <td>
+          <code>
+              &lt;aa-comp-input [placeholder]=&quot;'This is a simple input'&quot;&gt;&lt;/aa-comp-input&gt;
+  
+          </code>
+  
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Label
+      </td>
+      <td>
+        <aa-comp-label [for]="'Label for'">This is a label</aa-comp-label>
+      </td>
+      <td>
+          <code>
+              &lt;aa-comp-label [for]=&quot;'Label for'&quot;&gt;This is a label&lt;/aa-comp-label&gt;
+  
+          </code>
+  
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Loading
+      </td>
+      <td>
+        <aa-comp-loading [visible]="true"></aa-comp-loading>
+      </td>
+      <td>
+          <code>
+              &lt;aa-comp-loading [visible]=&quot;true&quot;&gt;&lt;/aa-comp-loading&gt;
+  
+          </code>
+  
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Select
+      </td>
+      <td>
+        <aa-comp-select [placeholder]="'This is a simple select'" [items]="[{id:1, text: 'first item'}, {id:2, text: 'second item'}, {id:3, text: 'third item'}]"></aa-comp-select>
+      </td>
+      <td>
+          <code>
+          </code>
+  
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Multi select
+      </td>
+      <td>
+        <aa-comp-select [placeholder]="'This is a simple multi select'" [multiple]="true" [items]="[{id:1, text: 'first item'}, {id:2, text: 'second item'}, {id:3, text: 'third item'}]"></aa-comp-select>
+      </td>
+      <td>
+          <code>
+          </code>
+  
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Slider
+      </td>
+      <td>
+        <aa-comp-slider [min]="0" [max]="20" [step]="1"></aa-comp-slider>
+      </td>
+      <td>
+          <code>
+              &lt;aa-comp-slider [min]=&quot;0&quot; [max]=&quot;20&quot; [step]=&quot;1&quot;&gt;&lt;/aa-comp-slider&gt;
+  
+          </code>
+  
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Textarea
+      </td>
+      <td>
+        <aa-comp-textarea [placeholder]="'This is a textarea'"></aa-comp-textarea>
+      </td>
+      <td>
+          <code>
+              &lt;aa-comp-textarea [placeholder]=&quot;'This is a textarea'&quot;&gt;&lt;/aa-comp-textarea&gt;
+  
+          </code>
+  
+      </td>
+    </tr>
+    
+    
+    <tr>
+      <td>
+        Table
+      </td>
+      <td>
+        <aa-comp-table [columns]="['id','name','description']"
+        [data]="[
+          {id: 1, name: 'first row', description: 'this is the first row'},
+          {id: 2, name: 'second row', description: 'this is the second row'},
+          {id: 3, name: 'third row', description: 'this is the third row'},
+          {id: 4, name: 'fourth row', description: 'this is the fourth row'},
+          {id: 5, name: 'fifth row', description: 'this is the fifth row'}
+        ]"></aa-comp-table>
+      </td>
+      <td>
+          <code>
+          </code>
+  
+      </td>
+    </tr>
+  </table>
+  
+  <div>
+  </div>

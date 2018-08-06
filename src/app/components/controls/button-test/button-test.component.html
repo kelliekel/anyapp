@@ -1,0 +1,12 @@
+
+<h1>Example</h1>
+
+<fieldset>
+  <aa-comp-select [items]="['flat', 'raised']" [placeholder]="'Button style'" [(ngModel)]="buttonStyle"></aa-comp-select>
+  <aa-comp-select [items]="['primary', 'accent', 'warn', 'basic']" [placeholder]="'Button color'" [(ngModel)]="buttonColor"></aa-comp-select>
+</fieldset>
+
+<aa-comp-button [color]="buttonColor" [style]="buttonStyle">This is a button</aa-comp-button>
+
+<h1>Code</h1>
+&lt;aa-comp-button&gt;This is a button&lt;/aa-comp-button&gt;

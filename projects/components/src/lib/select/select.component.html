@@ -1,0 +1,22 @@
+<aa-comp-label *ngIf="label">
+  {{label}}
+</aa-comp-label>
+
+<mat-form-field>
+  <mat-select *ngIf="!multiple" [placeholder]="placeholder" #input [(ngModel)]="innerValue" [disabled]="disabled"
+    [errorStateMatcher]="matcher">
+    <mat-option *ngIf="hasRequiredField == false">Maak een keuze</mat-option>
+    <mat-option *ngFor="let item of items" [value]="valueField != null ? item[valueField] : item">{{textField != null ? item[textField] : item}}</mat-option>
+  </mat-select>
+  
+  <mat-select *ngIf="multiple" multiple [placeholder]="placeholder" #input [(ngModel)]="innerValue" [disabled]="disabled"
+    [errorStateMatcher]="matcher">
+    <mat-option *ngIf="hasRequiredField == false">Maak een keuze</mat-option>
+    <mat-option *ngFor="let item of items" [value]="valueField != null ? item[valueField] : item">{{textField != null ? item[textField] : item}}</mat-option>
+  </mat-select>
+
+  <mat-hint *ngIf="hint">{{hint}}</mat-hint>
+  
+  
+</mat-form-field>
+<aa-comp-error [errorControl]="formControl"></aa-comp-error>

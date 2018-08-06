@@ -1,0 +1,14 @@
+<aa-comp-label *ngIf="label">
+  {{label}}
+</aa-comp-label>
+
+<mat-form-field>
+  <input matInput [disabled]="disabled" [matDatepicker]="picker" [placeholder]="placeholder" #input [(ngModel)]="innerValue" [errorStateMatcher]="matcher">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+
+  <mat-hint *ngIf="hint">{{hint}}</mat-hint>
+
+
+  <aa-comp-error [errorControl]="formControl"></aa-comp-error>
+</mat-form-field>

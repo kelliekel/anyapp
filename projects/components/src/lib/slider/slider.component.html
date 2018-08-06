@@ -1,0 +1,11 @@
+<aa-comp-label *ngIf="label">
+    {{label}}
+  </aa-comp-label>
+  
+<mat-slider [min]="min" [max]="max" [step]="step" #input [(ngModel)]="innerValue" 
+  [disabled]="disabled"></mat-slider>
+
+<mat-hint *ngIf="hint">{{hint}}</mat-hint>
+
+
+<aa-comp-error [errorControl]="formControl"></aa-comp-error>

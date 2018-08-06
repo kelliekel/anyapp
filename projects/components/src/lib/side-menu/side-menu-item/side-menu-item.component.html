@@ -1,0 +1,23 @@
+<div (click)="clickMenuItem();$event.stopPropagation();">
+  <!-- type == group -->
+  <span *ngIf="item.type == 1" class="aa-section-title">
+    {{item.text}}
+  </span>  
+  <!-- type == item -->
+  <button *ngIf="item.type == 2" class="aa-section-button" mat-button>    
+    <span [style.paddingLeft.px]="(level==1 ? level-1 : level)*10">{{item.text}}</span>    
+    <mat-icon *ngIf="item.children?.length > 0">
+        {{item.isExpanded ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}}
+    </mat-icon>
+  </button>
+
+  <!-- has children -->
+  <div [hidden]="level >= 1 && (item.children?.length == 0 || !item.isExpanded)">
+    <aa-comp-side-menu-item *ngFor="let child of item.children" [item]="child" [level]="level+1"></aa-comp-side-menu-item>
+  </div>
+
+  <!-- type == group -->
+  <div class="aa-mat-divider-wrapper" *ngIf="item.type == 1">
+      <mat-divider></mat-divider>
+  </div>
+</div>

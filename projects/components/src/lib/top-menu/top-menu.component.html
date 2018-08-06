@@ -1,0 +1,40 @@
+<mat-toolbar color="primary" class="mat-elevation-z6 aa-top-menu">
+  <mat-toolbar-row>
+
+    <div style="display: flex; flex:1; justify-content: space-between;">
+      <div>
+
+        <button *ngIf="sideNav" mat-icon-button (click)="toggleSideNav()">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <span class="title">{{title}}</span>
+      </div>
+
+
+      <ng-content></ng-content>
+
+
+      <div>
+
+        <button *ngIf="showNotification" (click)="notificationItemClick()" mat-icon-button>
+          <mat-icon>notification_important</mat-icon>
+        </button>
+
+        <button *ngIf="showPersonal" (click)="personalItemClick()" mat-icon-button>
+          <mat-icon>face</mat-icon>
+        </button>
+
+        <mat-menu #appMenu="matMenu">
+          <button mat-menu-item *ngFor="let menuItem of menu" (click)="menuItemClick(menuItem)">{{menuItem.text}}</button>
+        </mat-menu>
+
+        <button *ngIf="menu && menu.length > 0" mat-icon-button [matMenuTriggerFor]="appMenu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+
+      </div>
+    </div>
+
+  </mat-toolbar-row>
+</mat-toolbar>

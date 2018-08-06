@@ -1,0 +1,55 @@
+import { Component, OnInit, HostListener, ElementRef, Renderer2, Input, Inject, Injector } from '@angular/core';
+import { AnyAppFormControl } from '../form-control';
+
+@Component({
+  selector: 'aa-comp-button',
+  templateUrl: './button.component.html',
+  styleUrls: ['./button.component.scss']
+})
+export class ButtonComponent extends AnyAppFormControl implements OnInit {
+  @Input() timeout: boolean = true;
+
+  @Input() type: string = 'button';
+
+  @Input() style: 'default' | 'raised' | 'stroked' | 'flat' | 'icon' | 'fab' = 'flat'
+  @Input() color: 'primary' | 'accent' | 'warn' = 'primary';
+
+  constructor(
+    _injector: Injector,
+    private renderer: Renderer2, 
+    private el: ElementRef) {
+      super(_injector);
+  }
+
+  ngOnInit() {
+    this.initializeForm();
+  }
+
+  @HostListener('click', ['$event'])
+  submitAttachedForm(event: Event) {
+    if (this.form != null && this.type == "button") { // if form is set and type is button
+      this.form.onSubmit(event); // this will also update the submitted state
+      //this.form.ngSubmit.next(true);
+      //this.form.ngSubmit.emit(event);
+    }
+
+    // make sure a user can not click the button multiple times within a limited time
+    this.handleButtonTimeoutTreshold();
+  }
+
+  private handleButtonTimeoutTreshold() {
+    if (this.timeout) {
+      setTimeout(() => {
+        this.setDisabled(true);
+        setTimeout(() => { this.setDisabled(null); }, this.config.buttonConfig.buttonTimeoutThreshold);
+      }, 0);
+    }
+  }
+
+  private setDisabled(disabled: boolean) {
+    if (disabled)
+      this.renderer.setAttribute(this.el.nativeElement.children["button"], "disabled", disabled.toString());
+    else
+      this.renderer.removeAttribute(this.el.nativeElement.children["button"], "disabled");
+  }
+}

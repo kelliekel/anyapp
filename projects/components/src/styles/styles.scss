@@ -1,0 +1,43 @@
+/*
+ * Import material icons
+ */
+@import '../assets/font-material-icons.css';
+/*
+ * Import Roboto font
+ */
+@import '../assets/font-roboto-mono.css';
+/*
+ * Import material design lite styling (no theme)
+ */
+@import '../../../../node_modules/material-design-lite/material.min.css';
+/*
+ * Import angular material style (indigo pink)
+ */
+@import '../../../../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+/*
+ * Custom @anyapp/components styling
+ */
+
+@import "./_variables.scss";
+//
+body {
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    color: $body-color;
+    background-color: $bg-color;
+    font-weight: 400;
+}
+
+// .side-menu {
+//     &.section-title {
+//         display: block;
+//         font-size: 18px;
+//         padding-bottom: 12px;
+//         padding-left: 24px;
+//         padding-top: 40px;
+//     }
+
+//     .active {        
+//         font-weight: 500;
+//     }
+// }

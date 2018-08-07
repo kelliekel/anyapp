@@ -67,10 +67,22 @@ import { AnyAppToolsModule } from '@anyapp/tools';
 export class AppModule {}
 ```
 
-### Step 4: Include the theme (indigo-pink for now)
-AnyApp depends on Angular Material predefined themes and MDL (https://getmdl.io). If you're using the Angular CLI, you can add this to your styles.scss or include it in .angular-cli.json (Angular v5 and below) or angular.json (Angular v6 onwards).
+### Step 4: Include a theme 
+AnyApp depends on Angular Material predefined themes and MDL (https://getmdl.io). If you're using the Angular CLI, you can add any of the four styles to your styles.scss or include it in .angular-cli.json (Angular v5 and below) or angular.json (Angular v6 onwards).
 ```css
-@import "~@anyapp/components/assets/styles/styles.bundle.min.css";
+@import "~@anyapp/components/assets/styles/deeppurple-amber.bundle.min.css";
+```
+or
+```css
+@import "~@anyapp/components/assets/styles/indigo-pink.bundle.min.css";
+```
+or
+```css
+@import "~@anyapp/components/assets/styles/pink-bluegrey.bundle.min.css";
+```
+or
+```css
+@import "~@anyapp/components/assets/styles/purple-green.bundle.min.css";
 ```
 
 ### Step 5: Include the required scripts

@@ -1,0 +1,19 @@
+/*
+ * Custom @anyapp/components styling
+ */
+ @import "./_variables.scss";
+ 
+ // general anyapp styles
+ body {
+     font-family: 'Roboto', Helvetica, Arial, sans-serif;
+     line-height: 1.7;
+     color: $body-color;
+     background-color: $bg-color;
+     font-weight: 400;
+     height: 100%;
+ }
+
+ // line icons within a button again
+ .mat-button-wrapper > aa-comp-icon > * {
+    vertical-align: middle;
+ }

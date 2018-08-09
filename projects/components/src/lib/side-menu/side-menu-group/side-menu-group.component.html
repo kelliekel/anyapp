@@ -1,0 +1,15 @@
+<div class="aa-side-menu-group">
+  <div *ngFor="let item of items">
+    <aa-comp-side-menu-item (onEvent)="menuItemClick($event)" [item]="item" [level]="level"></aa-comp-side-menu-item>
+
+    <div  [hidden]="level >= 1 && (item.children?.length == 0 || !item.isExpanded)">        
+      <aa-comp-side-menu-group (onEvent)="menuItemClick($event)" [items]="item.children" [level]="level+1"></aa-comp-side-menu-group>
+    </div>
+
+    <!-- type == group -->
+    <div class="aa-mat-divider-wrapper" *ngIf="item.type == 1">
+        <mat-divider></mat-divider>
+    </div>
+
+  </div>
+</div>

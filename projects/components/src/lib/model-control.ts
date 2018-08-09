@@ -21,9 +21,9 @@ export abstract class AnyAppModelControl extends AnyAppFormControl implements Co
 	}
 	
 	onModelChange(event) {
-		if (this._innerValue != event) {
+		//if (this._innerValue != event) {
 			this.innerValue = event; // update only if changed
-		}
+		//}
 	}
 
 	// gets called when the form is initialized (write to view)

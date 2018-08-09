@@ -19,3 +19,7 @@
 .aa-side-nav-content {
     padding: $spacer-content;
 }
+
+mat-sidenav-container {
+    height: calc(100% - 64px);
+}

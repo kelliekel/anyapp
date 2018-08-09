@@ -3,12 +3,12 @@
 </aa-comp-label>
 
 <mat-form-field>
-  <textarea matInput [placeholder]="placeholder" #input [type]="type" [(ngModel)]="innerValue" 
-    [errorStateMatcher]="matcher" [disabled]="disabled"></textarea>
+  <textarea matInput [placeholder]="placeholder" #input [type]="type" [(ngModel)]="innerValue" [errorStateMatcher]="matcher"
+    [disabled]="disabled"></textarea>
 
-  <mat-hint *ngIf="hint">{{hint}}</mat-hint>
-  
-<aa-comp-error [errorControl]="formControl"></aa-comp-error>
+  <aa-comp-hint *ngIf="hint">{{hint}}</aa-comp-hint>
+
+  <aa-comp-error [errorControl]="formControl"></aa-comp-error>
 
 </mat-form-field>
 <!--[formControl]="form?.controls[formControlName]"-->

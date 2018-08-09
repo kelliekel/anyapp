@@ -1,1 +1,17 @@
-@import "~@anyapp/components/assets/styles/styles.bundle.css";
+@import "~@anyapp/components/assets/styles/indigo-pink.bundle.min.css";
+
+table.options {
+    width: 100%;
+
+    :first-child {
+        font-style:italic;
+    }
+    
+    .bold {
+        font-weight: 500;
+    }
+}
+
+code {
+    background: #ededed;
+}

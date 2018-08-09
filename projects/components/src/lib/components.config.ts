@@ -12,6 +12,7 @@ export interface AnyAppComponentsConfig {
 	buttonConfig: AnyAppButtonConfig;
 	formConfig: AnyAppFormConfig;
 	tableConfig: AnyAppTableConfig;
+	listConfig: AnyAppListConfig;
 }
 
 export interface AnyAppButtonConfig {
@@ -19,6 +20,10 @@ export interface AnyAppButtonConfig {
 }
 
 export interface AnyAppFormConfig {
+}
+
+export interface AnyAppListConfig {
+	pageSize: number;
 }
 
 export interface AnyAppTableConfig {

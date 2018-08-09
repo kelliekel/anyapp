@@ -41,6 +41,7 @@
     "@anyapp/tools": "file:dist/tools/anyapp-tools-0.0.2.tgz",
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",
+    "material-design-icons": "3.0.1",
     "material-design-lite": "^1.3.0",
     "moment": "^2.22.2",
     "rxjs": "^6.0.0",

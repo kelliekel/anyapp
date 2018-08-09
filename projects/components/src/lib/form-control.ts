@@ -9,6 +9,7 @@ export abstract class AnyAppFormControl extends AnyAppBaseControl {
   @Input() formControlName: string;
   @Input() formControl: FormControl;
   @Input() disabled: boolean = false;
+  @Input() tooltip: string = null;
 
   hasRequiredField: boolean;
 

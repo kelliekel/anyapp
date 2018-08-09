@@ -24,7 +24,6 @@ export class SideMenuItemComponent extends AnyAppBaseControl implements OnInit {
     }
 
     if(this.item.type == AnyAppTreeType.Item) {
-      debugger;
       this.onEvent.emit(new AnyAppEventModel<AnyAppTreeModel>(AnyAppEventKeys.MENU_ITEM_CLICK, this.item));
     }
   }

@@ -1,10 +1,10 @@
 <ng-container [ngSwitch]="style">
-  <button id="button" *ngSwitchCase="'raised'" mat-raised-button [type]="type" [disabled]="disabled" [color]="color"><ng-container *ngTemplateOutlet="transclude"></ng-container></button>
-  <button id="button" *ngSwitchCase="'stroked'" mat-stroked-button [type]="type" [disabled]="disabled" [color]="color"><ng-container *ngTemplateOutlet="transclude"></ng-container></button>
-  <button id="button" *ngSwitchCase="'flat'" mat-flat-button [type]="type" [disabled]="disabled" [color]="color"><ng-container *ngTemplateOutlet="transclude"></ng-container></button>
-  <button id="button" *ngSwitchCase="'icon'" mat-icon-button [type]="type" [disabled]="disabled" [color]="color"><ng-container *ngTemplateOutlet="transclude"></ng-container></button>
-  <button id="button" *ngSwitchCase="'fab'" mat-fab [type]="type" [disabled]="disabled" [color]="color"><ng-container *ngTemplateOutlet="transclude"></ng-container></button>
-  <button id="button" *ngSwitchDefault mat-button [type]="type" [disabled]="disabled" [color]="color"><ng-container *ngTemplateOutlet="transclude"></ng-container></button>
+  <button [matTooltip]="tooltip" id="button" *ngSwitchCase="'raised'" mat-raised-button [type]="type" [disabled]="disabled" [color]="color"><ng-container *ngTemplateOutlet="transclude"></ng-container></button>
+  <button [matTooltip]="tooltip" id="button" *ngSwitchCase="'stroked'" mat-stroked-button [type]="type" [disabled]="disabled" [color]="color"><ng-container *ngTemplateOutlet="transclude"></ng-container></button>
+  <button [matTooltip]="tooltip" id="button" *ngSwitchCase="'flat'" mat-flat-button [type]="type" [disabled]="disabled" [color]="color"><ng-container *ngTemplateOutlet="transclude"></ng-container></button>
+  <button [matTooltip]="tooltip" id="button" *ngSwitchCase="'icon'" mat-icon-button [type]="type" [disabled]="disabled" [color]="color"><ng-container *ngTemplateOutlet="transclude"></ng-container></button>
+  <button [matTooltip]="tooltip" id="button" *ngSwitchCase="'fab'" mat-fab [type]="type" [disabled]="disabled" [color]="color"><ng-container *ngTemplateOutlet="transclude"></ng-container></button>
+  <button [matTooltip]="tooltip" id="button" *ngSwitchDefault mat-button [type]="type" [disabled]="disabled" [color]="color"><ng-container *ngTemplateOutlet="transclude"></ng-container></button>
 </ng-container>
 
 <ng-template #transclude><ng-content></ng-content></ng-template>

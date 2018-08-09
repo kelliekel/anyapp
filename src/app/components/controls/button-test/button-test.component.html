@@ -1,12 +1,50 @@
 
-<h1>Example</h1>
+<h2>Button</h2>
+Extends formcontrol (description about formcontrols)
 
-<fieldset>
-  <aa-comp-select [items]="['flat', 'raised']" [placeholder]="'Button style'" [(ngModel)]="buttonStyle"></aa-comp-select>
-  <aa-comp-select [items]="['primary', 'accent', 'warn', 'basic']" [placeholder]="'Button color'" [(ngModel)]="buttonColor"></aa-comp-select>
-</fieldset>
+<h2>Example</h2>
+<div>
+<aa-comp-select [items]="buttonStyleOptions" [placeholder]="'Button style'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonStyle"></aa-comp-select>
+<aa-comp-select [items]="buttonColorOptions" [placeholder]="'Button color'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonColor"></aa-comp-select>
+</div>
+<aa-comp-button [color]="buttonColor" [style]="buttonStyle" [tooltip]="'This is the optional tooltip'">This is a {{buttonStyle}} {{buttonColor}} button</aa-comp-button>
 
-<aa-comp-button [color]="buttonColor" [style]="buttonStyle">This is a button</aa-comp-button>
 
-<h1>Code</h1>
-&lt;aa-comp-button&gt;This is a button&lt;/aa-comp-button&gt;
+<h2>Code</h2>
+<code>
+  &lt;aa-comp-button
+   [tooltip]="'This is the optional tooltip'"
+   [color]="'{{buttonColor}}'"
+   [style]="'{{buttonStyle}}'"&gt;<br />
+  &nbsp;&nbsp;This is a button<br />
+  &lt;/aa-comp-button&gt;
+</code>
+
+<h2>Options</h2>
+<table class="options">
+  <tr>
+    <td>Property</td>
+    <td>Type</td>
+    <td>Extra</td>
+  </tr>
+  <tr class="bold">
+    <td>style</td>
+    <td><code>string</code> (default: 'flat')</td>
+    <td><span *ngFor="let s of buttonStyleOptions">{{s}} | </span></td>
+  </tr>
+  <tr class="bold">
+    <td>color</td>
+    <td><code>string</code> (default: 'primary')</td>
+    <td><span *ngFor="let s of buttonColorOptions">{{s}} | </span></td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td><code>string</code> (default: 'button')</td>
+    <td>Buttontype; for example: button or submit</td>
+  </tr>
+  <tr>
+    <td>timeout</td>
+    <td><code>boolean</code> (default: true)</td>
+    <td>Indicates whether or not the button should be disabled after a click for a certain amount of time</td>
+  </tr>
+</table>

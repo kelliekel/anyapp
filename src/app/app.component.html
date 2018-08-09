@@ -1,41 +1,8 @@
-<aa-comp-top-menu
-  [sideNav]="true" 
-  [title]="title"
-  [showPersonal]="true"
-  [showNotification]="true"
-  [menu]="[{text: 'Settings', key: 'SETTINGS'}, {text: 'Log out', key: 'LOGOUT'}]"></aa-comp-top-menu>
+<aa-comp-top-menu [sideNav]="true" [title]="title" [showPersonal]="true" [showNotification]="true" [menu]="[{text: 'Settings', key: 'SETTINGS'}, {text: 'Log out', key: 'LOGOUT'}]"></aa-comp-top-menu>
 
 <aa-comp-side-menu [items]="menu" (onEvent)="menuItemClick($event);">
   
-  <div>
-    <aa-comp-header [title]="'Welcome to AnyApp'" [subTitle]="'A simple framework for any app!'"></aa-comp-header>
-  </div>
-  
+  <!--main routing outlet-->
+  <router-outlet></router-outlet>
 
-  <aa-test></aa-test>
 </aa-comp-side-menu>
-
-<!-- <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side" opened class="mat-sidenav sidenav">
-    <aa-comp-side-menu [items]="menu"></aa-comp-side-menu>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-
-    <div class="content">
-
-      <div style="text-align:center">
-        <h1>
-          Welcome to {{ title }}!
-        </h1>
-      </div>
-
-      <aa-test></aa-test>
-    </div>
-
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
-
-
-<!--main routing outlet-->
-<!-- <router-outlet></router-outlet> -->

@@ -1,0 +1,66 @@
+
+<h2>List</h2>
+Extends basecontrol (description about basecontrol)
+
+<h2>Example</h2>
+<!-- <div>
+<aa-comp-select [items]="buttonStyleOptions" [placeholder]="'Button style'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonStyle"></aa-comp-select>
+<aa-comp-select [items]="buttonColorOptions" [placeholder]="'Button color'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonColor"></aa-comp-select>
+</div> -->
+<aa-comp-list [items]="data">
+  <ng-template let-item #header>
+    <div>Header: {{item.text}}</div>
+  </ng-template>
+  <ng-template let-item #content>
+      <div>Content: {{item.text}}</div>
+  </ng-template>
+</aa-comp-list>
+
+  <!-- <ng-template let-item="$implicit" #footer>
+      <div>Footer for {{item.text}}</div>
+  </ng-template> -->
+
+<h2>Code</h2>
+<code>
+  &lt;aa-comp-list
+    [items]="data"&gt;<br />
+    <br />
+    &nbsp;&nbsp;&lt;ng-template #header let-item&gt;<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Header: &#123;&#123;item.text&#125; &#125; &lt;/div&gt;<br />
+    &nbsp;&nbsp;&lt;/ng-template&gt;<br />
+    <br />
+    &nbsp;&nbsp;&lt;ng-template #content let-item&gt;<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Content: &#123;&#123;item.text&#125; &#125; &lt;/div&gt;<br />
+    &nbsp;&nbsp;&lt;/ng-template&gt;<br />
+    <br />
+  &lt;/aa-comp-list&gt;
+</code>
+
+<!-- <h2>Options</h2>
+<table class="options">
+  <tr>
+    <td>Property</td>
+    <td>Type</td>
+    <td>Extra</td>
+  </tr>
+  <tr class="bold">
+    <td>style</td>
+    <td><code>string</code> (default: 'flat')</td>
+    <td><span *ngFor="let s of buttonStyleOptions">{{s}} | </span></td>
+  </tr>
+  <tr class="bold">
+    <td>color</td>
+    <td><code>string</code> (default: 'primary')</td>
+    <td><span *ngFor="let s of buttonColorOptions">{{s}} | </span></td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td><code>string</code> (default: 'button')</td>
+    <td>Buttontype; for example: button or submit</td>
+  </tr>
+  <tr>
+    <td>timeout</td>
+    <td><code>boolean</code> (default: true)</td>
+    <td>Indicates whether or not the button should be disabled after a click for a certain amount of time</td>
+  </tr>
+</table> -->

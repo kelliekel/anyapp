@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild, Injector } from '@angular/core';
 import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { AnyAppBaseControl } from '../base-control';
+import { TableSelectEnum } from '../components.config';
 
 @Component({
   selector: 'aa-comp-table',
@@ -18,10 +19,10 @@ export class TableComponent extends AnyAppBaseControl implements OnInit {
   // Not mandatory
   //
   @Input() allowSort: boolean = true;
-  @Input() allowPaging: boolean = true;
-  @Input() pageSize: number = 50;
-  @Input() allowSelect: boolean = false;
-  @Input() allowMultiSelect: boolean = false;
+  @Input() allowPaging: boolean;
+  @Input() pageSize: number;
+  @Input() allowSelect: boolean;
+  @Input() allowMultiSelect: boolean;
     
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -31,6 +32,10 @@ export class TableComponent extends AnyAppBaseControl implements OnInit {
 
   constructor(_injector: Injector) { 
     super(_injector);
+    this.pageSize = this.config.tableConfig.pageSize;
+    this.allowPaging = this.config.listConfig.pageSize > 0;
+    this.allowSelect = (this.config.tableConfig.selectOption != TableSelectEnum.NoSelect);
+    this.allowMultiSelect = (this.config.tableConfig.selectOption == TableSelectEnum.MultiSelect);
   }
 
   ngOnInit() {

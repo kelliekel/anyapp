@@ -5,7 +5,7 @@
       <div>
 
         <button *ngIf="sideNav" mat-icon-button (click)="toggleSideNav()">
-          <mat-icon>menu</mat-icon>
+          <aa-comp-icon [icon]="'menu'"></aa-comp-icon>
         </button>
 
         <span class="title">{{title}}</span>
@@ -18,11 +18,11 @@
       <div>
 
         <button *ngIf="showNotification" (click)="notificationItemClick()" mat-icon-button>
-          <mat-icon>notification_important</mat-icon>
+            <aa-comp-icon [icon]="'notification_important'"></aa-comp-icon>
         </button>
 
         <button *ngIf="showPersonal" (click)="personalItemClick()" mat-icon-button>
-          <mat-icon>face</mat-icon>
+            <aa-comp-icon [icon]="'face'"></aa-comp-icon>
         </button>
 
         <mat-menu #appMenu="matMenu">
@@ -30,7 +30,7 @@
         </mat-menu>
 
         <button *ngIf="menu && menu.length > 0" mat-icon-button [matMenuTriggerFor]="appMenu">
-          <mat-icon>more_vert</mat-icon>
+            <aa-comp-icon [icon]="'more_vert'"></aa-comp-icon>
         </button>
 
       </div>

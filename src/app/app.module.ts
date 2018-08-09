@@ -8,9 +8,11 @@ import { ComponentsModule } from '../../projects/components/src/public_api'; //'
 import { TestComponent } from './test/test.component';
 import { ButtonTestComponent } from './components/controls/button-test/button-test.component';
 import { CommonModule } from '@angular/common';
+import { ListTestComponent } from './components/list-test/list-test.component';
 
 export const routes: Routes = [
-  { path: 'controls/button', component: ButtonTestComponent },
+  { path: 'components/controls/button', component: ButtonTestComponent },
+  { path: 'components/list', component: ListTestComponent },
   { path: 'test', component: TestComponent },
   { path: '**', redirectTo: 'test', pathMatch: 'full' },
 ];
@@ -19,7 +21,8 @@ export const routes: Routes = [
   declarations: [
     AppComponent,
     TestComponent,
-    ButtonTestComponent
+    ButtonTestComponent,
+    ListTestComponent
   ],
   imports: [
     BrowserModule,

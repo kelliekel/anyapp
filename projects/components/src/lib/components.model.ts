@@ -24,16 +24,18 @@ export class AnyAppTreeModel {
     public type: AnyAppTreeType;
     public children: AnyAppTreeModel[];
     public isExpanded?:boolean;
+    public navigateUrl?: string;
         
-    constructor(key: string, text: string, type: AnyAppTreeType, children?: AnyAppTreeModel[], isExpanded?: boolean) {
+    constructor(key: string, text: string, type: AnyAppTreeType, children?: AnyAppTreeModel[], isExpanded?: boolean, navigateUrl?:string) {
         this.key = key;
         this.text = text;
         this.type = type;
         this.children = children;
         this.isExpanded = isExpanded;
+        this.navigateUrl = navigateUrl;
     }
     
-    toggle(){
+    toggle() {
         this.isExpanded = !this.isExpanded;
     }
 }

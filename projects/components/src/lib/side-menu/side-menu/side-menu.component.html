@@ -2,11 +2,7 @@
   <mat-sidenav #sideNav mode="side" opened class="mat-elevation-z6 mat-sidenav sidenav">
 
     <div class="aa-side-nav">
-      <div *ngFor="let item of items" class="aa-group">
-
-        <aa-comp-side-menu-item (onEvent)="onItemClick($event)" [item]="item" [level]="0"></aa-comp-side-menu-item>
-
-      </div>
+        <aa-comp-side-menu-group (onEvent)="onItemClick($event)" [items]="items"></aa-comp-side-menu-group>
     </div>
     
   </mat-sidenav>

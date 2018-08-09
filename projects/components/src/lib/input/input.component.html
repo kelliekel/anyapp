@@ -6,9 +6,8 @@
   <input matInput [placeholder]="placeholder" #input [type]="type" [(ngModel)]="innerValue" 
     [errorStateMatcher]="matcher" [disabled]="disabled">
 
-  <mat-hint align="start" *ngIf="hint">{{hint}}</mat-hint>
-  <mat-hint align="end" *ngIf="maxLength">{{input.value.length}} / {{maxLength}}</mat-hint>
-
+  <aa-comp-hint align="start" *ngIf="hint">{{hint}}</aa-comp-hint>
+  <aa-comp-hint align="end" *ngIf="maxLength">{{input.value.length}} / {{maxLength}}</aa-comp-hint>
   
   <aa-comp-error [errorControl]="formControl"></aa-comp-error>
 

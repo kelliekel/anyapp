@@ -31,8 +31,7 @@ export class SideMenuComponent extends AnyAppBaseControl implements OnInit, OnDe
   }
 
   // pass event emitter to the app
-  onItemClick(model: AnyAppEventModel<AnyAppTreeModel>) {
-    debugger;
+  onItemClick(model: any) {
     if(model)
       this.onEvent.emit(model);
   }

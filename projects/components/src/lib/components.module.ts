@@ -5,7 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {
   MatButtonModule, MatSidenavModule, MatIconModule, MatTreeModule, MatDividerModule, MatToolbarModule, MatMenuModule,
   MatProgressBarModule, MatTableModule, MatPaginatorModule, MatSortModule, MatSnackBarModule, MatCheckboxModule, MatInputModule,
-  MatSlideToggleModule, MatSelectModule, MatDatepickerModule, MatSliderModule, MatPaginatorIntl, MatSortHeaderIntl
+  MatSlideToggleModule, MatSelectModule, MatDatepickerModule, MatSliderModule, MatPaginatorIntl, MatSortHeaderIntl,
+  MatTooltipModule, MatProgressSpinnerModule, MatExpansionModule
 } from '@angular/material';
 
 import { ANYAPP_COMPONENTS_CONFIG } from './components.config';
@@ -29,6 +30,13 @@ import { SideMenuComponent } from './side-menu/side-menu/side-menu.component';
 import { SideMenuItemComponent } from './side-menu/side-menu-item/side-menu-item.component';
 import { TableSelectEnum } from './components.config';
 import { HeaderComponent } from './header/header.component';
+import { SideMenuGroupComponent } from './side-menu/side-menu-group/side-menu-group.component';
+import { ListComponent } from './list/list.component';
+import { SearchComponent } from './search/search.component';
+import { HintComponent } from './_hint/hint.component';
+import { FilterPipe } from './list/filter.pipe';
+import { SortPipe } from './list/sort.pipe';
+import { PagingPipe } from './list/paging.pipe';
 
 @NgModule({
   imports: [
@@ -54,20 +62,24 @@ import { HeaderComponent } from './header/header.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatInputModule
+    MatInputModule,
+    MatTooltipModule,
+    MatProgressSpinnerModule,
+    MatExpansionModule,
+    
   ],
   declarations: [
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
-    TopMenuComponent, SideMenuComponent,
+    TopMenuComponent, SideMenuComponent, SideMenuGroupComponent, HeaderComponent, ListComponent, SearchComponent,
+    ListComponent,
     // no export
-    SideMenuItemComponent,
-    HeaderComponent
+    SideMenuItemComponent, HintComponent, FilterPipe, SortPipe, PagingPipe
   ],
   exports: [
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
-    TopMenuComponent, SideMenuComponent, HeaderComponent,
+    TopMenuComponent, SideMenuComponent, HeaderComponent, ListComponent, SearchComponent, ListComponent
     // material exports
     //MatSidenavModule, MatToolbarModule
   ],
@@ -95,9 +107,14 @@ import { HeaderComponent } from './header/header.component';
         maxLength: "The length of your input is too long",
         invalidFormMessage: "The form is invalid. Please correct any errors."
       },
+
       tableConfig: {
         pageSize: 20,
         selectOption: TableSelectEnum.NoSelect
+      },
+
+      listConfig: {
+        pageSize: 20
       },
 
       buttonConfig: {

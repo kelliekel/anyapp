@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Injector } from '@angular/core';
 import { AnyAppFormControl } from '../form-control';
+import { ANYAPP_COLOR, ANYAPP_SIZES } from '../components.types';
 
 @Component({
   selector: 'aa-comp-icon',
@@ -8,9 +9,9 @@ import { AnyAppFormControl } from '../form-control';
 })
 export class IconComponent extends AnyAppFormControl implements OnInit {
   @Input() icon: string;
-  @Input() color: string;
-  @Input() inline: boolean = true;
-  @Input() size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = null; // default = inline = true
+  @Input() color: ANYAPP_COLOR = "basic";
+  @Input() inline: boolean = false;
+  @Input() size: ANYAPP_SIZES = null;
 
   constructor(_injector: Injector) { 
     super(_injector);

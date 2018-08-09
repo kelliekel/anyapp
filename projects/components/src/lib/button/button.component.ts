@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener, ElementRef, Renderer2, Input, Inject, Injector } from '@angular/core';
 import { AnyAppFormControl } from '../form-control';
+import { ANYAPP_BUTTON_TYPE, ANYAPP_COLOR } from '../components.types';
 
 @Component({
   selector: 'aa-comp-button',
@@ -11,8 +12,8 @@ export class ButtonComponent extends AnyAppFormControl implements OnInit {
 
   @Input() type: string = 'button';
 
-  @Input() style: 'default' | 'raised' | 'stroked' | 'flat' | 'icon' | 'fab' = 'flat'
-  @Input() color: 'primary' | 'accent' | 'warn' = 'primary';
+  @Input() style: ANYAPP_BUTTON_TYPE = 'default'
+  @Input() color: ANYAPP_COLOR = 'basic';
 
   constructor(
     _injector: Injector,

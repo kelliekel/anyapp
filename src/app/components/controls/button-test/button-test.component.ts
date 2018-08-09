@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ANYAPP_BUTTON_TYPE_VALUES, ANYAPP_COLOR_VALUES } from 'projects/components/src/lib/components.types';
 
 @Component({
   selector: 'aa-button-test',
@@ -6,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./button-test.component.scss']
 })
 export class ButtonTestComponent implements OnInit {
+
+  //defaults
+  buttonStyle: string = "raised";
+  buttonStyleOptions: string[] = ANYAPP_BUTTON_TYPE_VALUES;
+  buttonColor: string = "primary";
+  buttonColorOptions: string[] = ANYAPP_COLOR_VALUES;
 
   constructor() { }
 

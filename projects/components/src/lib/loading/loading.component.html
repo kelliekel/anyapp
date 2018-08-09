@@ -1,1 +1,4 @@
-<mat-progress-bar *ngIf="visible" mode="indeterminate"></mat-progress-bar>
+<ng-container *ngIf="visible">
+    <mat-progress-bar *ngIf="type == 'progress'" mode="indeterminate"></mat-progress-bar>
+    <mat-progress-spinner *ngIf="type == 'spinner'" mode="indeterminate"></mat-progress-spinner>
+</ng-container>

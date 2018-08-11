@@ -3,7 +3,7 @@
 
 <mat-menu #sortMenu="matMenu">
   <button mat-menu-item [disabled]="true">
-    Sorting
+    {{config.locales.list_sortTitle}}
   </button>
   <mat-divider></mat-divider>
   <button mat-menu-item *ngFor="let sortOption of sortingFields" (click)="sort(sortOption)" [class.bold]="sortOption == settings?.sort">
@@ -12,13 +12,20 @@
 </mat-menu>
 
 <aa-comp-button *ngIf="sortingFields && sortingFields.length > 0" [style]="'icon'" [matMenuTriggerFor]="sortMenu" 
-    [tooltip]="(settings?.sort ? 'Sorted by: ' + settings?.sort + ' ' + settings?.sortType + '' : '')">
-    <aa-comp-icon [icon]="'sort'"></aa-comp-icon>
+  [tooltip]="(settings?.sort | sortLabel:settings?.sortType)">
+  <aa-comp-icon [icon]="'sort'"></aa-comp-icon>
 </aa-comp-button>
 
-<aa-comp-search (onSearch)="search($event)" [placeholder]="'Search'"></aa-comp-search>
+<aa-comp-search (onSearch)="search($event)" [placeholder]="config.locales.list_search"></aa-comp-search>
 
 <mat-accordion>
+
+  <div *ngIf="!pagedDataSource || pagedDataSource.length == 0">
+    <aa-comp-hint>
+      {{config.locales.list_noItemsText}}
+    </aa-comp-hint>
+  </div>
+
   <ng-container *ngFor="let item of pagedDataSource; let i = index">
 
     <mat-expansion-panel [expanded]="i == expandedIndex" (opened)="expandedIndex = $event;">
@@ -33,7 +40,7 @@
       <ng-template matExpansionPanelContent *ngIf="contentTemplate" ngFor let-item [ngForOf]="[item]" [ngForTemplate]="contentTemplate"></ng-template>
 
       <mat-action-row *ngIf="footerTemplate">
-        <ng-template ngFor let-item [ngForOf]="[item]" [ngForTemplate]="footerTemplate">          
+        <ng-template ngFor let-item [ngForOf]="[item]" [ngForTemplate]="footerTemplate">
         </ng-template>
 
         <!-- <ng-template *ngIf="showDefaultFooterTemplate" ngFor let-item [ngForOf]="[item]" [ngForTemplate]="defaultFooterTemplate">          
@@ -50,6 +57,6 @@
 
 </mat-accordion>
 
-<div *ngIf="allowPaging" style="margin-top:2px;">
-  <mat-paginator showFirstLastButtons (page)="paging($event)" [length]="dataSource?.length" [pageSize]="settings?.pageSize"></mat-paginator>
+<div *ngIf="allowPaging">
+  <mat-paginator showFirstLastButtons (page)="changePage($event)" [length]="collectionSize" [pageIndex]="settings?.page" [pageSize]="settings?.pageSize"></mat-paginator>
 </div>

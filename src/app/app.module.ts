@@ -9,10 +9,12 @@ import { TestComponent } from './test/test.component';
 import { ButtonTestComponent } from './components/controls/button-test/button-test.component';
 import { CommonModule } from '@angular/common';
 import { ListTestComponent } from './components/list-test/list-test.component';
+import { TableTestComponent } from './components/table-test/table-test.component';
 
 export const routes: Routes = [
   { path: 'components/controls/button', component: ButtonTestComponent },
   { path: 'components/list', component: ListTestComponent },
+  { path: 'components/table', component: TableTestComponent },
   { path: 'test', component: TestComponent },
   { path: '**', redirectTo: 'test', pathMatch: 'full' },
 ];
@@ -22,7 +24,8 @@ export const routes: Routes = [
     AppComponent,
     TestComponent,
     ButtonTestComponent,
-    ListTestComponent
+    ListTestComponent,
+    TableTestComponent
   ],
   imports: [
     BrowserModule,

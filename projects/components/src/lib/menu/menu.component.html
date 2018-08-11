@@ -1,0 +1,6 @@
+<span *ngIf="items && items.length > 0" [matMenuTriggerFor]="myMenu">
+  <mat-menu #myMenu="matMenu">
+      <button mat-menu-item *ngFor="let menuItem of items" (click)="itemClick(menuItem)">{{menuItem.text}}</button>
+  </mat-menu>
+  <ng-content></ng-content>
+</span>

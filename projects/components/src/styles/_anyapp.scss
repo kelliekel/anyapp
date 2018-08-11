@@ -2,6 +2,12 @@
  * Custom @anyapp/components styling
  */
  @import "./_variables.scss";
+
+ 
+/*
+ * Import material design lite styling (no theme)
+ */
+@import '../../../../node_modules/material-design-lite/material.min.css';
  
  // general anyapp styles
  body {
@@ -17,3 +23,13 @@
  .mat-button-wrapper > aa-comp-icon > * {
     vertical-align: middle;
  }
+
+ // hide white background
+ .mat-paginator {
+    background: transparent;
+}
+
+// give tab-content a default padding
+aa-comp-tabs + div {
+    padding: 20px 0;
+}

@@ -25,13 +25,22 @@
             <aa-comp-icon [icon]="'face'"></aa-comp-icon>
         </button>
 
+        <aa-comp-menu #appMenu [items]="menu" (onItemClick)="menuItemClick($event)">
+          <button mat-icon-button>
+            <aa-comp-icon [icon]="'more_vert'"></aa-comp-icon>
+          </button>
+        </aa-comp-menu>
+
+<!-- 
         <mat-menu #appMenu="matMenu">
           <button mat-menu-item *ngFor="let menuItem of menu" (click)="menuItemClick(menuItem)">{{menuItem.text}}</button>
-        </mat-menu>
-
+        </mat-menu> -->
+        
+        <!-- 
         <button *ngIf="menu && menu.length > 0" mat-icon-button [matMenuTriggerFor]="appMenu">
             <aa-comp-icon [icon]="'more_vert'"></aa-comp-icon>
         </button>
+        -->
 
       </div>
     </div>

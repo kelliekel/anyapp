@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
     new AnyAppTreeModel('AA_COMPONENTS', 'AnyApp Components', AnyAppTreeType.Group, [
       
       new AnyAppTreeModel('AA_COMPONENTS_LIST', 'List', AnyAppTreeType.Item, null, false, '/components/list'),
+      new AnyAppTreeModel('AA_COMPONENTS_TABLE', 'Table', AnyAppTreeType.Item, null, false, '/components/table'),
       
       new AnyAppTreeModel('AA_COMPONENTS_CONTROLS', 'Controls', AnyAppTreeType.Item, [ 
         new AnyAppTreeModel('AA_COMPONENTS_CONTROLS_BUTTON', 'Button', AnyAppTreeType.Item, null, false, '/components/controls/button')

@@ -49,6 +49,12 @@ export interface AnyAppLocales {
 	paginator_previousPage: string;
 
 	sort_buttonLabel: string;
+
+	list_noItemsText: string;
+	list_sortTitle: string;
+	list_sortAscending: string;
+	list_sortDescending: string;
+	list_search: string;
 }
 
 export enum TableSelectEnum {

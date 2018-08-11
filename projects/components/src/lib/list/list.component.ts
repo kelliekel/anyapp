@@ -1,92 +1,123 @@
-import { Component, OnInit, ContentChild, TemplateRef, Injector, Input, SimpleChanges, OnChanges, ViewChild } from '@angular/core';
+import { Component, OnInit, ContentChild, TemplateRef, Injector, Input, SimpleChanges, OnChanges, ViewChild, Output, EventEmitter } from '@angular/core';
+import { MatPaginator, PageEvent } from '@angular/material';
 import { AnyAppBaseControl } from '../base-control';
-import { filter } from 'rxjs/operators';
 import { FilterPipe } from './filter.pipe';
 import { SortPipe } from './sort.pipe';
-import { MatPaginator, MatSort, MatTableDataSource, PageEvent } from '@angular/material';
-import { PagingPipe } from './paging.pipe';
 import { ListSettings } from './list.settings';
+import { ListItems } from './list.items';
 
 @Component({
   selector: 'aa-comp-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  providers: [FilterPipe, SortPipe, PagingPipe]
+  providers: [FilterPipe, SortPipe]
 })
 export class ListComponent extends AnyAppBaseControl implements OnInit, OnChanges {
-  @ContentChild("header")
-  headerTemplate: TemplateRef<any>; // todo: add a template-ref-type waarbij title desc en image geset kunnen worden
-  @ContentChild("content")
-  contentTemplate: TemplateRef<any>;
-  @ContentChild("footer")
-  footerTemplate: TemplateRef<any>;
+  // todo: add a template-ref-type waarbij title desc en image geset kunnen worden
+  @ContentChild("header") headerTemplate: TemplateRef<any>; 
+  @ContentChild("content") contentTemplate: TemplateRef<any>;
+  @ContentChild("footer") footerTemplate: TemplateRef<any>;
   //@Input() showDefaultFooterTemplate: boolean = true;
 
-  @Input() items: any[];
-  @Input() listType: 'server' | 'client' = 'client';
+  @Input() data: ListItems | any[];  
+  @Input() listType: 'server' | 'client' = 'client'; // dit hoeft niet
+  @Input() settings: ListSettings;
+  @Output() onSettingsChanged: EventEmitter<ListSettings> = new EventEmitter<ListSettings>();
   //
   @Input() allowSort: boolean = true;
   @Input() allowPaging: boolean;
-  
-  @Input() settings: ListSettings;
+  //
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
+  dataSourceInput: ListItems;
   dataSource: any[];
+  collectionSize: number;
   pagedDataSource: any[];
   expandedIndex: number;
   sortingFields: string[];
     
   constructor(_injector: Injector, private filterPipe: FilterPipe, private sortPipe: SortPipe) {
     super(_injector);
-    this.settings = ListSettings.DEFAULT(3); //this.config.listConfig.pageSize
+    this.settings = ListSettings.DEFAULT(3); //
     this.allowPaging = this.config.listConfig.pageSize > 0;
   }
 
   ngOnInit() { 
-    //
-    this.setPagedDataSource(0);
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if(changes && changes["items"]) {  
-      this.sortingFields = (this.items != null && this.items.length > 0) ? Object.keys(this.items[0]) : null; 
-      this.dataSource = this.items;
-      // if(this.allowPaging) {
-      //   this.setPagedDataSource(0);
-      // }
-      // else {
-      //   this.settings.page = this.items.length;
-      // }
+    if(changes && changes["data"]) {
+      // make sure the inner list always works with a ListItems object
+      if(changes["data"].currentValue instanceof Array) {
+        this.data = new ListItems(changes["data"].currentValue, changes["data"].currentValue.length);
+      }
+      this.dataSourceInput = <ListItems>this.data;
+      this.sortingFields = (this.data && this.dataSourceInput.items && this.dataSourceInput.items.length > 0) ? Object.keys(this.dataSourceInput.items[0]) : null;      
+      this.dataSourceInput.total = this.dataSourceInput.total | this.dataSourceInput.items.length; 
+      this.dataSource = this.dataSourceInput.items;
+      this.collectionSize = this.dataSourceInput.total;
+      
+      if(this.listType == 'client') {
+        this.updateClientPagedDataSource(0);
+      }
+      else {
+        this.pagedDataSource = this.dataSource.slice(0, this.settings.pageSize);
+      }
     }
   }
 
-  paging(event: PageEvent) {
-    this.setPagedDataSource(event ? event.pageIndex : 0);
+  emitServerSettings() {
+    this.onSettingsChanged.emit(this.settings);
   }
 
-  setPagedDataSource(page: number) {
-    let startIndex = page*this.settings.pageSize;    
-    let startIndexAfterLastItem = startIndex >= this.dataSource.length;
+  changePage(event: PageEvent) {
+    this.settings.page = event.pageIndex; // update list settings; might be overriden later
 
-    if(startIndexAfterLastItem) {
-      startIndex = 0;
-      this.paginator.pageIndex = 0; // reset paging component      
+    if(this.listType == 'client') {
+      this.updateClientPagedDataSource(event ? event.pageIndex : 0);
     }
-
-    let endIndex = startIndex + this.settings.pageSize;
-    this.settings.page = page; // update list settings 
-    this.pagedDataSource = this.dataSource.slice(startIndex, endIndex);
+    else {
+      this.emitServerSettings();
+    }
   }
 
   search(event: string) {
-    this.settings.search = event; // update list settings 
-    this.dataSource = this.filterPipe.transform(this.items, this.settings.search);
-    this.setPagedDataSource(0); // reset the paged datasource for now
+    this.settings.search = event; // update list settings
+
+    if(this.listType == 'client') {
+      this.dataSource = this.filterPipe.transform(this.dataSourceInput.items, this.settings.search);
+      this.collectionSize = this.dataSource.length;
+      this.updateClientPagedDataSource(0); // reset the paged datasource for now
+    }
+    else {
+      this.emitServerSettings();
+    }
   }
 
   sort(event: string) {
     this.settings.setSort(event);
-    this.dataSource = this.sortPipe.transform(this.dataSource, this.settings.sort, this.settings.sortType);
-    // no need to update pagedDataSource
+
+    if(this.listType == 'client') {
+      this.dataSource = this.sortPipe.transform(this.dataSource, this.settings.sort, this.settings.sortType);
+      this.updateClientPagedDataSource(this.settings.page);
+    }
+    else {
+      this.emitServerSettings();
+    }
+  }
+
+  updateClientPagedDataSource(page: number) {
+    let startIndex = page*this.settings.pageSize;    
+
+    let startIndexAfterLastItem = startIndex >= this.collectionSize;
+    let paginatorIndexDifferentFromPage = this.paginator && page != this.paginator.pageIndex;
+    if(startIndexAfterLastItem || paginatorIndexDifferentFromPage) {
+        startIndex = 0;
+        this.settings.page = 0; // reset list settings page    
+        this.paginator.firstPage();
+    }
+    
+    let endIndex = startIndex + this.settings.pageSize;
+    this.pagedDataSource = this.dataSource.slice(startIndex, endIndex);
   }
 }

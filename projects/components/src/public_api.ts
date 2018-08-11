@@ -5,8 +5,14 @@
 export * from './lib/components.model';
 export * from './lib/components.config';
 export * from './lib/components.service';
+export * from './lib/components.types';
 
 export * from './lib/components.module';
+
+export * from './lib/list/list.settings';
+export * from './lib/list/list.items';
+
+export * from './lib/tabs/tab.model';
 
 /*
  * Public API for our aa-components
@@ -27,3 +33,8 @@ export * from './lib/error/error.component';
 export * from './lib/top-menu/top-menu.component';
 export * from './lib/side-menu/side-menu/side-menu.component';
 export * from './lib/header/header.component';
+export * from './lib/list/list.component';
+export * from './lib/search/search.component';
+export * from './lib/tabs/tabs.component';
+export * from './lib/calendar/calendar.component';
+export * from './lib/menu/menu.component';

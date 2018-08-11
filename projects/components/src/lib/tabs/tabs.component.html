@@ -1,0 +1,12 @@
+<!--[color]="colorToggle.value" [backgroundColor]="backgroundColorToggle.value"-->
+<mat-tab-group dynamicHeight 
+  [selectedIndex]="selected.value"
+  (selectedIndexChange)="tabChange($event)">
+  <mat-tab *ngFor="let tab of tabs" [label]="tab">
+    
+    <!-- <ng-template matTabContent>
+      Content 3 - Loaded: {{getTimeLoaded(3) | date:'medium'}}
+    </ng-template> -->
+
+  </mat-tab>
+</mat-tab-group>

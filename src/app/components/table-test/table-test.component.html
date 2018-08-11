@@ -1,0 +1,49 @@
+
+<h2>Data table</h2>
+Extends basecontrol (description about basecontrol)
+
+<h2>Example</h2>
+<!-- <div>
+<aa-comp-select [items]="buttonStyleOptions" [placeholder]="'Button style'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonStyle"></aa-comp-select>
+<aa-comp-select [items]="buttonColorOptions" [placeholder]="'Button color'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonColor"></aa-comp-select>
+</div> -->
+<aa-comp-table 
+  [columns]="['id','name','description']"
+  [data]="data"></aa-comp-table>
+
+<h2>Code</h2>
+<code>
+  &lt;aa-comp-table
+    [columns]="['id','name','description']"
+    [items]="data"&gt;<br />
+  &lt;/aa-comp-table&gt;
+</code>
+
+<!-- <h2>Options</h2>
+<table class="options">
+  <tr>
+    <td>Property</td>
+    <td>Type</td>
+    <td>Extra</td>
+  </tr>
+  <tr class="bold">
+    <td>style</td>
+    <td><code>string</code> (default: 'flat')</td>
+    <td><span *ngFor="let s of buttonStyleOptions">{{s}} | </span></td>
+  </tr>
+  <tr class="bold">
+    <td>color</td>
+    <td><code>string</code> (default: 'primary')</td>
+    <td><span *ngFor="let s of buttonColorOptions">{{s}} | </span></td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td><code>string</code> (default: 'button')</td>
+    <td>Buttontype; for example: button or submit</td>
+  </tr>
+  <tr>
+    <td>timeout</td>
+    <td><code>boolean</code> (default: true)</td>
+    <td>Indicates whether or not the button should be disabled after a click for a certain amount of time</td>
+  </tr>
+</table> -->

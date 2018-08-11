@@ -9,7 +9,6 @@ export class FilterPipe implements PipeTransform {
 
         searchText = searchText.toLowerCase();
         return items.filter(it => {
-            
             let keys = Object.keys(it);
             let found = false;
             

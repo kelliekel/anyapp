@@ -6,7 +6,7 @@ import {
   MatButtonModule, MatSidenavModule, MatIconModule, MatTreeModule, MatDividerModule, MatToolbarModule, MatMenuModule,
   MatProgressBarModule, MatTableModule, MatPaginatorModule, MatSortModule, MatSnackBarModule, MatCheckboxModule, MatInputModule,
   MatSlideToggleModule, MatSelectModule, MatDatepickerModule, MatSliderModule, MatPaginatorIntl, MatSortHeaderIntl,
-  MatTooltipModule, MatProgressSpinnerModule, MatExpansionModule
+  MatTooltipModule, MatProgressSpinnerModule, MatExpansionModule, MatTabsModule
 } from '@angular/material';
 
 import { ANYAPP_COMPONENTS_CONFIG } from './components.config';
@@ -37,6 +37,10 @@ import { HintComponent } from './_hint/hint.component';
 import { FilterPipe } from './list/filter.pipe';
 import { SortPipe } from './list/sort.pipe';
 import { PagingPipe } from './list/paging.pipe';
+import { SortLabelPipe } from './list/sort-label.pipe';
+import { TabsComponent } from './tabs/tabs.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   imports: [
@@ -66,20 +70,21 @@ import { PagingPipe } from './list/paging.pipe';
     MatTooltipModule,
     MatProgressSpinnerModule,
     MatExpansionModule,
-    
+    MatTabsModule    
   ],
   declarations: [
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
     TopMenuComponent, SideMenuComponent, SideMenuGroupComponent, HeaderComponent, ListComponent, SearchComponent,
-    ListComponent,
+    ListComponent, TabsComponent, CalendarComponent, MenuComponent,
     // no export
-    SideMenuItemComponent, HintComponent, FilterPipe, SortPipe, PagingPipe
+    SideMenuItemComponent, HintComponent, FilterPipe, SortPipe, PagingPipe, SortLabelPipe
   ],
   exports: [
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
-    TopMenuComponent, SideMenuComponent, HeaderComponent, ListComponent, SearchComponent, ListComponent
+    TopMenuComponent, SideMenuComponent, HeaderComponent, ListComponent, SearchComponent, ListComponent, TabsComponent,
+    CalendarComponent, MenuComponent
     // material exports
     //MatSidenavModule, MatToolbarModule
   ],
@@ -96,7 +101,12 @@ import { PagingPipe } from './list/paging.pipe';
         paginator_of: "of",
         paginator_nextPage: "Next page",
         paginator_previousPage: "Previous page",
-        sort_buttonLabel: "Change sorting for"
+        sort_buttonLabel: "Change sorting for",        
+        list_noItemsText: "No items found.",
+        list_sortTitle: "Sort by",
+        list_sortAscending: "Ascending",
+        list_sortDescending: "Descending",
+        list_search: 'Search'
       },
 
       errorMessages: {

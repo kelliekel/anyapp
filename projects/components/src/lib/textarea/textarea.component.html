@@ -6,7 +6,7 @@
   <textarea matInput [placeholder]="placeholder" #input [type]="type" [(ngModel)]="innerValue" [errorStateMatcher]="matcher"
     [disabled]="disabled"></textarea>
 
-  <aa-hint *ngIf="hint">{{hint}}</aa-hint>
+  <mat-hint *ngIf="hint">{{hint}}</mat-hint>
 
   <aa-error [errorControl]="formControl"></aa-error>
 

@@ -24,6 +24,7 @@ export interface AnyAppButtonConfig {
 
 export interface AnyAppInputConfig {
 	labelPlacement: LabelPlacementEnum;
+	slideToggle: boolean;
 }
 
 export interface AnyAppFormConfig {

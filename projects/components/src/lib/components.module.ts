@@ -48,6 +48,7 @@ import { StrokedButtonComponent } from './button/_stroked-button.component';
 import { DefaultButtonComponent } from './button/_default-button.component';
 import { IconButtonComponent } from './button/_icon-button.component';
 import { FabButtonComponent } from './button/_fab-button.component';
+import { FieldComponent } from './field/field.component';
 
 @NgModule({
   imports: [
@@ -62,7 +63,7 @@ import { FabButtonComponent } from './button/_fab-button.component';
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
     TopMenuComponent, SideMenuComponent, SideMenuGroupComponent, HeaderComponent, ListComponent, SearchComponent,
-    ListComponent, TabsComponent, CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective,
+    ListComponent, TabsComponent, CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective, FieldComponent,
     // no export
     SideMenuItemComponent, HintComponent, FilterPipe, SortPipe, PagingPipe, SortLabelPipe,
     //
@@ -72,7 +73,7 @@ import { FabButtonComponent } from './button/_fab-button.component';
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
     TopMenuComponent, SideMenuComponent, HeaderComponent, ListComponent, SearchComponent, ListComponent, TabsComponent,
-    CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective
+    CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective, FieldComponent
     // material exports
     //MatSidenavModule, MatToolbarModule
   ],
@@ -92,7 +93,8 @@ import { FabButtonComponent } from './button/_fab-button.component';
       deps: [ANYAPP_COMPONENTS_CONFIG]
     }],
   entryComponents: [
-    RaisedButtonComponent, StrokedButtonComponent, FlatButtonComponent, IconButtonComponent, DefaultButtonComponent, FabButtonComponent//, , //, //, 
+    RaisedButtonComponent, StrokedButtonComponent, FlatButtonComponent, IconButtonComponent, DefaultButtonComponent, FabButtonComponent,
+    InputComponent, TextareaComponent, SliderComponent, CheckboxComponent, SelectComponent, DatepickerComponent
   ]
 })
 export class ComponentsModule {

@@ -15,11 +15,13 @@ import { AnyAppModelControl } from '../model-control';
   ]
 })
 export class CheckboxComponent extends AnyAppModelControl implements OnInit, ControlValueAccessor {
-  @Input() slideToggle: boolean = true;  
-  @Input() labelPosition: 'before' | 'after' = 'after';
+  @Input() slideToggle: boolean;  
+  
+  labelPosition: 'before' | 'after' = 'after';
 
   constructor(_injector: Injector) { 
     super(_injector);
+    this.slideToggle = this.config.inputConfig.slideToggle;
   }
 
   ngOnInit() {

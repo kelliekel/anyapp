@@ -3,12 +3,11 @@
 </aa-label>
 
 <mat-form-field>
-  <input matInput [placeholder]="placeholder" #input [type]="type" [(ngModel)]="innerValue" 
+  <input matInput [placeholder]="placeholder" #input [type]="type" [required]="true" [(ngModel)]="innerValue" 
     [errorStateMatcher]="matcher" [disabled]="disabled">
 
-  <aa-hint align="start" *ngIf="hint">{{hint}}</aa-hint>
-  <aa-hint align="end" *ngIf="maxLength">{{input.value.length}} / {{maxLength}}</aa-hint>  
+  <mat-hint align="start" *ngIf="hint">{{hint}}</mat-hint>
+  <mat-hint align="end" *ngIf="maxLength">{{input.value.length}} / {{maxLength}}</mat-hint>  
   <aa-error [errorControl]="formControl"></aa-error>
 
 </mat-form-field>
-<!--[formControl]="form?.controls[formControlName]"-->

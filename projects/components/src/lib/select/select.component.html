@@ -11,7 +11,7 @@
     <mat-option *ngFor="let item of items" [value]="isArrayOfObjects ? item[valueField] : item" (click)="selectItem(item)">{{isArrayOfObjects ? item[textField] : item}}</mat-option>
   </mat-select>
 
-  <aa-hint *ngIf="hint">{{hint}}</aa-hint>
+  <mat-hint *ngIf="hint">{{hint}}</mat-hint>
   <aa-error [errorControl]="formControl"></aa-error>  
   
 </mat-form-field>

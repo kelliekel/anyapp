@@ -1,0 +1,113 @@
+<aa-header [title]="'Field'" [subTitle]="'A simple generic field for any app'">
+  </aa-header>
+  
+  <aa-tabs #tabs (onTabChange)="selectedTab = $event;" [tabs]="['General', 'Example', 'API']">
+  </aa-tabs>
+  
+  <div>
+    <div *ngIf="tabs.getSelectedTabName() == 'General'">
+      Extends modelcontrol? (description about formcontrols)
+    </div>
+    <div *ngIf="tabs.getSelectedTabName() == 'Example'">
+      <div>
+        <aa-select [items]="fieldTypeOptions" [placeholder]="'Field type'" [ngModelOptions]="{standalone: true}" [(ngModel)]="fieldType"></aa-select>
+      </div>
+      <aa-field 
+        [fieldType]="fieldType" 
+        [label]="'Label for ' + fieldType" 
+        [hint]="'Hint message for ' + fieldType"
+        [typeSpecific]="{
+          placeholder:'Placeholder for this field'          
+        }"></aa-field>
+  
+  
+      <h2>Code</h2>
+      <code>
+        &lt;aa-field
+          [type]="'{{fieldType}}'"&gt;<br />
+        &nbsp;&nbsp;__<br />
+        &lt;/aa-field&gt;
+      </code>
+    </div>
+  
+    <div *ngIf="tabs.getSelectedTabName() == 'API'">
+      <table class="options">
+        <thead>
+            <td>Property</td>
+            <td>Type</td>
+            <td>Default value</td>
+            <td>Extra</td>
+        </thead>
+        <tr>
+          <td>fieldType</td>
+          <td><code>string</code></td>
+          <td>-</td>
+          <td><span *ngFor="let s of fieldTypeOptions">{{s}} | </span></td>
+        </tr>
+        <tr>
+          <td>form</td>
+          <td><code>NgForm</code></td>
+          <td>-</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>formControlName</td>
+          <td><code>string</code></td>
+          <td>-</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>formControl</td>
+          <td><code>FormControl</code></td>
+          <td>-</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>disabled</td>
+          <td><code>boolean</code></td>
+          <td>false</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>tooltip</td>
+          <td><code>string</code></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>label</td>
+          <td><code>string</code></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>hint</td>
+          <td><code>string</code></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>typeSpecific</td>
+          <td><code>TypeSpecificProperties</code></td>
+          <td></td>
+          <td>
+            Any or more of the follow (depending on the type):
+              maxLength;
+              placeholder;
+              type;
+              multiple;
+              min;
+              max;
+              step;
+              minlength;
+              maxlength;
+              items;
+              locale;
+          </td>
+        </tr>
+
+
+
+      </table>
+    </div>
+  </div>

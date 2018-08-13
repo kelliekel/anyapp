@@ -1,16 +1,15 @@
 <mat-checkbox *ngIf="!slideToggle" #input [(ngModel)]="innerValue" [labelPosition]="labelPosition" [disabled]="disabled">
-  <ng-container *ngTemplateOutlet="label"></ng-container>
-</mat-checkbox>
-
-<mat-slide-toggle *ngIf="slideToggle" #input [(ngModel)]="innerValue" [labelPosition]="labelPosition" [disabled]="disabled">
-  <ng-container *ngTemplateOutlet="label"></ng-container>
-</mat-slide-toggle>
-
-<aa-hint *ngIf="hint">{{hint}}</aa-hint>
-
-<!--LABEL-->
-<ng-template #label>
   <aa-label *ngIf="label">
     {{label}}
   </aa-label>
-</ng-template>
+</mat-checkbox>
+
+<mat-slide-toggle *ngIf="slideToggle" #input [(ngModel)]="innerValue" [labelPosition]="labelPosition" [disabled]="disabled">
+  <aa-label *ngIf="label">
+    {{label}}
+  </aa-label>
+</mat-slide-toggle>
+
+<div>
+<mat-hint *ngIf="hint">{{hint}}</mat-hint>
+</div>

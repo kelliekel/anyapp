@@ -3,5 +3,8 @@
 </aa-label>
 
 <mat-slider [min]="min" [max]="max" [step]="step" #input [(ngModel)]="innerValue" [disabled]="disabled"></mat-slider>
-<aa-hint *ngIf="hint">{{hint}}</aa-hint>
+<div>
+  <mat-hint *ngIf="hint">{{hint}}</mat-hint>
+
+</div>
 <aa-error [errorControl]="formControl"></aa-error>

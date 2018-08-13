@@ -32,7 +32,8 @@ export const ANYAPP_DEFAULT_COMPONENTS_CONFIG: AnyAppComponentsConfig = {
 	},
 
 	inputConfig: {
-		labelPlacement: LabelPlacementEnum.Above
+		labelPlacement: LabelPlacementEnum.Above,
+		slideToggle: true
 	},
 
 	tableConfig: {

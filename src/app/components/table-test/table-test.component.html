@@ -1,49 +1,50 @@
+<aa-header [title]="'Data table'" [subTitle]="'A simple table for any app'">
+</aa-header>
 
-<h2>Data table</h2>
-Extends basecontrol (description about basecontrol)
+<aa-tabs #tabs (onTabChange)="selectedTab = $event;" [tabs]="['General', 'Example', 'API']">
+</aa-tabs>
 
-<h2>Example</h2>
-<!-- <div>
-<aa-select [items]="buttonStyleOptions" [placeholder]="'Button style'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonStyle"></aa-select>
-<aa-select [items]="buttonColorOptions" [placeholder]="'Button color'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonColor"></aa-select>
-</div> -->
-<aa-table 
-  [columns]="['id','name','description']"
-  [data]="data"></aa-table>
+<div>
+  <div *ngIf="tabs.getSelectedTabName() == 'General'">
+    Extends basecontrol (description about basecontrol)
+  </div>
+  <div *ngIf="tabs.getSelectedTabName() == 'Example'">
+    <aa-table [columns]="['id','name','description']" [data]="data"></aa-table>
 
-<h2>Code</h2>
-<code>
-  &lt;aa-table
-    [columns]="['id','name','description']"
-    [items]="data"&gt;<br />
-  &lt;/aa-table&gt;
-</code>
+    <h2>Code</h2>
+    <code>
+        &lt;aa-table
+          [columns]="['id','name','description']"
+          [items]="data"&gt;<br />
+        &lt;/aa-table&gt;
+      </code>
 
-<!-- <h2>Options</h2>
-<table class="options">
-  <tr>
-    <td>Property</td>
-    <td>Type</td>
-    <td>Extra</td>
-  </tr>
-  <tr class="bold">
-    <td>style</td>
-    <td><code>string</code> (default: 'flat')</td>
-    <td><span *ngFor="let s of buttonStyleOptions">{{s}} | </span></td>
-  </tr>
-  <tr class="bold">
-    <td>color</td>
-    <td><code>string</code> (default: 'primary')</td>
-    <td><span *ngFor="let s of buttonColorOptions">{{s}} | </span></td>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td><code>string</code> (default: 'button')</td>
-    <td>Buttontype; for example: button or submit</td>
-  </tr>
-  <tr>
-    <td>timeout</td>
-    <td><code>boolean</code> (default: true)</td>
-    <td>Indicates whether or not the button should be disabled after a click for a certain amount of time</td>
-  </tr>
-</table> -->
+
+  </div>
+  <div *ngIf="tabs.getSelectedTabName() == 'API'">
+    <table class="options">
+      <thead>
+        <td>Property</td>
+        <td>Type</td>
+        <td>Default value</td>
+        <td>Extra</td>
+      </thead>
+      <tr>
+        <td>data</td>
+        <td>
+          <code>any[]</code>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>columns</td>
+        <td>
+          <code>string[]</code>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+</div>

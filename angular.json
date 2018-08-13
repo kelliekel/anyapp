@@ -172,7 +172,7 @@
       "root": "projects/components",
       "sourceRoot": "projects/components/src",
       "projectType": "library",
-      "prefix": "aa-comp",
+      "prefix": "aa",
       "schematics": {
         "@schematics/angular:component": {
           "styleext": "scss"

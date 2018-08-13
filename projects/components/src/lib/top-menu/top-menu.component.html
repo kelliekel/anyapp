@@ -5,7 +5,7 @@
       <div>
 
         <button *ngIf="sideNav" mat-icon-button (click)="toggleSideNav()">
-          <aa-comp-icon [icon]="'menu'"></aa-comp-icon>
+          <aa-icon [icon]="'menu'"></aa-icon>
         </button>
 
         <span class="title">{{title}}</span>
@@ -18,18 +18,18 @@
       <div>
 
         <button *ngIf="showNotification" (click)="notificationItemClick()" mat-icon-button>
-            <aa-comp-icon [icon]="'notification_important'"></aa-comp-icon>
+            <aa-icon [icon]="'notification_important'"></aa-icon>
         </button>
 
         <button *ngIf="showPersonal" (click)="personalItemClick()" mat-icon-button>
-            <aa-comp-icon [icon]="'face'"></aa-comp-icon>
+            <aa-icon [icon]="'face'"></aa-icon>
         </button>
 
-        <aa-comp-menu #appMenu [items]="menu" (onItemClick)="menuItemClick($event)">
+        <aa-menu #appMenu [items]="menu" (onItemClick)="menuItemClick($event)">
           <button mat-icon-button>
-            <aa-comp-icon [icon]="'more_vert'"></aa-comp-icon>
+            <aa-icon [icon]="'more_vert'"></aa-icon>
           </button>
-        </aa-comp-menu>
+        </aa-menu>
 
 <!-- 
         <mat-menu #appMenu="matMenu">
@@ -38,7 +38,7 @@
         
         <!-- 
         <button *ngIf="menu && menu.length > 0" mat-icon-button [matMenuTriggerFor]="appMenu">
-            <aa-comp-icon [icon]="'more_vert'"></aa-comp-icon>
+            <aa-icon [icon]="'more_vert'"></aa-icon>
         </button>
         -->
 

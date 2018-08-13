@@ -3,7 +3,7 @@ import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/f
 import { AnyAppModelControl } from '../model-control';
 
 @Component({
-  selector: 'aa-comp-textarea',
+  selector: 'aa-textarea',
   templateUrl: './textarea.component.html',
   styleUrls: ['./textarea.component.scss'],
   providers: [
@@ -15,10 +15,8 @@ import { AnyAppModelControl } from '../model-control';
   ]
 })
 export class TextareaComponent extends AnyAppModelControl implements OnInit, ControlValueAccessor {  
-  @Input() label: string;
   @Input() placeholder: string;
   @Input() type: string = "text";
-  @Input() hint: string;
 
   constructor(_injector: Injector) { 
     super(_injector);

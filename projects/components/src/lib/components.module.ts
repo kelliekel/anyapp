@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -6,10 +6,10 @@ import {
   MatButtonModule, MatSidenavModule, MatIconModule, MatTreeModule, MatDividerModule, MatToolbarModule, MatMenuModule,
   MatProgressBarModule, MatTableModule, MatPaginatorModule, MatSortModule, MatSnackBarModule, MatCheckboxModule, MatInputModule,
   MatSlideToggleModule, MatSelectModule, MatDatepickerModule, MatSliderModule, MatPaginatorIntl, MatSortHeaderIntl,
-  MatTooltipModule, MatProgressSpinnerModule, MatExpansionModule, MatTabsModule
+  MatTooltipModule, MatProgressSpinnerModule, MatExpansionModule, MatTabsModule, MatChipsModule
 } from '@angular/material';
 
-import { ANYAPP_COMPONENTS_CONFIG } from './components.config';
+import { ANYAPP_COMPONENTS_CONFIG, AnyAppComponentsConfig } from './components.config';
 import { ButtonComponent } from './button/button.component';
 import { TableComponent } from './table/table.component';
 import { InputComponent } from './input/input.component';
@@ -28,7 +28,6 @@ import { GenericSortHeaderIntl } from './table/sort.intl';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { SideMenuComponent } from './side-menu/side-menu/side-menu.component';
 import { SideMenuItemComponent } from './side-menu/side-menu-item/side-menu-item.component';
-import { TableSelectEnum } from './components.config';
 import { HeaderComponent } from './header/header.component';
 import { SideMenuGroupComponent } from './side-menu/side-menu-group/side-menu-group.component';
 import { ListComponent } from './list/list.component';
@@ -41,6 +40,8 @@ import { SortLabelPipe } from './list/sort-label.pipe';
 import { TabsComponent } from './tabs/tabs.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MenuComponent } from './menu/menu.component';
+import { ChipsComponent } from './chips/chips.component';
+import { BadgeDirective } from './badge/badge.directive';
 
 @NgModule({
   imports: [
@@ -70,13 +71,14 @@ import { MenuComponent } from './menu/menu.component';
     MatTooltipModule,
     MatProgressSpinnerModule,
     MatExpansionModule,
-    MatTabsModule    
+    MatTabsModule,
+    MatChipsModule
   ],
   declarations: [
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
     TopMenuComponent, SideMenuComponent, SideMenuGroupComponent, HeaderComponent, ListComponent, SearchComponent,
-    ListComponent, TabsComponent, CalendarComponent, MenuComponent,
+    ListComponent, TabsComponent, CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective,
     // no export
     SideMenuItemComponent, HintComponent, FilterPipe, SortPipe, PagingPipe, SortLabelPipe
   ],
@@ -84,67 +86,36 @@ import { MenuComponent } from './menu/menu.component';
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
     TopMenuComponent, SideMenuComponent, HeaderComponent, ListComponent, SearchComponent, ListComponent, TabsComponent,
-    CalendarComponent, MenuComponent
+    CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective
     // material exports
     //MatSidenavModule, MatToolbarModule
   ],
-  providers: [{
-    provide: ANYAPP_COMPONENTS_CONFIG,
-    useValue: {
-      messageDuration: 3000,
-      locale: "en-US",
-
-      locales: {
-        paginator_firstPage: "First page",
-        paginator_lastPage: "Last page",
-        paginator_itemsPerPage: "Items per page",
-        paginator_of: "of",
-        paginator_nextPage: "Next page",
-        paginator_previousPage: "Previous page",
-        sort_buttonLabel: "Change sorting for",        
-        list_noItemsText: "No items found.",
-        list_sortTitle: "Sort by",
-        list_sortAscending: "Ascending",
-        list_sortDescending: "Descending",
-        list_search: 'Search'
-      },
-
-      errorMessages: {
-        required: "This field is required",
-        email: "Please enter a valid e-mail address",
-        pattern: "Your input does not match the pattern",
-        minLength: "The length of your input is too short",
-        maxLength: "The length of your input is too long",
-        invalidFormMessage: "The form is invalid. Please correct any errors."
-      },
-
-      tableConfig: {
-        pageSize: 20,
-        selectOption: TableSelectEnum.NoSelect
-      },
-
-      listConfig: {
-        pageSize: 20
-      },
-
-      buttonConfig: {
-        buttonTimeoutThreshold: 250
-      },
-
-      formConfig: {
-      }
-    }
-  },
-  {
-    provide: MatPaginatorIntl,
-    useClass: GenericPaginatorIntl,
-    deps: [ANYAPP_COMPONENTS_CONFIG]
-  },
-  {
-    provide: MatSortHeaderIntl,
-    useClass: GenericSortHeaderIntl,
-    deps: [ANYAPP_COMPONENTS_CONFIG]
-  }]
+  providers: [
+    // {
+    //   provide: ANYAPP_COMPONENTS_CONFIG,
+    //   useValue: ANYAPP_DEFAULT_COMPONENTS_CONFIG
+    // },
+    {
+      provide: MatPaginatorIntl,
+      useClass: GenericPaginatorIntl,
+      deps: [ANYAPP_COMPONENTS_CONFIG]
+    },
+    {
+      provide: MatSortHeaderIntl,
+      useClass: GenericSortHeaderIntl,
+      deps: [ANYAPP_COMPONENTS_CONFIG]
+    }]
 })
 export class ComponentsModule {
+  static forRoot(config: AnyAppComponentsConfig): ModuleWithProviders {    
+    return {
+      ngModule: ComponentsModule,
+      providers: [
+        {
+          provide: ANYAPP_COMPONENTS_CONFIG,
+          useValue: config
+        }
+      ]
+    }
+  }
 }

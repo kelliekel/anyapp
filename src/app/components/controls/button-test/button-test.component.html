@@ -1,50 +1,64 @@
+<aa-header [title]="'Button'" [subTitle]="'A simple button for any app'">
+</aa-header>
 
-<h2>Button</h2>
-Extends formcontrol (description about formcontrols)
+<aa-tabs #tabs (onTabChange)="selectedTab = $event;" [tabs]="['General', 'Example', 'API']">
+</aa-tabs>
 
-<h2>Example</h2>
 <div>
-<aa-comp-select [items]="buttonStyleOptions" [placeholder]="'Button style'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonStyle"></aa-comp-select>
-<aa-comp-select [items]="buttonColorOptions" [placeholder]="'Button color'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonColor"></aa-comp-select>
+  <div *ngIf="tabs.getSelectedTabName() == 'General'">
+    Extends formcontrol (description about formcontrols)
+  </div>
+  <div *ngIf="tabs.getSelectedTabName() == 'Example'">
+    <div>
+      <aa-select [items]="buttonStyleOptions" [placeholder]="'Button style'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonStyle"></aa-select>
+      <aa-select [items]="buttonColorOptions" [placeholder]="'Button color'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonColor"></aa-select>
+    </div>
+    <aa-button [color]="buttonColor" [style]="buttonStyle" [tooltip]="'This is the optional tooltip'">This is a {{buttonStyle}} {{buttonColor}} button</aa-button>
+
+
+    <h2>Code</h2>
+    <code>
+      &lt;aa-button
+        [tooltip]="'This is the optional tooltip'"
+        [color]="'{{buttonColor}}'"
+        [style]="'{{buttonStyle}}'"&gt;<br />
+      &nbsp;&nbsp;This is a button<br />
+      &lt;/aa-button&gt;
+    </code>
+  </div>
+
+  <div *ngIf="tabs.getSelectedTabName() == 'API'">
+    <table class="options">
+      <thead>
+          <td>Property</td>
+          <td>Type</td>
+          <td>Default value</td>
+          <td>Extra</td>
+      </thead>
+      <tr>
+        <td>style</td>
+        <td><code>string</code></td>
+        <td>flat</td>
+        <td><span *ngFor="let s of buttonStyleOptions">{{s}} | </span></td>
+      </tr>
+      <tr>
+        <td>color</td>
+        <td><code>string</code></td>
+        <td>primary</td>
+        <td><span *ngFor="let s of buttonColorOptions">{{s}} | </span></td>
+      </tr>
+      <tr>
+        <td>type</td>
+        <td><code>string</code></td>
+        <td>button</td>
+        <td>Buttontype; for example: button or submit</td>
+      </tr>
+      <tr>
+        <td>timeout</td>
+        <td><code>boolean</code></td>
+        <td>true if buttonTimeoutThreshold is set through config settings</td>
+        <td>Indicates whether or not the button should be disabled after a click for a certain amount of time</td>
+      </tr>
+    </table>
+  </div>
 </div>
-<aa-comp-button [color]="buttonColor" [style]="buttonStyle" [tooltip]="'This is the optional tooltip'">This is a {{buttonStyle}} {{buttonColor}} button</aa-comp-button>
-
-
-<h2>Code</h2>
-<code>
-  &lt;aa-comp-button
-   [tooltip]="'This is the optional tooltip'"
-   [color]="'{{buttonColor}}'"
-   [style]="'{{buttonStyle}}'"&gt;<br />
-  &nbsp;&nbsp;This is a button<br />
-  &lt;/aa-comp-button&gt;
-</code>
-
-<h2>Options</h2>
-<table class="options">
-  <tr>
-    <td>Property</td>
-    <td>Type</td>
-    <td>Extra</td>
-  </tr>
-  <tr class="bold">
-    <td>style</td>
-    <td><code>string</code> (default: 'flat')</td>
-    <td><span *ngFor="let s of buttonStyleOptions">{{s}} | </span></td>
-  </tr>
-  <tr class="bold">
-    <td>color</td>
-    <td><code>string</code> (default: 'primary')</td>
-    <td><span *ngFor="let s of buttonColorOptions">{{s}} | </span></td>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td><code>string</code> (default: 'button')</td>
-    <td>Buttontype; for example: button or submit</td>
-  </tr>
-  <tr>
-    <td>timeout</td>
-    <td><code>boolean</code> (default: true)</td>
-    <td>Indicates whether or not the button should be disabled after a click for a certain amount of time</td>
-  </tr>
-</table>

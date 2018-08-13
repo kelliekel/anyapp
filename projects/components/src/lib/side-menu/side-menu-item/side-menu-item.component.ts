@@ -3,7 +3,7 @@ import { AnyAppTreeModel, AnyAppEventModel, AnyAppEventKeys, AnyAppTreeType } fr
 import { AnyAppBaseControl } from '../../base-control';
 
 @Component({
-  selector: 'aa-comp-side-menu-item',
+  selector: 'aa-side-menu-item',
   templateUrl: './side-menu-item.component.html',
   styleUrls: ['./side-menu-item.component.scss']
 })

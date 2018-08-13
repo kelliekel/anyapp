@@ -9,7 +9,8 @@ import { ListItems } from '@anyapp/components';
 export class ListTestComponent implements OnInit {
   data: any[];//ListItems = new ListItems();
   selectedTab: any;
-
+  listType: string = 'client';
+  
   constructor() {
     this.data = [
       {id:1,text:'Dit is zomaar een test'},

@@ -5,7 +5,7 @@ import { MatSidenav } from '@angular/material';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'aa-comp-side-menu',
+  selector: 'aa-side-menu',
   templateUrl: './side-menu.component.html',
   styleUrls: ['./side-menu.component.scss']
 })

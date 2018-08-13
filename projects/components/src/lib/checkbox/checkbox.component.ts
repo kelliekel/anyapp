@@ -3,7 +3,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { AnyAppModelControl } from '../model-control';
 
 @Component({
-  selector: 'aa-comp-checkbox',
+  selector: 'aa-checkbox',
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss'],
   providers: [
@@ -15,10 +15,8 @@ import { AnyAppModelControl } from '../model-control';
   ]
 })
 export class CheckboxComponent extends AnyAppModelControl implements OnInit, ControlValueAccessor {
-  @Input() label: string;
+  @Input() slideToggle: boolean = true;  
   @Input() labelPosition: 'before' | 'after' = 'after';
-  @Input() hint: string;
-  @Input() slideToggle: boolean = false;
 
   constructor(_injector: Injector) { 
     super(_injector);

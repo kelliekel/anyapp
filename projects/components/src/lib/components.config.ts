@@ -1,4 +1,5 @@
 import { InjectionToken } from "@angular/core";
+import { TableSelectEnum, LabelPlacementEnum } from "./components.enum";
 
 export const ANYAPP_COMPONENTS_CONFIG = new InjectionToken<AnyAppComponentsConfig>('anyapp-default-components-options');
 
@@ -9,6 +10,8 @@ export interface AnyAppComponentsConfig {
 	errorMessages: AnyAppErrorMessages;
 	locales: AnyAppLocales;
 	//
+	inputConfig: AnyAppInputConfig;
+	//
 	buttonConfig: AnyAppButtonConfig;
 	formConfig: AnyAppFormConfig;
 	tableConfig: AnyAppTableConfig;
@@ -17,6 +20,10 @@ export interface AnyAppComponentsConfig {
 
 export interface AnyAppButtonConfig {
 	buttonTimeoutThreshold: number;
+}
+
+export interface AnyAppInputConfig {
+	labelPlacement: LabelPlacementEnum;
 }
 
 export interface AnyAppFormConfig {
@@ -55,10 +62,8 @@ export interface AnyAppLocales {
 	list_sortAscending: string;
 	list_sortDescending: string;
 	list_search: string;
-}
 
-export enum TableSelectEnum {
-	NoSelect = 0,
-	SingleSelect = 1,
-	MultiSelect = 2,
+	select_emptyText: string;
+
+	form_invalid: string;
 }

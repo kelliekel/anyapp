@@ -3,7 +3,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { AnyAppModelControl } from '../model-control';
 
 @Component({
-  selector: 'aa-comp-select',
+  selector: 'aa-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss'],
   providers: [
@@ -20,9 +20,7 @@ export class SelectComponent extends AnyAppModelControl implements OnInit, OnCha
   @Input() textField: string = "text";
 
   @Input() multiple: boolean = false;
-  @Input() label: string;
   @Input() placeholder: string;
-  @Input() hint: string;
   
   @Output() onSelect: EventEmitter<any> = new EventEmitter();
 

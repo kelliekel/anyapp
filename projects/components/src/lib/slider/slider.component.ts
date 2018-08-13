@@ -3,7 +3,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { AnyAppModelControl } from '../model-control';
 
 @Component({
-  selector: 'aa-comp-slider',
+  selector: 'aa-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss'],
   providers: [
@@ -15,9 +15,6 @@ import { AnyAppModelControl } from '../model-control';
   ]
 })
 export class SliderComponent extends AnyAppModelControl implements OnInit {
-  @Input() label: string;
-  @Input() hint: string;
-
   @Input() min: number;
   @Input() max: number;
   @Input() step: number;

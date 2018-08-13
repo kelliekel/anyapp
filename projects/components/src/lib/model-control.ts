@@ -1,11 +1,14 @@
 import { AnyAppFormControl } from "./form-control";
-import { Injector } from "@angular/core";
+import { Injector, Input } from "@angular/core";
 import { AnyAppErrorStateMatcher } from "./error-state-matcher";
 import { ControlValueAccessor } from "@angular/forms";
 
 export abstract class AnyAppModelControl extends AnyAppFormControl implements ControlValueAccessor {
 	private _innerValue: any = null;
 	matcher: AnyAppErrorStateMatcher;
+
+	@Input() label: string;
+	@Input() hint: string;
 
 	constructor(_injector: Injector) {
 		super(_injector);

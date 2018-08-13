@@ -3,7 +3,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { AnyAppModelControl } from '../model-control';
 
 @Component({
-  selector: 'aa-comp-input',
+  selector: 'aa-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
   providers: [
@@ -14,13 +14,12 @@ import { AnyAppModelControl } from '../model-control';
     }
   ]
 })
-export class InputComponent extends AnyAppModelControl implements OnInit, ControlValueAccessor {  
-  @Input() label: string;
+export class InputComponent extends AnyAppModelControl implements OnInit, ControlValueAccessor {
   @Input() placeholder: string;
   @Input() type: string = "text";
-  @Input() hint: string;
 
   @Input() maxLength: number = null;
+  //@Input() minLength: number = null;
 
   constructor(_injector: Injector) { 
     super(_injector);

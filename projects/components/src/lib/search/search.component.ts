@@ -6,7 +6,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { AnyAppFormControl } from '../form-control';
 
 @Component({
-  selector: 'aa-comp-search',
+  selector: 'aa-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
   // providers: [

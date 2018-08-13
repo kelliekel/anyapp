@@ -7,7 +7,7 @@ import { ListSettings } from './list.settings';
 import { ListItems } from './list.items';
 
 @Component({
-  selector: 'aa-comp-list',
+  selector: 'aa-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
   providers: [FilterPipe, SortPipe]
@@ -38,7 +38,7 @@ export class ListComponent extends AnyAppBaseControl implements OnInit, OnChange
     
   constructor(_injector: Injector, private filterPipe: FilterPipe, private sortPipe: SortPipe) {
     super(_injector);
-    this.settings = ListSettings.DEFAULT(3); //
+    this.settings = ListSettings.DEFAULT(this.config.listConfig.pageSize); //
     this.allowPaging = this.config.listConfig.pageSize > 0;
   }
 

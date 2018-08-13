@@ -30,7 +30,7 @@ export const MY_FORMATS = {
 };
 
 @Component({
-  selector: 'aa-comp-datepicker',
+  selector: 'aa-datepicker',
   templateUrl: './datepicker.component.html',
   styleUrls: ['./datepicker.component.scss'],
   providers: [
@@ -47,22 +47,20 @@ export const MY_FORMATS = {
   ]
 })
 export class DatepickerComponent extends AnyAppModelControl implements OnInit, ControlValueAccessor {  
-  @Input() label: string;
   @Input() placeholder: string;
-  @Input() hint: string;
 
-  @Input() locale: string;
+  private _locale: string;
 
   constructor(
     _injector: Injector,
     private _adapter: DateAdapter<any>) {
     super(_injector);
 
-    this.locale = this.config.locale;
+    this._locale = this.config.locale;
   }
 
   ngOnInit() {
-    this._adapter.setLocale(this.locale);
+    this._adapter.setLocale(this._locale);
     this.initializeForm();
   }
 }

@@ -1,3 +1,5 @@
-<p>
-  calendar works!
-</p>
+<aa-label *ngIf="label">
+    {{label}}
+</aa-label>
+<mat-calendar #input [(ngModel)]="innerValue" [disabled]="disabled"></mat-calendar>
+<aa-hint *ngIf="hint">{{hint}}</aa-hint>

@@ -2,10 +2,10 @@ import { Component, OnInit, Input, ViewChild, Injector } from '@angular/core';
 import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { AnyAppBaseControl } from '../base-control';
-import { TableSelectEnum } from '../components.config';
+import { TableSelectEnum } from '../components.enum';
 
 @Component({
-  selector: 'aa-comp-table',
+  selector: 'aa-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })

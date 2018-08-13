@@ -10,6 +10,7 @@ import { ButtonTestComponent } from './components/controls/button-test/button-te
 import { CommonModule } from '@angular/common';
 import { ListTestComponent } from './components/list-test/list-test.component';
 import { TableTestComponent } from './components/table-test/table-test.component';
+import { ANYAPP_COMPONENTS_CONFIG, AnyAppComponentsConfig } from '@anyapp/components';
 
 export const routes: Routes = [
   { path: 'components/controls/button', component: ButtonTestComponent },
@@ -30,12 +31,13 @@ export const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    ComponentsModule,
+    ComponentsModule.forRoot(<AnyAppComponentsConfig>{locales: {paginator_itemsPerPage: "loleallsla"}}),
     //CoreModule,
     //ToolsModule
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

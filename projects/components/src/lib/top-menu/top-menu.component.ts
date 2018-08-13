@@ -3,7 +3,7 @@ import { AnyAppBaseControl } from '../base-control';
 import { AnyAppMenuItem, AnyAppEventModel, AnyAppEventKeys } from '../components.model';
 
 @Component({
-  selector: 'aa-comp-top-menu',
+  selector: 'aa-top-menu',
   templateUrl: './top-menu.component.html',
   styleUrls: ['./top-menu.component.scss']
 })

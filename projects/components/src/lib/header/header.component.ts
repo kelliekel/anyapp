@@ -1,15 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Injector } from '@angular/core';
+import { AnyAppBaseControl } from '../base-control';
 
 @Component({
-  selector: 'aa-comp-header',
+  selector: 'aa-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent extends AnyAppBaseControl implements OnInit {
   @Input() title: string;
   @Input() subTitle: string;
+  @Input() divider: boolean = true;
   
-  constructor() { }
+  constructor(_injector: Injector) {
+    super(_injector);
+  }
 
   ngOnInit() {
   }

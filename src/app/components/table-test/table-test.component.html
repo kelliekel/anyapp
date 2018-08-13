@@ -4,19 +4,19 @@ Extends basecontrol (description about basecontrol)
 
 <h2>Example</h2>
 <!-- <div>
-<aa-comp-select [items]="buttonStyleOptions" [placeholder]="'Button style'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonStyle"></aa-comp-select>
-<aa-comp-select [items]="buttonColorOptions" [placeholder]="'Button color'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonColor"></aa-comp-select>
+<aa-select [items]="buttonStyleOptions" [placeholder]="'Button style'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonStyle"></aa-select>
+<aa-select [items]="buttonColorOptions" [placeholder]="'Button color'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonColor"></aa-select>
 </div> -->
-<aa-comp-table 
+<aa-table 
   [columns]="['id','name','description']"
-  [data]="data"></aa-comp-table>
+  [data]="data"></aa-table>
 
 <h2>Code</h2>
 <code>
-  &lt;aa-comp-table
+  &lt;aa-table
     [columns]="['id','name','description']"
     [items]="data"&gt;<br />
-  &lt;/aa-comp-table&gt;
+  &lt;/aa-table&gt;
 </code>
 
 <!-- <h2>Options</h2>

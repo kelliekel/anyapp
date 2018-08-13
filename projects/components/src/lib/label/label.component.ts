@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Injector } from '@angular/core';
 import { AnyAppFormControl } from '../form-control';
 
 @Component({
-  selector: 'aa-comp-label',
+  selector: 'aa-label',
   templateUrl: './label.component.html',
   styleUrls: ['./label.component.scss']
 })

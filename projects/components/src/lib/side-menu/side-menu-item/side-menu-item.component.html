@@ -6,7 +6,7 @@
   <!-- type == item -->
   <button *ngIf="item.type == 2" class="aa-section-button" mat-button (click)="clickMenuItem()">    
     <span [style.paddingLeft.px]="(level==1 ? level-1 : level)*10">{{item.text}}</span>    
-    <aa-comp-icon *ngIf="item.children?.length > 0" [icon]="(item.isExpanded ? 'keyboard_arrow_down' : 'keyboard_arrow_right')"></aa-comp-icon>
+    <aa-icon *ngIf="item.children?.length > 0" [icon]="(item.isExpanded ? 'keyboard_arrow_down' : 'keyboard_arrow_right')"></aa-icon>
   </button>
   
 </div>

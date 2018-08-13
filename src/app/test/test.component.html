@@ -1,15 +1,18 @@
 <!--The content below is only a placeholder and can be replaced.-->
  
 <div>
-    <aa-comp-header [title]="'Welcome to AnyApp'" [subTitle]="'A simple framework for any app!'"></aa-comp-header>
+    <aa-header [title]="'Welcome to AnyApp'" [subTitle]="'A simple framework for any app!'"></aa-header>
   </div>
 <!-- <mat-toolbar color="primary" class="mat-elevation-z6">
     <mat-toolbar-row>
-      <aa-comp-top-menu style="width: 100%;" [sideNavRef]="sidenav"></aa-comp-top-menu>
+      <aa-top-menu style="width: 100%;" [sideNavRef]="sidenav"></aa-top-menu>
   
     </mat-toolbar-row>
   </mat-toolbar> -->
-
+  <p>
+      <span aa-badge="4" size="medium">Text with a badge</span>
+    </p>
+    
 
   <table>
     
@@ -18,11 +21,11 @@
         Checkbox
       </td>
       <td>
-        <aa-comp-checkbox [label]="'This is a checkbox'"></aa-comp-checkbox>
+        <aa-checkbox [label]="'This is a checkbox'"></aa-checkbox>
       </td>
       <td>
           <code>
-              &lt;aa-comp-checkbox [label]=&quot;'This is a checkbox'&quot;&gt;&lt;/aa-comp-checkbox&gt;
+              &lt;aa-checkbox [label]=&quot;'This is a checkbox'&quot;&gt;&lt;/aa-checkbox&gt;
   
           </code>
       </td>
@@ -33,11 +36,11 @@
         Slide toggle
       </td>
       <td>
-        <aa-comp-checkbox [slideToggle]="true" [label]="'This is a slide toggle'"></aa-comp-checkbox>
+        <aa-checkbox [slideToggle]="true" [label]="'This is a slide toggle'"></aa-checkbox>
       </td>
       <td>
           <code>
-              &lt;aa-comp-checkbox [slideToggle]=&quot;true&quot; [label]=&quot;'This is a slide toggle'&quot;&gt;&lt;/aa-comp-checkbox&gt;
+              &lt;aa-checkbox [slideToggle]=&quot;true&quot; [label]=&quot;'This is a slide toggle'&quot;&gt;&lt;/aa-checkbox&gt;
   
           </code>
   
@@ -49,11 +52,11 @@
         Datepicker
       </td>
       <td>
-        <aa-comp-datepicker [placeholder]="'This is a simple datepicker'"></aa-comp-datepicker>
+        <aa-datepicker [placeholder]="'This is a simple datepicker'"></aa-datepicker>
       </td>
       <td>
           <code>
-              &lt;aa-comp-datepicker [placeholder]=&quot;'This is a simple datepicker'&quot;&gt;&lt;/aa-comp-datepicker&gt;
+              &lt;aa-datepicker [placeholder]=&quot;'This is a simple datepicker'&quot;&gt;&lt;/aa-datepicker&gt;
   
           </code>
   
@@ -65,14 +68,14 @@
         Icon
       </td>
       <td>
-        <aa-comp-icon style="font-size:10px;" [icon]="'face'"></aa-comp-icon>
-        <aa-comp-icon style="font-size:16px;" [icon]="'face'"></aa-comp-icon>
-        <aa-comp-icon style="font-size:24px;" [icon]="'face'"></aa-comp-icon>
-        <aa-comp-icon style="font-size:32px;" [icon]="'face'"></aa-comp-icon>
+        <aa-icon style="font-size:10px;" [size]="'large'" [icon]="'face'"></aa-icon>
+        <aa-icon style="font-size:16px;" [icon]="'face'"></aa-icon>
+        <aa-icon style="font-size:24px;" [icon]="'face'"></aa-icon>
+        <aa-icon style="font-size:32px;" [icon]="'face'"></aa-icon>
       </td>
       <td>
           <code>
-              &lt;aa-comp-icon [icon]=&quot;'face'&quot;&gt;&lt;/aa-comp-icon&gt;
+              &lt;aa-icon [icon]=&quot;'face'&quot;&gt;&lt;/aa-icon&gt;
   
           </code>
   
@@ -84,11 +87,11 @@
         Input
       </td>
       <td>
-        <aa-comp-input [placeholder]="'This is a simple input'"></aa-comp-input>
+        <aa-input [placeholder]="'This is a simple input'"></aa-input>
       </td>
       <td>
           <code>
-              &lt;aa-comp-input [placeholder]=&quot;'This is a simple input'&quot;&gt;&lt;/aa-comp-input&gt;
+              &lt;aa-input [placeholder]=&quot;'This is a simple input'&quot;&gt;&lt;/aa-input&gt;
   
           </code>
   
@@ -100,11 +103,11 @@
         Label
       </td>
       <td>
-        <aa-comp-label [for]="'Label for'">This is a label</aa-comp-label>
+        <aa-label [for]="'Label for'">This is a label</aa-label>
       </td>
       <td>
           <code>
-              &lt;aa-comp-label [for]=&quot;'Label for'&quot;&gt;This is a label&lt;/aa-comp-label&gt;
+              &lt;aa-label [for]=&quot;'Label for'&quot;&gt;This is a label&lt;/aa-label&gt;
   
           </code>
   
@@ -116,11 +119,11 @@
         Loading
       </td>
       <td>
-        <aa-comp-loading [visible]="true"></aa-comp-loading>
+        <aa-loading [visible]="true"></aa-loading>
       </td>
       <td>
           <code>
-              &lt;aa-comp-loading [visible]=&quot;true&quot;&gt;&lt;/aa-comp-loading&gt;
+              &lt;aa-loading [visible]=&quot;true&quot;&gt;&lt;/aa-loading&gt;
   
           </code>
   
@@ -132,7 +135,7 @@
         Select
       </td>
       <td>
-        <aa-comp-select [placeholder]="'This is a simple select'" [items]="[{id:1, text: 'first item'}, {id:2, text: 'second item'}, {id:3, text: 'third item'}]"></aa-comp-select>
+        <aa-select [placeholder]="'This is a simple select'" [items]="[{id:1, text: 'first item'}, {id:2, text: 'second item'}, {id:3, text: 'third item'}]"></aa-select>
       </td>
       <td>
           <code>
@@ -146,7 +149,7 @@
         Multi select
       </td>
       <td>
-        <aa-comp-select [placeholder]="'This is a simple multi select'" [multiple]="true" [items]="[{id:1, text: 'first item'}, {id:2, text: 'second item'}, {id:3, text: 'third item'}]"></aa-comp-select>
+        <aa-select [placeholder]="'This is a simple multi select'" [multiple]="true" [items]="[{id:1, text: 'first item'}, {id:2, text: 'second item'}, {id:3, text: 'third item'}]"></aa-select>
       </td>
       <td>
           <code>
@@ -160,11 +163,11 @@
         Slider
       </td>
       <td>
-        <aa-comp-slider [min]="0" [max]="20" [step]="1"></aa-comp-slider>
+        <aa-slider [min]="0" [max]="20" [step]="1"></aa-slider>
       </td>
       <td>
           <code>
-              &lt;aa-comp-slider [min]=&quot;0&quot; [max]=&quot;20&quot; [step]=&quot;1&quot;&gt;&lt;/aa-comp-slider&gt;
+              &lt;aa-slider [min]=&quot;0&quot; [max]=&quot;20&quot; [step]=&quot;1&quot;&gt;&lt;/aa-slider&gt;
   
           </code>
   
@@ -176,11 +179,11 @@
         Textarea
       </td>
       <td>
-        <aa-comp-textarea [placeholder]="'This is a textarea'"></aa-comp-textarea>
+        <aa-textarea [placeholder]="'This is a textarea'"></aa-textarea>
       </td>
       <td>
           <code>
-              &lt;aa-comp-textarea [placeholder]=&quot;'This is a textarea'&quot;&gt;&lt;/aa-comp-textarea&gt;
+              &lt;aa-textarea [placeholder]=&quot;'This is a textarea'&quot;&gt;&lt;/aa-textarea&gt;
   
           </code>
   

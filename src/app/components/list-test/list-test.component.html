@@ -1,25 +1,29 @@
-<aa-comp-header [title]="'List'" [subTitle]="'A simple list for anyapp'">
-</aa-comp-header>
+<aa-header [title]="'List'" [subTitle]="'A simple list for any app'">
+</aa-header>
 
-<aa-comp-tabs #tabs (onTabChange)="selectedTab = $event;" [tabs]="['General', 'Example', 'API']">
-</aa-comp-tabs>
+<aa-tabs #tabs (onTabChange)="selectedTab = $event;" [tabs]="['General', 'Example', 'API']">
+</aa-tabs>
 
 <div>
   <div *ngIf="tabs.getSelectedTabName() == 'General'">
     Extends basecontrol (description about basecontrol)
   </div>
   <div *ngIf="tabs.getSelectedTabName() == 'Example'">
-    <aa-comp-list [data]="data" (onSettingsChanged)="output=$event;" [listType]="'server'">
+    <div>
+      <aa-select [items]="['client', 'server']" [placeholder]="'List type'" [ngModelOptions]="{standalone: true}" [(ngModel)]="listType"></aa-select>
+    </div>
+
+    <aa-list [data]="data" (onSettingsChanged)="output=$event;" [listType]="listType">
       <ng-template let-item #header>
         <div>Header: {{item.text}}</div>
       </ng-template>
       <ng-template let-item #content>
         <div>Content: {{item.text}}</div>
       </ng-template>
-    </aa-comp-list>
+    </aa-list>
 
-    <div *ngIf="output">
-      <b>Output event emitted:</b>
+    <div *ngIf="output && listType == 'server'" style="margin-bottom: 40px;">
+      <b>onSettingsChanged emitted:</b>
       <code>
         {{output | json}}
       </code>
@@ -27,7 +31,7 @@
 
     <div>
       <code>
-        &lt;aa-comp-list
+        &lt;aa-list
         [data]="data"&gt;<br />
         <br />
         &nbsp;&nbsp;&lt;ng-template #header let-item&gt;<br />
@@ -38,24 +42,44 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Content: &#123;&#123;item.text&#125; &#125; &lt;/div&gt;<br />
         &nbsp;&nbsp;&lt;/ng-template&gt;<br />
         <br />
-        &lt;/aa-comp-list&gt;
+        &lt;/aa-list&gt;
     </code>
   </div>
 
   </div>
   <div *ngIf="tabs.getSelectedTabName() == 'API'">
     <table class="options">
-      <tr>
+      <thead>
         <td>Property</td>
         <td>Type</td>
+        <td>Default value</td>
         <td>Extra</td>
+      </thead>
+      <tr>
+        <td>listType</td>
+        <td><code>string</code></td>
+        <td>client</td>
+        <td><span>client</span> | <span>server</span></td>
       </tr>
-      <!--<tr class="bold">
-          <td>style</td>
-          <td><code>string</code> (default: 'flat')</td>
-          <td><span *ngFor="let s of buttonStyleOptions">{{s}} | </span></td>
-        </tr>
-        <tr class="bold">
+      <tr>
+        <td>data</td>
+        <td><code>ListItems | any[]</code></td>
+        <td></td>
+        <td>Sorting columns are determinated by the columns in the data property</td>
+      </tr>
+      <tr>
+        <td>settings</td>
+        <td><code>ListSettings</code></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>onSettingsChanged (output)</td>
+        <td><code>ListSettings</code></td>
+        <td></td>
+        <td></td>
+      </tr>
+        <!--<tr>
           <td>color</td>
           <td><code>string</code> (default: 'primary')</td>
           <td><span *ngFor="let s of buttonColorOptions">{{s}} | </span></td>

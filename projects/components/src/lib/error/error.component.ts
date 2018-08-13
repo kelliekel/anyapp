@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { AnyAppBaseControl } from '../base-control';
 
 @Component({
-  selector: 'aa-comp-error',
+  selector: 'aa-error',
   templateUrl: './error.component.html',
   styleUrls: ['./error.component.scss']
 })

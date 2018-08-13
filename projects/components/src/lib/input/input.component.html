@@ -1,15 +1,14 @@
-<aa-comp-label *ngIf="label">
+<aa-label *ngIf="label">
   {{label}}
-</aa-comp-label>
+</aa-label>
 
 <mat-form-field>
   <input matInput [placeholder]="placeholder" #input [type]="type" [(ngModel)]="innerValue" 
     [errorStateMatcher]="matcher" [disabled]="disabled">
 
-  <aa-comp-hint align="start" *ngIf="hint">{{hint}}</aa-comp-hint>
-  <aa-comp-hint align="end" *ngIf="maxLength">{{input.value.length}} / {{maxLength}}</aa-comp-hint>
-  
-  <aa-comp-error [errorControl]="formControl"></aa-comp-error>
+  <aa-hint align="start" *ngIf="hint">{{hint}}</aa-hint>
+  <aa-hint align="end" *ngIf="maxLength">{{input.value.length}} / {{maxLength}}</aa-hint>  
+  <aa-error [errorControl]="formControl"></aa-error>
 
 </mat-form-field>
 <!--[formControl]="form?.controls[formControlName]"-->

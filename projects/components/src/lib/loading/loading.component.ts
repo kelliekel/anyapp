@@ -3,7 +3,7 @@ import { AnyAppBaseControl } from '../base-control';
 import { ANYAPP_COLOR } from '../components.types';
 
 @Component({
-  selector: 'aa-comp-loading',
+  selector: 'aa-loading',
   templateUrl: './loading.component.html',
   styleUrls: ['./loading.component.scss']
 })

@@ -6,6 +6,7 @@ export * from './lib/components.model';
 export * from './lib/components.config';
 export * from './lib/components.service';
 export * from './lib/components.types';
+export * from './lib/components.enum';
 
 export * from './lib/components.module';
 
@@ -38,3 +39,5 @@ export * from './lib/search/search.component';
 export * from './lib/tabs/tabs.component';
 export * from './lib/calendar/calendar.component';
 export * from './lib/menu/menu.component';
+export * from './lib/chips/chips.component';
+export * from './lib/badge/badge.directive';

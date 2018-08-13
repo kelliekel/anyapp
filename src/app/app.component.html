@@ -1,8 +1,8 @@
-<aa-comp-top-menu [sideNav]="true" [title]="title" [showPersonal]="true" [showNotification]="true" [menu]="[{text: 'Settings', key: 'SETTINGS'}, {text: 'Log out', key: 'LOGOUT'}]"></aa-comp-top-menu>
+<aa-top-menu [sideNav]="true" [title]="title" [showPersonal]="true" [showNotification]="true" [menu]="[{text: 'Settings', key: 'SETTINGS'}, {text: 'Log out', key: 'LOGOUT'}]"></aa-top-menu>
 
-<aa-comp-side-menu [items]="menu" (onEvent)="menuItemClick($event);">
+<aa-side-menu [items]="menu" (onEvent)="menuItemClick($event);">
   
   <!--main routing outlet-->
   <router-outlet></router-outlet>
 
-</aa-comp-side-menu>
+</aa-side-menu>

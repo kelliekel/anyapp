@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 import { SelectedTabModel } from './tab.model';
 
 @Component({
-  selector: 'aa-comp-tabs',
+  selector: 'aa-tabs',
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.scss']
 })

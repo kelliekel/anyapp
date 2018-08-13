@@ -3,23 +3,23 @@ import { AnyAppFormControl } from '../form-control';
 import { ANYAPP_BUTTON_TYPE, ANYAPP_COLOR } from '../components.types';
 
 @Component({
-  selector: 'aa-comp-button',
+  selector: 'aa-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent extends AnyAppFormControl implements OnInit {
-  @Input() timeout: boolean = true;
-
   @Input() type: string = 'button';
-
   @Input() style: ANYAPP_BUTTON_TYPE = 'default'
   @Input() color: ANYAPP_COLOR = 'basic';
+
+  @Input() timeout: boolean;
 
   constructor(
     _injector: Injector,
     private renderer: Renderer2, 
     private el: ElementRef) {
       super(_injector);
+      this.timeout = this.config.buttonConfig.buttonTimeoutThreshold > 0;
   }
 
   ngOnInit() {

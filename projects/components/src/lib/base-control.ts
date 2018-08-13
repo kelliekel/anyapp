@@ -10,7 +10,7 @@ export abstract class AnyAppBaseControl {
   componentsService: ComponentsService;
 
   constructor(private _injector: Injector) {
-    this.config = _injector.get(ANYAPP_COMPONENTS_CONFIG);
     this.componentsService = _injector.get(ComponentsService);
+    this.config = this.componentsService.config;
   }
 }

@@ -1,19 +1,21 @@
-import { Directive, OnInit, OnChanges, Input, Inject, Output, EventEmitter, Injector } from '@angular/core';
+import { Directive, OnInit, OnChanges, Input, Inject, Output, EventEmitter, Injector, SimpleChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AnyAppEventModel, AnyAppEventKeys } from '../components.model';
 import { AnyAppBaseControl } from '../base-control';
 
 @Directive({
-  selector: '[aa-comp-form]'
+  selector: '[aa-form]'
 })
 export class FormDirective extends AnyAppBaseControl implements OnInit, OnChanges {
   @Input() aaCompForm: NgForm;
+  
   @Input() reset: boolean;
   @Input() invalidFormMessage: string;
 
   constructor(
     _injector: Injector) {
       super(_injector);
+      this.invalidFormMessage = this.config.locales.form_invalid;
   }
 
   ngOnInit() {
@@ -29,9 +31,15 @@ export class FormDirective extends AnyAppBaseControl implements OnInit, OnChange
     }
   }
 
-  ngOnChanges() {
-    if(this.reset == true) {
-      this.aaCompForm.resetForm();
+  resetForm() {
+    this.aaCompForm.resetForm();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes && changes["reset"]) {
+      if(changes["reset"].previousValue != changes["reset"].currentValue && changes["reset"].currentValue == true) {
+        this.resetForm();
+      }
     }
   }
 }

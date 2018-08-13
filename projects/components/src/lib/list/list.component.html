@@ -11,19 +11,19 @@
   </button>
 </mat-menu>
 
-<aa-comp-button *ngIf="sortingFields && sortingFields.length > 0" [style]="'icon'" [matMenuTriggerFor]="sortMenu" 
+<aa-button *ngIf="sortingFields && sortingFields.length > 0" [style]="'icon'" [matMenuTriggerFor]="sortMenu" 
   [tooltip]="(settings?.sort | sortLabel:settings?.sortType)">
-  <aa-comp-icon [icon]="'sort'"></aa-comp-icon>
-</aa-comp-button>
+  <aa-icon [icon]="'sort'"></aa-icon>
+</aa-button>
 
-<aa-comp-search (onSearch)="search($event)" [placeholder]="config.locales.list_search"></aa-comp-search>
+<aa-search (onSearch)="search($event)" [placeholder]="config.locales.list_search"></aa-search>
 
 <mat-accordion>
 
   <div *ngIf="!pagedDataSource || pagedDataSource.length == 0">
-    <aa-comp-hint>
+    <aa-hint>
       {{config.locales.list_noItemsText}}
-    </aa-comp-hint>
+    </aa-hint>
   </div>
 
   <ng-container *ngFor="let item of pagedDataSource; let i = index">
@@ -47,8 +47,8 @@
         </ng-template>
         
         <ng-template #defaultFooterTemplate>
-            <aa-comp-button color="warn" *ngIf="i > 0" (click)="setOpenedIndex(i-1)">Previous</aa-comp-button>
-            <aa-comp-button *ngIf="i < dataSource.length" (click)="setOpenedIndex(i+1)">Next</aa-comp-button>
+            <aa-button color="warn" *ngIf="i > 0" (click)="setOpenedIndex(i-1)">Previous</aa-button>
+            <aa-button *ngIf="i < dataSource.length" (click)="setOpenedIndex(i+1)">Next</aa-button>
         </ng-template> -->
       </mat-action-row>
     </mat-expansion-panel>

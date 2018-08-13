@@ -4,7 +4,7 @@ import { MatMenu, MatMenuTrigger } from '@angular/material';
 import { AnyAppMenuItem } from '../components.model';
 
 @Component({
-  selector: 'aa-comp-menu',
+  selector: 'aa-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })

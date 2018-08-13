@@ -42,37 +42,21 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { MenuComponent } from './menu/menu.component';
 import { ChipsComponent } from './chips/chips.component';
 import { BadgeDirective } from './badge/badge.directive';
+import { RaisedButtonComponent } from './button/_raised-button.component';
+import { FlatButtonComponent } from './button/_flat-button.component';
+import { StrokedButtonComponent } from './button/_stroked-button.component';
+import { DefaultButtonComponent } from './button/_default-button.component';
+import { IconButtonComponent } from './button/_icon-button.component';
+import { FabButtonComponent } from './button/_fab-button.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    BrowserAnimationsModule,
-
-    MatButtonModule,
-    MatIconModule,
-    MatSnackBarModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatIconModule,
+    CommonModule, FormsModule, BrowserAnimationsModule,
     //MatTreeModule,
-    MatDividerModule,
-    MatProgressBarModule,
-    MatCheckboxModule,
-    MatSlideToggleModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatSliderModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatInputModule,
-    MatTooltipModule,
-    MatProgressSpinnerModule,
-    MatExpansionModule,
-    MatTabsModule,
-    MatChipsModule
+    MatButtonModule, MatIconModule, MatSnackBarModule, MatSidenavModule, MatToolbarModule, MatMenuModule,
+    MatIconModule, MatDividerModule, MatProgressBarModule, MatCheckboxModule, MatSlideToggleModule,
+    MatSelectModule, MatDatepickerModule, MatSliderModule, MatTableModule, MatPaginatorModule, MatSortModule,
+    MatInputModule, MatTooltipModule, MatProgressSpinnerModule, MatExpansionModule, MatTabsModule, MatChipsModule
   ],
   declarations: [
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
@@ -80,7 +64,9 @@ import { BadgeDirective } from './badge/badge.directive';
     TopMenuComponent, SideMenuComponent, SideMenuGroupComponent, HeaderComponent, ListComponent, SearchComponent,
     ListComponent, TabsComponent, CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective,
     // no export
-    SideMenuItemComponent, HintComponent, FilterPipe, SortPipe, PagingPipe, SortLabelPipe
+    SideMenuItemComponent, HintComponent, FilterPipe, SortPipe, PagingPipe, SortLabelPipe,
+    //
+    RaisedButtonComponent, StrokedButtonComponent, FlatButtonComponent, IconButtonComponent, DefaultButtonComponent, FabButtonComponent//, , //, , 
   ],
   exports: [
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
@@ -104,7 +90,10 @@ import { BadgeDirective } from './badge/badge.directive';
       provide: MatSortHeaderIntl,
       useClass: GenericSortHeaderIntl,
       deps: [ANYAPP_COMPONENTS_CONFIG]
-    }]
+    }],
+  entryComponents: [
+    RaisedButtonComponent, StrokedButtonComponent, FlatButtonComponent, IconButtonComponent, DefaultButtonComponent, FabButtonComponent//, , //, //, 
+  ]
 })
 export class ComponentsModule {
   static forRoot(config: AnyAppComponentsConfig): ModuleWithProviders {    

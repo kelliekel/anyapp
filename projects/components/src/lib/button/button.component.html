@@ -1,4 +1,4 @@
-<ng-container [ngSwitch]="style">
+<!-- <ng-container [ngSwitch]="style">
   <button [matTooltip]="tooltip" id="button" *ngSwitchCase="'raised'" mat-raised-button [type]="type" [disabled]="disabled" [color]="color"><ng-container *ngTemplateOutlet="transclude"></ng-container></button>
   <button [matTooltip]="tooltip" id="button" *ngSwitchCase="'stroked'" mat-stroked-button [type]="type" [disabled]="disabled" [color]="color"><ng-container *ngTemplateOutlet="transclude"></ng-container></button>
   <button [matTooltip]="tooltip" id="button" *ngSwitchCase="'flat'" mat-flat-button [type]="type" [disabled]="disabled" [color]="color"><ng-container *ngTemplateOutlet="transclude"></ng-container></button>
@@ -7,4 +7,13 @@
   <button [matTooltip]="tooltip" id="button" *ngSwitchDefault mat-button [type]="type" [disabled]="disabled" [color]="color"><ng-container *ngTemplateOutlet="transclude"></ng-container></button>
 </ng-container>
 
-<ng-template #transclude><ng-content></ng-content></ng-template>
+<ng-template #transclude><ng-content></ng-content></ng-template> -->
+
+
+  <ng-container #container>
+      <span #transclude><ng-content></ng-content></span>
+    </ng-container>
+  
+  <!-- <div #container>
+    <span #transclude><ng-content></ng-content></span>
+  </div> -->

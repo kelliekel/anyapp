@@ -14,7 +14,10 @@ export class ComponentsService {
 
   constructor(
     /*@Optional()*/ @Inject(ANYAPP_COMPONENTS_CONFIG) private _config: AnyAppComponentsConfig,
-    private _snackbar: MatSnackBar) { 
+    private _snackbar: MatSnackBar
+    // ,
+    // private _dfService: DynamicFormService
+  ) { 
       this.config = this._mergeConfig(_config)
   }
 
@@ -23,6 +26,10 @@ export class ComponentsService {
       duration: this.config.messageDuration
     });
   }
+
+  // public createForm(fb: FormBuilder, dbForm: AnyAppDynamicControl[]) {
+  //   return this._dfService.createForm(fb, dbForm);
+  // }
 
   private _mergeConfig(config: AnyAppComponentsConfig): AnyAppComponentsConfig {
     if(config) {

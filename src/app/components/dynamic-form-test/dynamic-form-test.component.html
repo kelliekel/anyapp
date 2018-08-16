@@ -1,0 +1,57 @@
+<aa-header [title]="'Dynamic form'" [subTitle]="'A dynamic form for any app'">
+</aa-header>
+
+<aa-tabs #tabs (onTabChange)="selectedTab = $event;" [tabs]="['General', 'Example', 'API']">
+</aa-tabs>
+
+<div>
+  <div *ngIf="tabs.getSelectedTabName() == 'General'">
+    This is simply a demo using dynamic reactive forms
+  </div>
+  <div *ngIf="tabs.getSelectedTabName() == 'Example'">
+    <div style="margin-bottom: 20px;">
+        <aa-button [style]="'stroked'" color="primary" (click)="setValues()">Set data</aa-button>
+        <aa-button [style]="'stroked'" color="primary" (click)="addControl('input', false)">Add input</aa-button>
+        <aa-button [style]="'stroked'" color="primary" (click)="addControl('input', true)">Add required input</aa-button>
+        <aa-button [style]="'stroked'" color="primary" (click)="addControl('checkbox', false)">Add checkbox</aa-button>
+    </div>
+    <hr/>
+
+    <aa-dynamic-form [formControls]="controls" [formData]="data" (onSubmit)="formSubmit($event)"></aa-dynamic-form>
+
+    <div *ngIf="output" style="margin: 20px 0">
+      Form submitted:
+      <br />
+      <br />
+      <code>
+          {{output}}
+        </code>
+    </div>
+
+    <h2>Code</h2>
+    <code>
+      &lt;aa-dynamic-form<br />
+      &nbsp;&nbsp;[formControls]="controls" [formData]="data"<br />
+      &nbsp;&nbsp;(onSubmit)="formSubmit($event)"&gt;<br />
+      &lt;/aa-dynamic-form&gt;
+    </code>
+
+  </div>
+
+  <div *ngIf="tabs.getSelectedTabName() == 'API'">
+    <!-- <table class="options">
+        <thead>
+            <td>Property</td>
+            <td>Type</td>
+            <td>Default value</td>
+            <td>Extra</td>
+        </thead>
+        <tr>
+          <td>fieldType</td>
+          <td><code>string</code></td>
+          <td>-</td>
+          <td><span *ngFor="let s of fieldTypeOptions">{{s}} | </span></td>
+        </tr>
+      </table> -->
+  </div>
+</div>

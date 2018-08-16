@@ -1,0 +1,43 @@
+<aa-header [title]="'Form'" [subTitle]="'A simple form for any app'">
+  </aa-header>
+  
+  <aa-tabs #tabs (onTabChange)="selectedTab = $event;" [tabs]="['General', 'Example', 'API']">
+  </aa-tabs>
+  
+  <div>
+    <div *ngIf="tabs.getSelectedTabName() == 'General'">
+      This is simply a demo using reactive forms dynamic fields
+    </div>
+    <div *ngIf="tabs.getSelectedTabName() == 'Example'">
+
+        <form #myForm="ngForm" [aaForm]="myForm" [formGroup]="dynamicForm" (ngSubmit)="submit()">
+
+          <div style="margin: 20px 0" *ngFor="let field of data">
+              <aa-field 
+                [fieldType]="field.fieldType" [hint]="field.hint" [label]="field.label" 
+                [form]="myForm" [formControlName]="field.name"
+                [typeSpecific]="{placeholder: field.placeholder}"></aa-field>
+          </div>
+        
+          <aa-button [style]="'stroked'" color="primary" [form]="myForm">Save Input</aa-button>
+        </form>
+
+    </div>
+  
+    <div *ngIf="tabs.getSelectedTabName() == 'API'">
+      <!-- <table class="options">
+        <thead>
+            <td>Property</td>
+            <td>Type</td>
+            <td>Default value</td>
+            <td>Extra</td>
+        </thead>
+        <tr>
+          <td>fieldType</td>
+          <td><code>string</code></td>
+          <td>-</td>
+          <td><span *ngFor="let s of fieldTypeOptions">{{s}} | </span></td>
+        </tr>
+      </table> -->
+    </div>
+  </div>

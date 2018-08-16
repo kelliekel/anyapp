@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
       new AnyAppTreeModel('AA_COMPONENTS_LIST', 'List', AnyAppTreeType.Item, null, false, '/components/list'),
       new AnyAppTreeModel('AA_COMPONENTS_TABLE', 'Table', AnyAppTreeType.Item, null, false, '/components/table'),
       new AnyAppTreeModel('AA_COMPONENTS_FORM', 'Form', AnyAppTreeType.Item, null, false, '/components/form'),
+      new AnyAppTreeModel('AA_COMPONENTS_DYNAMIC_FORM', 'Dynamic form', AnyAppTreeType.Item, null, false, '/components/dynamic-form'),
       
       new AnyAppTreeModel('AA_COMPONENTS_CONTROLS', 'Controls', AnyAppTreeType.Item, [ 
         new AnyAppTreeModel('AA_COMPONENTS_CONTROLS_FIELD', 'Field', AnyAppTreeType.Item, null, false, '/components/controls/field'),

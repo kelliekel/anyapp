@@ -7,7 +7,8 @@ import { ANYAPP_BUTTON_TYPE_VALUES, ANYAPP_COLOR_VALUES } from '@anyapp/componen
   styleUrls: ['./button-test.component.scss']
 })
 export class ButtonTestComponent implements OnInit {
-
+  selectedTab: string;
+  
   //defaults
   buttonStyle: string = "raised";
   buttonStyleOptions: string[] = ANYAPP_BUTTON_TYPE_VALUES;

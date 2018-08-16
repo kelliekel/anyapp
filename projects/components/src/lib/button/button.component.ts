@@ -9,6 +9,7 @@ import { FabButtonComponent } from './_fab-button.component';
 import { FlatButtonComponent } from './_flat-button.component';
 import { IconButtonComponent } from './_icon-button.component';
 import { StrokedButtonComponent } from './_stroked-button.component';
+import { FormGroup } from '../../../../../node_modules/@angular/forms';
 
 // https://medium.com/@DenysVuika/dynamic-content-in-angular-2-3c85023d9c36
 //
@@ -90,6 +91,8 @@ export class ButtonComponent extends AnyAppFormControl implements OnInit {
         this.componentRef = null;
     }
   }
+
+  private _f: FormGroup;
 
   @HostListener('click', ['$event'])
   submitAttachedForm(event: Event) {

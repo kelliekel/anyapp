@@ -18,15 +18,23 @@ export abstract class AnyAppFormControl extends AnyAppBaseControl {
   }
 
   initializeForm() {
-    if (this.formControlName) { // name = set
-      if (this.formControl == null) { // fc is not set
-        if (this.form && this.form.form) { // find control and set
-          this.formControl = this.form.form.controls[this.formControlName] as FormControl;
-        }
+    // we need to set formcontrol if it's not provided
+    // if we pass in ngform we need to do a deep-search because the form may contain multiple inner formgroups
+    // if we pass in a formgroup it's more easy; but we need to change the button component as it expects a form
+    if (!this.formControl) {
+      if (this.formControlName && this.form && this.form.form) { // name = set
+        this.formControl = this.form.form.controls[this.formControlName] as FormControl;
       }
     }
 
-    if(this.formControl) {
+    // still null?
+    if(!this.formControl) {
+      // this will cause an error with reactive forms
+      // for now: fake a formcontrol which wont be bound to the users form or formgroup
+      this.formControl = new FormControl();
+    }
+
+    if (this.formControl) {
       this.hasRequiredField = hasRequiredField(this.formControl);
     }
   }

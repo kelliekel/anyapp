@@ -1,3 +1,5 @@
+import { ANYAPP_FIELD_TYPE } from "./components.types";
+
 export class AnyAppEventModel<T = {}> {
 	key: AnyAppEventKeys;
 	value?: T;

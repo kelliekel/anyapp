@@ -14,7 +14,7 @@ import { AnyAppModelControl } from '../model-control';
     }
   ]
 })
-export class InputComponent extends AnyAppModelControl implements OnInit, ControlValueAccessor {
+export class InputComponent extends AnyAppModelControl implements OnInit {
   @Input() placeholder: string;
   @Input() type: string = "text";
 

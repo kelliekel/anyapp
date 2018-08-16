@@ -4,10 +4,10 @@ import { AnyAppEventModel, AnyAppEventKeys } from '../components.model';
 import { AnyAppBaseControl } from '../base-control';
 
 @Directive({
-  selector: '[aa-form]'
+  selector: '[aaForm]'
 })
 export class FormDirective extends AnyAppBaseControl implements OnInit, OnChanges {
-  @Input() aaCompForm: NgForm;
+  @Input() aaForm: NgForm;
   
   @Input() reset: boolean;
   @Input() invalidFormMessage: string;
@@ -19,9 +19,9 @@ export class FormDirective extends AnyAppBaseControl implements OnInit, OnChange
   }
 
   ngOnInit() {
-    if(this.aaCompForm != null) {
-      this.aaCompForm.ngSubmit.subscribe((data) => {
-        if(this.aaCompForm.valid == false) {
+    if(this.aaForm != null) {
+      this.aaForm.ngSubmit.subscribe((data) => {
+        if(this.aaForm.valid == false) {
           var sb = this.componentsService.showMessage(this.config.errorMessages.invalidFormMessage, null);
           sb.onAction().subscribe(x => {
             this.onEvent.emit(new AnyAppEventModel(AnyAppEventKeys.MESSAGE_CLICK))
@@ -32,7 +32,7 @@ export class FormDirective extends AnyAppBaseControl implements OnInit, OnChange
   }
 
   resetForm() {
-    this.aaCompForm.resetForm();
+    this.aaForm.resetForm();
   }
 
   ngOnChanges(changes: SimpleChanges) {

@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {
   MatButtonModule, MatSidenavModule, MatIconModule, MatTreeModule, MatDividerModule, MatToolbarModule, MatMenuModule,
@@ -49,10 +49,11 @@ import { DefaultButtonComponent } from './button/_default-button.component';
 import { IconButtonComponent } from './button/_icon-button.component';
 import { FabButtonComponent } from './button/_fab-button.component';
 import { FieldComponent } from './field/field.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, BrowserAnimationsModule,
+    CommonModule, FormsModule, BrowserAnimationsModule, ReactiveFormsModule,
     //MatTreeModule,
     MatButtonModule, MatIconModule, MatSnackBarModule, MatSidenavModule, MatToolbarModule, MatMenuModule,
     MatIconModule, MatDividerModule, MatProgressBarModule, MatCheckboxModule, MatSlideToggleModule,
@@ -63,7 +64,8 @@ import { FieldComponent } from './field/field.component';
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
     TopMenuComponent, SideMenuComponent, SideMenuGroupComponent, HeaderComponent, ListComponent, SearchComponent,
-    ListComponent, TabsComponent, CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective, FieldComponent,
+    ListComponent, TabsComponent, CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective, FieldComponent, 
+    DynamicFormComponent,
     // no export
     SideMenuItemComponent, HintComponent, FilterPipe, SortPipe, PagingPipe, SortLabelPipe,
     //
@@ -73,7 +75,7 @@ import { FieldComponent } from './field/field.component';
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
     TopMenuComponent, SideMenuComponent, HeaderComponent, ListComponent, SearchComponent, ListComponent, TabsComponent,
-    CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective, FieldComponent
+    CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective, FieldComponent, DynamicFormComponent
     // material exports
     //MatSidenavModule, MatToolbarModule
   ],

@@ -1,12 +1,7 @@
-import { Component, OnInit, ViewChild, ComponentRef, ViewContainerRef, ElementRef, ComponentFactoryResolver, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { InputComponent } from '../input/input.component';
-import { SliderComponent } from '../slider/slider.component';
+import { Component, OnInit, ViewChild, ComponentRef, ViewContainerRef, ElementRef, ComponentFactoryResolver, Input, OnChanges, SimpleChanges, Injector, forwardRef } from '@angular/core';
 import { AnyAppModelControl } from '../model-control';
-import { CheckboxComponent } from '../checkbox/checkbox.component';
-import { TextareaComponent } from '../textarea/textarea.component';
 import { ANYAPP_FIELD_TYPE, ANYAPP_FIELD_TYPE_MAPPINGS } from '../components.types';
-import { FormControl, NgForm } from '@angular/forms';
-import { SelectComponent } from '../select/select.component';
+import { FormControl, NgForm, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export class TypeSpecificProperties {
   maxLength;
@@ -25,9 +20,16 @@ export class TypeSpecificProperties {
 @Component({
   selector: 'aa-field',
   templateUrl: './field.component.html',
-  styleUrls: ['./field.component.scss']
+  styleUrls: ['./field.component.scss'],  
+  providers: [
+    { 
+      provide: NG_VALUE_ACCESSOR, //Angular internaly injects all values that are registered on the NG_VALUE_ACCESSOR token
+      useExisting: forwardRef(() => FieldComponent),
+      multi: true
+    }
+  ]
 })
-export class FieldComponent implements OnInit, OnChanges {
+export class FieldComponent extends AnyAppModelControl implements OnInit, OnChanges {
   private componentRef: ComponentRef<AnyAppModelControl>;
   @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
   @ViewChild('transclude') transclude: ElementRef;
@@ -46,7 +48,11 @@ export class FieldComponent implements OnInit, OnChanges {
   // type specific
   @Input() typeSpecific: TypeSpecificProperties;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
+  constructor(
+    _injector: Injector,
+    private componentFactoryResolver: ComponentFactoryResolver) {
+      super(_injector);
+    }
 
   ngOnInit() {
   }
@@ -87,15 +93,17 @@ export class FieldComponent implements OnInit, OnChanges {
     instance.formControl = this.formControl;
     instance.formControlName = this.formControlName;
     //
-    instance["placeholder"] = this.typeSpecific.placeholder;
-    instance["type"] = this.typeSpecific.type;
-    instance["min"] = this.typeSpecific.min;
-    instance["max"] = this.typeSpecific.max;
-    instance["step"] = this.typeSpecific.step;
-    instance["minLength"] = this.typeSpecific.minlength;
-    instance["multiple"] = this.typeSpecific.multiple;
-    instance["items"] = this.typeSpecific.items;
-    instance["locale"] = this.typeSpecific.locale;
+    if(this.typeSpecific) {
+      instance["placeholder"] = this.typeSpecific.placeholder;
+      instance["type"] = this.typeSpecific.type;
+      instance["min"] = this.typeSpecific.min;
+      instance["max"] = this.typeSpecific.max;
+      instance["step"] = this.typeSpecific.step;
+      instance["minLength"] = this.typeSpecific.minlength;
+      instance["multiple"] = this.typeSpecific.multiple;
+      instance["items"] = this.typeSpecific.items;
+      instance["locale"] = this.typeSpecific.locale;
+    }
       
     // if(instance instanceof InputComponent) {
     //   let inputInstance = <InputComponent>instance;

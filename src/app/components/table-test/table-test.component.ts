@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table-test.component.scss']
 })
 export class TableTestComponent implements OnInit {
+  selectedTab: string;
+  
   data: any[] = [
     {id: 1, name: 'first row', description: 'this is the first row'},
     {id: 2, name: 'second row', description: 'this is the second row'},

@@ -7,7 +7,8 @@ import { ANYAPP_FIELD_TYPE_VALUES } from '@anyapp/components';
   styleUrls: ['./field-test.component.scss']
 })
 export class FieldTestComponent implements OnInit {
-
+  selectedTab: string;
+  
   fieldType: string = "input";
   fieldTypeOptions: string[] = ANYAPP_FIELD_TYPE_VALUES;
 

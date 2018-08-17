@@ -1,5 +1,8 @@
 <aa-label *ngIf="label">
     {{label}}
 </aa-label>
-<mat-calendar #input [(ngModel)]="innerValue" [disabled]="disabled"></mat-calendar>
+<mat-calendar #input [formControl]="formControl" [required]="required"></mat-calendar>
 <aa-hint *ngIf="hint">{{hint}}</aa-hint>
+<mat-error>
+    <aa-error [formControl]="formControl"></aa-error>
+</mat-error>

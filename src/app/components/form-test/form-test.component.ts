@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ANYAPP_FIELD_TYPE } from '@anyapp/components';
-import { AnyAppDynamicControl } from '@anyapp/components';
+import { AnyAppControl } from '@anyapp/components';
 import { DynamicFormService } from '@anyapp/components';
 
 
@@ -25,11 +25,11 @@ export class FormTestComponent implements OnInit {
   
   dynamicForm: FormGroup;
 
-  data: AnyAppDynamicControl[] = [
-    new AnyAppDynamicControl('controlTest1', 'input', 'initial value 123', false, 'A simple input with an initial value', 'Input1', null),
-    new AnyAppDynamicControl('controlTest2', 'input', '', true, 'A required input', 'Input2', null),
-    new AnyAppDynamicControl('controlTest3', 'input', 'Something else', true, 'A required input with an initial value', 'Input3', null),
-    new AnyAppDynamicControl('controlTest4', 'checkbox', true, false, 'A checkbox', null, 'Checkbox1')
+  data: AnyAppControl[] = [
+    new AnyAppControl('controlTest1', 'initial value 123', 'input'),
+    new AnyAppControl('controlTest2', '', 'input'),
+    new AnyAppControl('controlTest3', 'Something else', 'input'),
+    new AnyAppControl('controlTest4', true, 'checkbox')
   ];
 
   ngOnInit() {

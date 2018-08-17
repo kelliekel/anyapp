@@ -1,21 +1,8 @@
 import { Component, OnInit, ViewChild, ComponentRef, ViewContainerRef, ElementRef, ComponentFactoryResolver, Input, OnChanges, SimpleChanges, Injector, forwardRef } from '@angular/core';
 import { AnyAppModelControl } from '../model-control';
-import { ANYAPP_FIELD_TYPE, ANYAPP_FIELD_TYPE_MAPPINGS } from '../components.types';
+import { ANYAPP_FIELD_TYPE_MAPPINGS } from '../components.types';
 import { FormControl, NgForm, NG_VALUE_ACCESSOR } from '@angular/forms';
-
-export class TypeSpecificProperties {
-  maxLength;
-  placeholder;
-  type;
-  multiple;
-  min;
-  max;
-  step;
-  minlength;
-  maxlength;
-  items;
-  locale;
-}
+import { AnyAppControl } from './field-control';
 
 @Component({
   selector: 'aa-field',
@@ -33,20 +20,11 @@ export class FieldComponent extends AnyAppModelControl implements OnInit, OnChan
   private componentRef: ComponentRef<AnyAppModelControl>;
   @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
   @ViewChild('transclude') transclude: ElementRef;
-  
-  // field
-  @Input() fieldType: ANYAPP_FIELD_TYPE;
-  // form
+    
   @Input() form: NgForm; // form contains formgroup
   @Input() formControlName: string;
   @Input() formControl: FormControl;
-  @Input() disabled: boolean;
-  @Input() tooltip: string;
-  // model
-  @Input() label: string;
-  @Input() hint: string;
-  // type specific
-  @Input() typeSpecific: TypeSpecificProperties;
+  @Input() fieldControl: AnyAppControl;
 
   constructor(
     _injector: Injector,
@@ -59,9 +37,11 @@ export class FieldComponent extends AnyAppModelControl implements OnInit, OnChan
 
   ngOnChanges(changes: SimpleChanges) {
     if(changes) {
-      if(!this.componentRef || (changes["fieldType"] && changes["fieldType"].currentValue != changes["fieldType"].previousValue)) {
-        this._destroyField();
-        this._createField();
+      if(!this.componentRef || (changes["fieldControl"])) {
+        if(changes.fieldControl.previousValue == null || changes.fieldControl.currentValue.fieldType != changes.fieldControl.previousValue.fieldType) {
+          this._destroyField();
+          this._createField();
+        }
       }
 
       if(this.componentRef) { 
@@ -71,8 +51,8 @@ export class FieldComponent extends AnyAppModelControl implements OnInit, OnChan
   }
 
   private _createField() {
-    if(this.fieldType) {
-      let componentType = ANYAPP_FIELD_TYPE_MAPPINGS[this.fieldType];
+    if(this.fieldControl) {
+      let componentType = ANYAPP_FIELD_TYPE_MAPPINGS[this.fieldControl.fieldType];
       if(componentType) {
         //let t = this.transclude;
         let factory = this.componentFactoryResolver.resolveComponentFactory<AnyAppModelControl>(componentType);
@@ -85,25 +65,30 @@ export class FieldComponent extends AnyAppModelControl implements OnInit, OnChan
 
   private _updateField() {
     let instance = this.componentRef.instance;
-    instance.label = this.label;
-    instance.hint = this.hint;
-    instance.tooltip = this.tooltip;
+    //instance.label = this.label;
+    //instance.hint = this.hint;
+    //instance.tooltip = this.tooltip;
     instance.disabled = this.disabled;
     instance.form = this.form;
     instance.formControl = this.formControl;
     instance.formControlName = this.formControlName;
-    //
-    if(this.typeSpecific) {
-      instance["placeholder"] = this.typeSpecific.placeholder;
-      instance["type"] = this.typeSpecific.type;
-      instance["min"] = this.typeSpecific.min;
-      instance["max"] = this.typeSpecific.max;
-      instance["step"] = this.typeSpecific.step;
-      instance["minLength"] = this.typeSpecific.minlength;
-      instance["multiple"] = this.typeSpecific.multiple;
-      instance["items"] = this.typeSpecific.items;
-      instance["locale"] = this.typeSpecific.locale;
+    
+    if(this.fieldControl.properties) {
+      Object.keys(this.fieldControl.properties).forEach(key => instance[key] = this.fieldControl.properties[key]);
     }
+
+    //
+    // if(this.typeSpecific) {
+    //   instance["placeholder"] = this.typeSpecific.placeholder;
+    //   instance["type"] = this.typeSpecific.type;
+    //   instance["min"] = this.typeSpecific.min;
+    //   instance["max"] = this.typeSpecific.max;
+    //   instance["step"] = this.typeSpecific.step;
+    //   instance["minLength"] = this.typeSpecific.minlength;
+    //   instance["multiple"] = this.typeSpecific.multiple;
+    //   instance["items"] = this.typeSpecific.items;
+    //   instance["locale"] = this.typeSpecific.locale;
+    // }
       
     // if(instance instanceof InputComponent) {
     //   let inputInstance = <InputComponent>instance;

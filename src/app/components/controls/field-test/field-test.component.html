@@ -10,21 +10,14 @@
     </div>
     <div *ngIf="tabs.getSelectedTabName() == 'Example'">
       <div>
-        <aa-select [items]="fieldTypeOptions" [placeholder]="'Field type'" [ngModelOptions]="{standalone: true}" [(ngModel)]="fieldType"></aa-select>
+        <aa-select [items]="fieldTypeOptions" [placeholder]="'Field type'" [formControl]="fieldTypeControl"></aa-select>
       </div>
-      <aa-field 
-        [fieldType]="fieldType" 
-        [label]="'Label for ' + fieldType" 
-        [hint]="'Hint message for ' + fieldType"
-        [typeSpecific]="{
-          placeholder:'Placeholder for this field'          
-        }"></aa-field>
-  
-  
+      <aa-field [fieldControl]="{name: 'test1', value: '', fieldType: fieldTypeControl.value, properties: {placeholder: 'ph', required: true}}" ></aa-field>  
+      
       <h2>Code</h2>
       <code>
         &lt;aa-field
-          [type]="'{{fieldType}}'"&gt;<br />
+          [fieldControl]="fieldControl"&gt;<br />
         &nbsp;&nbsp;__<br />
         &lt;/aa-field&gt;
       </code>

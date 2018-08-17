@@ -19,6 +19,8 @@ export class CalendarComponent extends AnyAppModelControl implements OnInit {
   @ViewChild(MatCalendar) _datePicker: MatCalendar<Date>;
 
   @Output() onDateChange: EventEmitter<Date> = new EventEmitter<Date>();
+	@Input() label: string;
+	@Input() hint: string;
 
   private _locale: string;
 

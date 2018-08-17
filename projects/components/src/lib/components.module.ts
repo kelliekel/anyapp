@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations'
@@ -50,6 +50,7 @@ import { IconButtonComponent } from './button/_icon-button.component';
 import { FabButtonComponent } from './button/_fab-button.component';
 import { FieldComponent } from './field/field.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { ComponentsService } from './components.service';
 
 @NgModule({
   imports: [
@@ -80,10 +81,7 @@ import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
     //MatSidenavModule, MatToolbarModule
   ],
   providers: [
-    // {
-    //   provide: ANYAPP_COMPONENTS_CONFIG,
-    //   useValue: ANYAPP_DEFAULT_COMPONENTS_CONFIG
-    // },
+    ComponentsService,
     {
       provide: MatPaginatorIntl,
       useClass: GenericPaginatorIntl,
@@ -93,22 +91,26 @@ import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
       provide: MatSortHeaderIntl,
       useClass: GenericSortHeaderIntl,
       deps: [ANYAPP_COMPONENTS_CONFIG]
-    }],
+    }
+  ],
   entryComponents: [
     RaisedButtonComponent, StrokedButtonComponent, FlatButtonComponent, IconButtonComponent, DefaultButtonComponent, FabButtonComponent,
     InputComponent, TextareaComponent, SliderComponent, CheckboxComponent, SelectComponent, DatepickerComponent
   ]
 })
 export class ComponentsModule {
-  static forRoot(config: AnyAppComponentsConfig): ModuleWithProviders {    
+  static forRoot(config: AnyAppComponentsConfig): ModuleWithProviders {
     return {
       ngModule: ComponentsModule,
       providers: [
-        {
-          provide: ANYAPP_COMPONENTS_CONFIG,
-          useValue: config
-        }
+        { provide: ANYAPP_COMPONENTS_CONFIG, useValue: config }
       ]
     }
   }
+
+  // constructor(@Optional() @SkipSelf() parentModule: ComponentsModule) {
+  //   if(parentModule) {
+  //       throw new Error('ComponentsModule is already loaded. Import it in the AppModule only');
+  //   }
+  // }
 }

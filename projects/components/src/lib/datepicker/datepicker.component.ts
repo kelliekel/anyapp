@@ -48,6 +48,8 @@ export const MY_FORMATS = {
 })
 export class DatepickerComponent extends AnyAppModelControl implements OnInit, ControlValueAccessor {  
   @Input() placeholder: string;
+	@Input() label: string;
+	@Input() hint: string;
 
   private _locale: string;
 

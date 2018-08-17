@@ -7,8 +7,8 @@ export abstract class AnyAppModelControl extends AnyAppFormControl implements Co
 	private _innerValue: any = null;
 	matcher: AnyAppErrorStateMatcher;
 
-	@Input() label: string;
-	@Input() hint: string;
+	// @Input() label: string;
+	// @Input() hint: string;
 
 	constructor(_injector: Injector) {
 		super(_injector);

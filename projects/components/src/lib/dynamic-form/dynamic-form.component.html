@@ -2,9 +2,7 @@
 
   <div style="margin: 20px 0" *ngFor="let field of controls">
       <aa-field 
-        [fieldType]="field.fieldType" [hint]="field.hint" [label]="field.label" 
-        [form]="myForm" [formControlName]="field.name"
-        [typeSpecific]="{placeholder: field.placeholder}"></aa-field>
+        [fieldControl]="field" [form]="myForm" [formControlName]="field.name"></aa-field>
   </div>
 
   <aa-button [style]="'stroked'" color="default" (click)="dynamicForm.reset()">Reset</aa-button>

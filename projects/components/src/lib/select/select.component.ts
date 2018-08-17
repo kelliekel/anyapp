@@ -18,6 +18,9 @@ export class SelectComponent extends AnyAppModelControl implements OnInit, OnCha
   @Input() items: any[];
   @Input() valueField: string = "id";
   @Input() textField: string = "text";
+  
+	@Input() label: string;
+	@Input() hint: string;
 
   @Input() multiple: boolean = false;
   @Input() placeholder: string;

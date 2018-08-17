@@ -16,6 +16,8 @@ import { AnyAppModelControl } from '../model-control';
 })
 export class CheckboxComponent extends AnyAppModelControl implements OnInit, ControlValueAccessor {
   @Input() slideToggle: boolean;  
+	@Input() label: string;
+	@Input() hint: string;
   
   labelPosition: 'before' | 'after' = 'after';
 

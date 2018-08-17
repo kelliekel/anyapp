@@ -1,6 +1,6 @@
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
-import { AnyAppDynamicControl } from './dynamic-control';
+import { AnyAppControl } from '../field/field-control';
 
 @Injectable({
 	providedIn: 'root'
@@ -9,16 +9,19 @@ export class DynamicFormService {
 	constructor() {
 	}
 
-	public createForm(fb: FormBuilder, dbForm: AnyAppDynamicControl[]) {
+	public createForm(fb: FormBuilder, dbForm: AnyAppControl[]) {
 		if (dbForm) {
 			let group: any = {};
 
 			dbForm.forEach(x => {
 				//if(!x.formControls) {
 				let fc = new FormControl(x.value || '');
-
-				if (x.required)
-					fc.setValidators(Validators.required);
+				
+				if(x.properties) {
+					if('required' in x.properties && x.properties == true) {
+						fc.setValidators(Validators.required);
+					}
+				}
 				// todo: extend validators
 
 				group[x.name] = fc;
@@ -26,8 +29,8 @@ export class DynamicFormService {
 				//else {
 
 				// has childs
-				if (x.formControls && x.formControls.length > 0) {
-					group["group_" + x.name] = this.createForm(fb, x.formControls);
+				if (x.childs && x.childs.length > 0) {
+					group["group_" + x.name] = this.createForm(fb, x.childs);
 				}
 
 				//}

@@ -1,19 +1,19 @@
 import { MatSnackBar, MatSnackBarConfig, MatSnackBarRef, SimpleSnackBar } from '@angular/material';
-import { Injectable, Inject } from '@angular/core';
+import { Injectable, Inject, Optional, forwardRef } from '@angular/core';
 import { AnyAppComponentsConfig } from './components.config';
 import { Subject } from 'rxjs';
 import { ANYAPP_DEFAULT_COMPONENTS_CONFIG } from "./components.config.default";
 import { ANYAPP_COMPONENTS_CONFIG } from './components.config';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable(
+  //{ providedIn: 'root' }
+)
 export class ComponentsService {  
   public config: AnyAppComponentsConfig;
   public sideNavToggle: Subject<boolean> = new Subject<boolean>();
 
   constructor(
-    /*@Optional()*/ @Inject(ANYAPP_COMPONENTS_CONFIG) private _config: AnyAppComponentsConfig,
+    _config: ANYAPP_COMPONENTS_CONFIG,
     private _snackbar: MatSnackBar
     // ,
     // private _dfService: DynamicFormService

@@ -3,7 +3,7 @@
 </aa-label>
 
 <mat-form-field>
-  <input matInput #input [placeholder]="placeholder" [type]="type" [formControl]="formControl" [errorStateMatcher]="matcher">
+  <input matInput #input [placeholder]="placeholder" [type]="type" [formControl]="formControl" [errorStateMatcher]="matcher" [required]="required">
   <!--TODO: [disabled]="disabled"-->
 
   <mat-hint align="start" *ngIf="hint">{{hint}}</mat-hint>

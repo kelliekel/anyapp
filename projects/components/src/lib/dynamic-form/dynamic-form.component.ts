@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, IterableDiffers, IterableDiffer } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { AnyAppDynamicControl } from './dynamic-control';
+import { AnyAppControl } from '../field/field-control';
 import { DynamicFormService } from './dynamic-form.service';
 
 @Component({
@@ -10,16 +10,16 @@ import { DynamicFormService } from './dynamic-form.service';
 })
 export class DynamicFormComponent implements OnInit, OnChanges {
   dynamicForm: FormGroup;
-  controls: AnyAppDynamicControl[];
+  controls: AnyAppControl[];
 
   @Input() saveButton: boolean = true;
   @Input() resetButton: boolean = true; // settings;
 
-  @Input() formControls: AnyAppDynamicControl[];
+  @Input() formControls: AnyAppControl[];
   @Input() formData: any;
   @Output() onSubmit: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
-  private _differ: IterableDiffer<AnyAppDynamicControl>;
+  private _differ: IterableDiffer<AnyAppControl>;
 
   constructor(
     private _fb: FormBuilder,

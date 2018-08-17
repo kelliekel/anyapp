@@ -3,15 +3,17 @@
 </aa-label>
 
 <mat-form-field>
-  
+
   <!--(ngModelChange)="innerValue=$event;selectItem($event);"-->
-  <mat-select [multiple]="multiple" [placeholder]="placeholder" #input [(ngModel)]="innerValue" [disabled]="disabled"
-    [errorStateMatcher]="matcher">
-    <mat-option *ngIf="hasRequiredField == false" (click)="selectItem(null)">{{config.locales.select_emptyText}}</mat-option>
+  <mat-select [multiple]="multiple" [placeholder]="placeholder" #input [formControl]="formControl" [errorStateMatcher]="matcher">
+    <mat-option *ngIf="required || hasRequiredField == false" (click)="selectItem(null)">{{config.locales.select_emptyText}}</mat-option>
     <mat-option *ngFor="let item of items" [value]="isArrayOfObjects ? item[valueField] : item" (click)="selectItem(item)">{{isArrayOfObjects ? item[textField] : item}}</mat-option>
   </mat-select>
 
   <mat-hint *ngIf="hint">{{hint}}</mat-hint>
-  <aa-error [errorControl]="formControl"></aa-error>  
-  
+
+  <mat-error>
+    <aa-error [errorControl]="formControl"></aa-error>
+  </mat-error>
+
 </mat-form-field>

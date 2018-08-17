@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AnyAppDynamicControl, ANYAPP_FIELD_TYPE } from '@anyapp/components';
+import { AnyAppControl, ANYAPP_FIELD_TYPE } from '@anyapp/components';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -12,11 +12,11 @@ export class DynamicFormTestComponent implements OnInit {
   
   output: string;
 
-  controls: AnyAppDynamicControl[] = [
-    new AnyAppDynamicControl('controlTest1', 'input', 'initial value 123', false, 'A simple input with an initial value', 'Input1', null),
-    new AnyAppDynamicControl('controlTest2', 'input', '', true, 'A required input', 'Input2', null),
-    new AnyAppDynamicControl('controlTest3', 'input', 'Something else', true, 'A required input with an initial value', 'Input3', null),
-    new AnyAppDynamicControl('controlTest4', 'checkbox', true, false, 'A checkbox', null, 'Checkbox1')
+  controls: AnyAppControl[] = [
+    new AnyAppControl('controlTest1', 'initial value 123', 'input'),
+    new AnyAppControl('controlTest2', '', 'input'),
+    new AnyAppControl('controlTest3', 'Something else', 'input'),
+    new AnyAppControl('controlTest4', true, 'checkbox')
   ];
 
   data: any;
@@ -38,7 +38,7 @@ export class DynamicFormTestComponent implements OnInit {
     let label = type == 'checkbox' ? 'Some label for ctrl' + nr : null;
     let ph = type == 'checkbox' ? null : 'Some placeholder for ctrl' + nr;
 
-    this.controls.push(new AnyAppDynamicControl('controlTest' + nr, type, '', required, 'Some hint for control' + nr, ph, label));
+    this.controls.push(new AnyAppControl('controlTest' + nr, '', type));
     this.controls = this.controls;
   }
 

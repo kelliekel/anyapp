@@ -3,10 +3,12 @@
 </aa-label>
 
 <mat-form-field>
-  <input matInput [disabled]="disabled" [matDatepicker]="picker" [placeholder]="placeholder" #input [(ngModel)]="innerValue" [errorStateMatcher]="matcher">
+  <input matInput [required]="required" [matDatepicker]="picker" [placeholder]="placeholder" #input [formControl]="formControl" [errorStateMatcher]="matcher">
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 
   <mat-hint *ngIf="hint">{{hint}}</mat-hint>
-  <aa-error [errorControl]="formControl"></aa-error>
+  <mat-error>
+    <aa-error [errorControl]="formControl"></aa-error>
+  </mat-error>
 </mat-form-field>

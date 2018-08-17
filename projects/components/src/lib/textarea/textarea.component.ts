@@ -14,9 +14,13 @@ import { AnyAppModelControl } from '../model-control';
     }
   ]
 })
-export class TextareaComponent extends AnyAppModelControl implements OnInit, ControlValueAccessor {  
-  @Input() placeholder: string;
+export class TextareaComponent extends AnyAppModelControl implements OnInit, ControlValueAccessor {
   @Input() type: string = "text";
+  @Input() placeholder: string;
+	@Input() label: string;
+	@Input() hint: string;
+  @Input() maxLength: number = null;
+  //@Input() minLength: number = null;
 
   constructor(_injector: Injector) { 
     super(_injector);

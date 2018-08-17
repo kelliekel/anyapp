@@ -1,7 +1,7 @@
 import { NgModule, CompilerFactory, COMPILER_OPTIONS, Compiler } from "@angular/core";
 import { DynamicCompileTestComponent } from "./dynamic-compile-test.component";
 import { Routes, RouterModule } from "@angular/router";
-import { ComponentsModule } from "projects/components/src/public_api";
+import { ComponentsModule } from '@anyapp/components';
 import { JitCompilerFactory } from '@angular/platform-browser-dynamic';
 
 export function createCompiler(compilerFactory: CompilerFactory) {

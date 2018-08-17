@@ -46,7 +46,7 @@ export const ANYAPP_DEFAULT_COMPONENTS_CONFIG: AnyAppComponentsConfig = {
 	},
 
 	buttonConfig: {
-		buttonTimeoutThreshold: 250
+		buttonTimeoutThreshold: 1000
 	},
 
 	formConfig: {

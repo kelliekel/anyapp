@@ -42,6 +42,6 @@ export * from './lib/menu/menu.component';
 export * from './lib/chips/chips.component';
 export * from './lib/badge/badge.directive';
 export * from './lib/field/field.component';
+export * from './lib/field/field-control';
 export * from './lib/dynamic-form/dynamic-form.component';
 export * from './lib/dynamic-form/dynamic-form.service';
-export * from './lib/dynamic-form/dynamic-control';

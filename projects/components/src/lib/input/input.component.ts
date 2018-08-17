@@ -15,10 +15,12 @@ import { AnyAppModelControl } from '../model-control';
   ]
 })
 export class InputComponent extends AnyAppModelControl implements OnInit {
-  @Input() placeholder: string;
   @Input() type: string = "text";
-
+  @Input() placeholder: string;
+	@Input() label: string;
+	@Input() hint: string;
   @Input() maxLength: number = null;
+  @Input() required: boolean;
   //@Input() minLength: number = null;
 
   constructor(_injector: Injector) { 

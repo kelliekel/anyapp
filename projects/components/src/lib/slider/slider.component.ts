@@ -18,6 +18,8 @@ export class SliderComponent extends AnyAppModelControl implements OnInit {
   @Input() min: number;
   @Input() max: number;
   @Input() step: number;
+	@Input() label: string;
+	@Input() hint: string;
 
   constructor(_injector: Injector) { 
     super(_injector);

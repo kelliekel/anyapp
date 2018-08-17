@@ -15,10 +15,10 @@ export class FormTestComponent implements OnInit {
   //form: FormGroup;
   //formData: any;
 
-  // testControl: FormControl = new FormControl('', [
-  //   Validators.required,
-  //   Validators.email,
-  // ]);
+  testControl: FormControl = new FormControl('123', [
+    Validators.required,
+    Validators.email,
+  ]);
 
   constructor(private fb: FormBuilder, private dfService: DynamicFormService) {}
   selectedTab: string;

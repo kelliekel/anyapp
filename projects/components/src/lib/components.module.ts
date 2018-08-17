@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations'
 import {
   MatButtonModule, MatSidenavModule, MatIconModule, MatTreeModule, MatDividerModule, MatToolbarModule, MatMenuModule,
   MatProgressBarModule, MatTableModule, MatPaginatorModule, MatSortModule, MatSnackBarModule, MatCheckboxModule, MatInputModule,
@@ -53,7 +53,7 @@ import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, BrowserAnimationsModule, ReactiveFormsModule,
+    CommonModule, FormsModule, ReactiveFormsModule,
     //MatTreeModule,
     MatButtonModule, MatIconModule, MatSnackBarModule, MatSidenavModule, MatToolbarModule, MatMenuModule,
     MatIconModule, MatDividerModule, MatProgressBarModule, MatCheckboxModule, MatSlideToggleModule,

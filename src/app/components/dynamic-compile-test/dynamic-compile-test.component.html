@@ -1,0 +1,16 @@
+
+<div>
+  <aa-field [typeSpecific]="{placeholder: '{name}' }" [fieldType]="'input'" [formControl]="testControl"></aa-field>
+</div>
+<div>
+  
+  <aa-input [formControl]="templateControl" [placeholder]="'TestControl'"></aa-input>
+</div>
+
+<aa-button [style]="'stroked'" color="warn" (click)="compileTemplate()">COMPILE</aa-button>
+
+<hr />
+
+<div>
+  <div #container></div>
+</div>

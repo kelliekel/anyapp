@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule, Compiler, CompilerFactory, COMPILER_OPTIONS } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -22,6 +23,7 @@ export const routes: Routes = [
   { path: 'components/table', component: TableTestComponent },
   { path: 'components/form', component: FormTestComponent },
   { path: 'components/dynamic-form', component: DynamicFormTestComponent },
+  { path: 'components/dynamic-compile', loadChildren: './components/dynamic-compile-test/dynamic-compile-test.module#DynamicCompileTestModule' },// component: DynamicCompileTestComponent },
   { path: 'test', component: TestComponent },
   { path: '**', redirectTo: 'test', pathMatch: 'full' },
 ];
@@ -39,6 +41,7 @@ export const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     ComponentsModule.forRoot(<AnyAppComponentsConfig>{locales: {paginator_itemsPerPage: "loleallsla"}}),

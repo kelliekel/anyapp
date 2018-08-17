@@ -22,6 +22,10 @@
           <aa-button [style]="'stroked'" color="primary" [form]="myForm">Save Input</aa-button>
         </form>
 
+        <div>
+        Another test
+        <aa-input [formControl]="testControl" [placeholder]="'TestControl'"></aa-input>
+      </div>
     </div>
   
     <div *ngIf="tabs.getSelectedTabName() == 'API'">

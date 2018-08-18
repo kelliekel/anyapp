@@ -1,5 +1,5 @@
 import { Component, OnInit, forwardRef, Input, Injector, Output, EventEmitter } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
 import { AnyAppModelControl } from '../model-control';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -21,7 +21,8 @@ export class SearchComponent extends AnyAppFormControl implements OnInit {
   private _searchValueChange: Subject<any> = new Subject<any>();
   private _delay: number = 400;
   
-  inputValue: any;
+  //inputValue: any;
+  searchControl: FormControl = new FormControl();
 
   @Input() label: string;
   @Input() placeholder: string;
@@ -42,9 +43,9 @@ export class SearchComponent extends AnyAppFormControl implements OnInit {
       .subscribe(x => {
         this.onSearch.emit(x);
       });
-  }
 
-  search(event: any) {
-    this._searchValueChange.next(this.inputValue);
+    this.searchControl.valueChanges.subscribe(x => {
+      this._searchValueChange.next(x)
+    });
   }
 }

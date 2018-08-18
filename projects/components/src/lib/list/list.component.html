@@ -29,15 +29,21 @@
   <ng-container *ngFor="let item of pagedDataSource; let i = index">
 
     <mat-expansion-panel [expanded]="i == expandedIndex" (opened)="expandedIndex = $event;">
-      <mat-expansion-panel-header>
-        <!-- 
-          <mat-panel-title>Personal data</mat-panel-title>
-          <mat-panel-description>Type your name and age<mat-icon>account_circle</mat-icon></mat-panel-description> 
-        -->
-        <ng-template *ngIf="headerTemplate" ngFor let-item [ngForOf]="[item]" [ngForTemplate]="headerTemplate"></ng-template>
+      <mat-expansion-panel-header>   
+        
+        <ng-template *ngIf="headerTemplate; else defaultHeaderTemplate" ngFor let-item [ngForOf]="[item]" [ngForTemplate]="headerTemplate"></ng-template>
+        <ng-template #defaultHeaderTemplate>   
+          <mat-panel-title>{{(item[titleField] !== undefined) ? item[titleField] : 'titleField not set!'}}</mat-panel-title>
+          <mat-panel-description>{{item[descriptionField]}}<mat-icon>{{item[iconField]}}</mat-icon></mat-panel-description>       
+        </ng-template>
       </mat-expansion-panel-header>
 
-      <ng-template matExpansionPanelContent *ngIf="contentTemplate" ngFor let-item [ngForOf]="[item]" [ngForTemplate]="contentTemplate"></ng-template>
+      <ng-template matExpansionPanelContent *ngIf="contentTemplate" ngFor let-item [ngForOf]="[item]" [ngForTemplate]="contentTemplate">
+      </ng-template>
+
+      <!--dit is ook nog een optie!-->
+      <!-- <ng-container *ngTemplateOutlet="contentTemplate; context: {$implicit: item}"></ng-container> -->
+
 
       <mat-action-row *ngIf="footerTemplate">
         <ng-template ngFor let-item [ngForOf]="[item]" [ngForTemplate]="footerTemplate">

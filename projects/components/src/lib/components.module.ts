@@ -51,9 +51,33 @@ import { FabButtonComponent } from './button/_fab-button.component';
 import { FieldComponent } from './field/field.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { ComponentsService } from './components.service';
+import { MaskDirective } from './mask/mask.directive';
+import { NgxMaskModule} from 'ngx-mask';
+import { ViewListComponent } from './views/view-list/view-list.component';
+import { DefaultTemplate } from './views/view-list/default.template';
+import { AnyAppTemplateComponent } from './views/view-list/template';
+import { ViewDetailComponent } from './views/view-detail/view-detail.component';
+
+// // //import * as maskmod from 'ngx-mask';
+// // let extras = [];
+// // if(moduleAvailable('ngx-mask')) {
+// //   extras = [maskmod.NgxMaskModule.forRoot()]
+// // }
+// declare var require: any;
+// let conditionalImports = [];
+// try {
+//   let ngxMask = require('ngx-mask');
+//   if(ngxMask) {
+//     conditionalImports = [ngxMask.NgxMaskModule.forRoot()];
+//   }
+// }
+// catch{ console.log('ngx-mask not available'); }
 
 @NgModule({
   imports: [
+    NgxMaskModule.forRoot(),
+    //...conditionalImports,
+    //
     CommonModule, FormsModule, ReactiveFormsModule,
     //MatTreeModule,
     MatButtonModule, MatIconModule, MatSnackBarModule, MatSidenavModule, MatToolbarModule, MatMenuModule,
@@ -66,9 +90,9 @@ import { ComponentsService } from './components.service';
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
     TopMenuComponent, SideMenuComponent, SideMenuGroupComponent, HeaderComponent, ListComponent, SearchComponent,
     ListComponent, TabsComponent, CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective, FieldComponent, 
-    DynamicFormComponent,
+    DynamicFormComponent, ViewListComponent, DefaultTemplate, ViewDetailComponent,
     // no export
-    SideMenuItemComponent, HintComponent, FilterPipe, SortPipe, PagingPipe, SortLabelPipe,
+    SideMenuItemComponent, HintComponent, FilterPipe, SortPipe, PagingPipe, SortLabelPipe, MaskDirective, AnyAppTemplateComponent,
     //
     RaisedButtonComponent, StrokedButtonComponent, FlatButtonComponent, IconButtonComponent, DefaultButtonComponent, FabButtonComponent//, , //, , 
   ],
@@ -76,7 +100,8 @@ import { ComponentsService } from './components.service';
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
     TopMenuComponent, SideMenuComponent, HeaderComponent, ListComponent, SearchComponent, ListComponent, TabsComponent,
-    CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective, FieldComponent, DynamicFormComponent
+    CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective, FieldComponent, DynamicFormComponent, 
+    ViewListComponent, ViewDetailComponent
     // material exports
     //MatSidenavModule, MatToolbarModule
   ],
@@ -95,7 +120,8 @@ import { ComponentsService } from './components.service';
   ],
   entryComponents: [
     RaisedButtonComponent, StrokedButtonComponent, FlatButtonComponent, IconButtonComponent, DefaultButtonComponent, FabButtonComponent,
-    InputComponent, TextareaComponent, SliderComponent, CheckboxComponent, SelectComponent, DatepickerComponent
+    InputComponent, TextareaComponent, SliderComponent, CheckboxComponent, SelectComponent, DatepickerComponent,
+    DefaultTemplate
   ]
 })
 export class ComponentsModule {

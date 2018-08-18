@@ -49,7 +49,7 @@ var materialConfig = Object.assign({}, config, {
 	name: "material",
 	entry: {
 		material: [
-			"./node_modules/moment/min/moment.min.js"
+			"./node_modules/material-design-lite/material.min.js"
 		]
 	},
 	output: {

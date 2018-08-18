@@ -1,4 +1,4 @@
-<aa-input (ngModelChange)="inputValue = $event; search($event)" [ngModel]="inputValue"
+<aa-input [formControl]="searchControl"
   [placeholder]="placeholder" 
   [label]="label"
   [type]="type"

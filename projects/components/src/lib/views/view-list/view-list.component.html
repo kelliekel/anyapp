@@ -1,0 +1,15 @@
+<aa-header [title]="title" [subTitle]="subTitle"></aa-header>
+
+<aa-list [data]="data" (onSettingsChanged)="output=$event;" [listType]="'client'">
+  <ng-template *ngIf="headerTemplate" let-item #header>
+      <aa-template [item]="item" [template]="headerTemplate"></aa-template>
+  </ng-template>
+  <ng-template *ngIf="contentTemplate" let-item #content>
+      <aa-template [item]="item" [template]="contentTemplate"></aa-template>
+  </ng-template>
+  <ng-template *ngIf="footerTemplate" let-item #footer>
+      <aa-template [item]="item" [template]="footerTemplate"></aa-template>
+  </ng-template>
+</aa-list>
+
+<!-- <ng-container *ngTemplateOutlet="container; context: {$implicit: item}"></ng-container> -->

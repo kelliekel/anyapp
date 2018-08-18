@@ -15,22 +15,30 @@ import { AnyAppComponentsConfig } from '@anyapp/components';
 import { FieldTestComponent } from './components/controls/field-test/field-test.component';
 import { FormTestComponent } from './components/form-test/form-test.component';
 import { DynamicFormTestComponent } from './components/dynamic-form-test/dynamic-form-test.component';
+import { OverviewComponent } from './pages/overview/overview.component';
+import { DetailComponent } from './pages/detail/detail.component';
+import { CustomTemplate } from './pages/overview/custom.template';
 
 export const routes: Routes = [
+  { path: 'components/pages/overview', component: OverviewComponent },
+  { path: 'components/pages/detail', component: DetailComponent },
   { path: 'components/controls/button', component: ButtonTestComponent },
   { path: 'components/controls/field', component: FieldTestComponent },
   { path: 'components/list', component: ListTestComponent },
   { path: 'components/table', component: TableTestComponent },
   { path: 'components/form', component: FormTestComponent },
   { path: 'components/dynamic-form', component: DynamicFormTestComponent },
-  { path: 'components/dynamic-compile', loadChildren: './components/dynamic-compile-test/dynamic-compile-test.module#DynamicCompileTestModule' },// component: DynamicCompileTestComponent },
-  { path: 'components/lazy-load', loadChildren: './components/lazy-load-test/lazy-load-test.module#LazyLoadTestModule' },
+  //{ path: 'components/dynamic-compile', loadChildren: './components/dynamic-compile-test/dynamic-compile-test.module#DynamicCompileTestModule' },// component: DynamicCompileTestComponent },
+  //{ path: 'components/lazy-load', loadChildren: './components/lazy-load-test/lazy-load-test.module#LazyLoadTestModule' },
   { path: 'test', component: TestComponent },
   { path: '**', redirectTo: 'test', pathMatch: 'full' },
 ];
 
+//import {NgxMaskModule} from 'ngx-mask'
+
 @NgModule({
   imports: [
+    //NgxMaskModule.forRoot(),
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -51,7 +59,13 @@ export const routes: Routes = [
     TableTestComponent,
     FieldTestComponent,
     FormTestComponent,
-    DynamicFormTestComponent
+    DynamicFormTestComponent,
+    OverviewComponent,
+    DetailComponent,
+    CustomTemplate
+  ],
+  entryComponents: [
+    CustomTemplate
   ],
   bootstrap: [AppComponent]
 })

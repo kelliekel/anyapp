@@ -14,9 +14,13 @@ import { ListItems } from './list.items';
 })
 export class ListComponent extends AnyAppBaseControl implements OnInit, OnChanges {
   // todo: add a template-ref-type waarbij title desc en image geset kunnen worden
-  @ContentChild("header") headerTemplate: TemplateRef<any>; 
+  @ContentChild("header") headerTemplate: TemplateRef<any>;
   @ContentChild("content") contentTemplate: TemplateRef<any>;
   @ContentChild("footer") footerTemplate: TemplateRef<any>;
+
+  @Input() titleField: string = "title";
+  @Input() descriptionField: string = "description";
+  @Input() iconField: string = "icon";
   //@Input() showDefaultFooterTemplate: boolean = true;
 
   @Input() data: ListItems | any[];  
@@ -83,7 +87,7 @@ export class ListComponent extends AnyAppBaseControl implements OnInit, OnChange
 
   search(event: string) {
     this.settings.search = event; // update list settings
-
+    
     if(this.listType == 'client') {
       this.dataSource = this.filterPipe.transform(this.dataSourceInput.items, this.settings.search);
       this.collectionSize = this.dataSource.length;

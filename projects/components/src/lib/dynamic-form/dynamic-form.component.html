@@ -3,6 +3,7 @@
   <div style="margin: 20px 0" *ngFor="let field of controls">
       <aa-field 
         [fieldControl]="field" [form]="myForm" [formControlName]="field.name"></aa-field>
+        {{field.name}} {{field.value}}
   </div>
 
   <aa-button [style]="'stroked'" color="default" (click)="dynamicForm.reset()">Reset</aa-button>

@@ -12,7 +12,7 @@
       <div>
         <aa-select [items]="fieldTypeOptions" [placeholder]="'Field type'" [formControl]="fieldTypeControl"></aa-select>
       </div>
-      <aa-field [fieldControl]="{name: 'test1', value: '', fieldType: fieldTypeControl.value, properties: {placeholder: 'ph', required: true}}" ></aa-field>  
+      <aa-field [fieldControl]="{name: 'test1', value: '', fieldType: fieldTypeControl.value, properties: {placeholder: 'ph', required: true, mask: '(000-000)' }}" ></aa-field>  
       
       <h2>Code</h2>
       <code>

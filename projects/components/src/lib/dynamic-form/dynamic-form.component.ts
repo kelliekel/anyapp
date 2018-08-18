@@ -37,18 +37,22 @@ export class DynamicFormComponent implements OnInit, OnChanges {
     let changes = this._differ.diff(this.formControls);
     if (changes) {     
       // todo: find changes and update only the changes?
-      
-      this.controls = this.formControls.map(x => Object.assign({}, x));
-      this.dynamicForm = this._dfService.createForm(this._fb, this.formControls);
+      console.log('docheck');
+      this.createForm();
     }
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes) {
       if (changes['formControls'] && changes['formControls'].currentValue) {
+        //if(this.dynamicForm == null) {
+          this.createForm();
+        //}
         // see ngDoCheck because of array
+      console.log('formControls');
       }
       if (changes['formData'] && changes['formData'].currentValue) {
+        console.log('formData');
         this.updateFormValues(this.formData);
       }
     }
@@ -58,7 +62,13 @@ export class DynamicFormComponent implements OnInit, OnChanges {
     this.onSubmit.emit(this.dynamicForm);
   }
 
+  createForm() {
+    this.controls = this.formControls.map(x => Object.assign({}, x));
+    this.dynamicForm = this._dfService.createForm(this._fb, this.formControls);
+  }
+
   updateFormValues(values: any) {
+    console.log(this.dynamicForm);
     this.dynamicForm.patchValue(values);
   }
 }

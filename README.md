@@ -47,21 +47,29 @@ A simple framework for any (angular) app
 `npm install --save @angular/material @angular/cdk @angular/material-moment-adapter`
 
 Optional dependencies (read below):
+
 `npm install --save hammerjs moment material-design-lite`
+
+To support masked inputs:
+`npm install --save ngx-mask`
 
 ### Step 2: Install `anyapp`:
 `npm install --save @anyapp/components @anyapp/core @anyapp/tools`
 
 ### Step 3: Import AnyAppComponentsModule and the angular FormsModule:
 ```js
-import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AnyAppComponentsModule } from '@anyapp/components';
 import { AnyAppCoreModule } from '@anyapp/core';
 import { AnyAppToolsModule } from '@anyapp/tools';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [AnyAppComponentsModule, AnyAppCoreModule, AnyAppToolsModule, FormsModule],
+  imports: [
+  BrowserAnimationsModule, FormsModule,
+  AnyAppComponentsModule, AnyAppCoreModule, AnyAppToolsModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
@@ -71,17 +79,11 @@ export class AppModule {}
 AnyApp depends on Angular Material predefined themes and MDL (https://getmdl.io). If you're using the Angular CLI, you can add any of the four styles to your styles.scss or include it in .angular-cli.json (Angular v5 and below) or angular.json (Angular v6 onwards).
 ```css
 @import "~@anyapp/components/assets/styles/deeppurple-amber.bundle.min.css";
-```
 or
-```css
 @import "~@anyapp/components/assets/styles/indigo-pink.bundle.min.css";
-```
 or
-```css
 @import "~@anyapp/components/assets/styles/pink-bluegrey.bundle.min.css";
-```
 or
-```css
 @import "~@anyapp/components/assets/styles/purple-green.bundle.min.css";
 ```
 

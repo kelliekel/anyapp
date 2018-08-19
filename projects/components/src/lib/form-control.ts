@@ -1,6 +1,6 @@
 import { Input, Injector } from "@angular/core";
 import { NgForm, FormControl } from "@angular/forms";
-import { AnyAppComponentsConfig, ANYAPP_COMPONENTS_CONFIG } from "./components.config";
+//import { AnyAppComponentsConfig, ANYAPP_COMPONENTS_CONFIG } from "./components.config";
 import { AnyAppBaseControl } from "./base-control";
 import { hasRequiredField } from "./util";
 
@@ -10,6 +10,7 @@ export abstract class AnyAppFormControl extends AnyAppBaseControl {
   @Input() formControl: FormControl;
   @Input() disabled: boolean = false;
   @Input() required: boolean = false;
+  //
   @Input() tooltip: string = null;
 
   hasRequiredField: boolean;
@@ -34,6 +35,13 @@ export abstract class AnyAppFormControl extends AnyAppBaseControl {
       // for now: fake a formcontrol which wont be bound to the users form or formgroup
       this.formControl = new FormControl();
     }
+
+    // if disabled is passed as a property; we handle it here
+    if(this.disabled)
+      this.formControl.disable();
+    else 
+      if(this.formControl.disabled)
+        this.formControl.enable();
 
     if (this.formControl) {
       this.hasRequiredField = hasRequiredField(this.formControl);

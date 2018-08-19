@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomTemplate } from './custom.template';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { PageTestService } from '../page-test.service';
 
 @Component({
   selector: 'aa-overview',
@@ -7,23 +9,22 @@ import { CustomTemplate } from './custom.template';
   styleUrls: ['./overview.component.scss']
 })
 export class OverviewComponent implements OnInit {
-  constructor() { }
+  private _sub: Subscription;
+  public settings: any;
+  public type: string;
 
-  contentTemplate: any = CustomTemplate;
-
-  data: any[] = [
-    { id: 1, title: 'Dit is zomaar een test', description: 'desc test', icon: 'face' },
-    { id: 2, title: 'En dit ook' },
-    { id: 3, title: 'En nog eentje' },
-    { id: 4, title: 'Even proberen wat er gebeurd' },
-    { id: 5, title: 'Probeersel1' },
-    { id: 6, title: 'Nog een probeersel2' },
-    { id: 7, title: 'En het laatste item' }
-  ];
-
-  ngOnInit() {
+  constructor(private router: Router, private route: ActivatedRoute, private pageService: PageTestService) {
   }
 
-  loadData() {
+  ngOnInit() {
+    // dit kan ook in een routeresolver
+    this._sub = this.route.params.subscribe(params => {
+      this.type = params['type'];
+      this.settings = this.pageService.getOverviewSettings(this.type);
+    });
+  }
+
+  itemClick(event: any) {
+    this.router.navigate(['/components/pages/detail', this.type, event.id])
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ANYAPP_FIELD_TYPE_VALUES, AnyAppControl, ANYAPP_FIELD_TYPE } from '@anyapp/components';
+import { ANYAPP_FIELD_TYPE_VALUES, ANYAPP_FIELD_TYPE, AnyAppControl } from '@anyapp/components';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -9,15 +9,28 @@ import { FormControl } from '@angular/forms';
 })
 export class FieldTestComponent implements OnInit {
   selectedTab: string;
-  
+
   fieldType: ANYAPP_FIELD_TYPE = "input";
   fieldTypeOptions: string[] = ANYAPP_FIELD_TYPE_VALUES;
 
+  anyAppControlProperties: any[] = [];
+
   fieldTypeControl: FormControl = new FormControl('input');
+  fieldControl: AnyAppControl = { 
+    name: 'simpleControl1', 
+    value: 'Initial value', 
+    childs: null,
+    fieldType: this.fieldTypeControl.value, 
+    properties: { 
+      placeholder: 'A simple placeholder', 
+      required: true
+    } 
+  }
 
   constructor() { }
 
   ngOnInit() {
+    Object.keys(this.fieldControl).forEach(key => this.anyAppControlProperties.push(key));
   }
 
 }

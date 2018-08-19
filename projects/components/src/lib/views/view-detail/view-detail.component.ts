@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { AnyAppControl } from '../../field/field-control';
+import { AnyAppControl } from '../../fields/field/field-control';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -15,6 +15,7 @@ export class ViewDetailComponent implements OnInit {
   @Input() formControls: AnyAppControl[];
   @Input() formData: any;
   @Output() onSubmit: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  @Output() onCancel: EventEmitter<any> = new EventEmitter<any>();
   
   constructor() { }
 
@@ -23,5 +24,9 @@ export class ViewDetailComponent implements OnInit {
 
   submitForm(event: any) {
     this.onSubmit.emit(event);
+  }
+
+  cancelForm(event: any) {
+    this.onCancel.emit(event);
   }
 }

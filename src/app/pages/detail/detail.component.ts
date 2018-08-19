@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AnyAppControl } from '@anyapp/components';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PageTestService } from '../page-test.service';
 
 @Component({
   selector: 'aa-detail',
@@ -7,23 +9,29 @@ import { AnyAppControl } from '@anyapp/components';
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
-  
-  controls: AnyAppControl[] = [
-    new AnyAppControl('controlTest1', '', 'input'),
-    new AnyAppControl('controlTest2', false, 'checkbox')
-  ];
+  private _sub: Subscription;
+  public settings: any;
+  public type: string;
+  public id: number;
 
-  data: any = {
-    controlTest1: 'initial value from formdata',
-    controlTest2: 'true'
+  constructor(private router: Router, private route: ActivatedRoute, private pageService: PageTestService) {
   }
-
-  constructor() { }
 
   ngOnInit() {
+    // dit kan ook in een routeresolver
+    this._sub = this.route.params.subscribe(params => {
+      this.type = params['type'];
+      this.id = params['id'];
+      this.settings = this.pageService.getDetailSettings(this.type, this.id);
+    });
+  }
+  
+  formSubmit(event: any) {
+    alert('form saved')
+    this.router.navigate(['/components/pages/overview', this.type])
   }
 
-  formSubmit(event: any) {
-    
+  formCancel(event: any) {
+    this.router.navigate(['/components/pages/overview', this.type])
   }
 }

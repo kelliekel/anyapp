@@ -1,0 +1,25 @@
+@import '../../../../styles/_variables.scss';
+
+.aa-side-nav {
+    background: $bg-sidenav;
+    border-right: 1px solid rgba(0,0,0,.12);
+    // bottom: 0;
+    font-size: 14px;
+    overflow-y: auto;
+    //padding: 72px 0 40px;
+    // position: fixed;
+    // top: 0;
+    // transform: translateX(-100%);
+    //transition: transform .15s cubic-bezier(.4,0,.2,1);
+    width: 280px;
+    z-index: 5;
+    height: 100%;
+}
+
+.aa-side-nav-content {
+    padding: $spacer-content;
+}
+
+mat-sidenav-container {
+    height: calc(100% - 64px);
+}

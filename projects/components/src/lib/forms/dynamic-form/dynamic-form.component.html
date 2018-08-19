@@ -1,0 +1,12 @@
+<form #myForm="ngForm" [aaForm]="myForm" [formGroup]="dynamicForm" (ngSubmit)="myForm.valid && submit()">
+
+  <div style="margin: 20px 0" *ngFor="let field of controls">
+      <aa-field 
+        [fieldControl]="field" [form]="myForm" [formControlName]="field.name"></aa-field>
+  </div>
+  
+  <aa-button [style]="'stroked'" color="default" (click)="clear()">Clear</aa-button>
+  <aa-button [style]="'stroked'" color="default" (click)="reset()">Reset</aa-button>
+  <aa-button [style]="'flat'" color="warn" (click)="cancel()">Cancel</aa-button>
+  <aa-button [style]="'flat'" color="primary" [form]="myForm">Save</aa-button>
+</form>

@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ListSettings } from '../../controls/list/list.settings';
 
 @Component({
   selector: 'aa-view-list',
@@ -17,9 +18,20 @@ export class ViewListComponent implements OnInit {
   @Input() contentTemplate: any;
   @Input() footerTemplate: any;
 
+  @Output() onSettingsChanged: EventEmitter<ListSettings> = new EventEmitter<ListSettings>();
+  @Output() onItemClick: EventEmitter<any> = new EventEmitter<any>();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  settingsChanged(event: ListSettings) {
+    this.onSettingsChanged.emit(event);
+  }
+
+  itemClick(event: any) {
+    this.onItemClick.emit(event);
   }
 
   // show: boolean = true;

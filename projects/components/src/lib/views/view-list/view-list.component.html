@@ -1,6 +1,6 @@
 <aa-header [title]="title" [subTitle]="subTitle"></aa-header>
 
-<aa-list [data]="data" (onSettingsChanged)="output=$event;" [listType]="'client'">
+<aa-list [data]="data" (onSettingsChanged)="settingsChanged($event)" (onItemClick)="itemClick($event)" [listType]="'client'">
   <ng-template *ngIf="headerTemplate" let-item #header>
       <aa-template [item]="item" [template]="headerTemplate"></aa-template>
   </ng-template>

@@ -6,57 +6,58 @@ import {
   MatButtonModule, MatSidenavModule, MatIconModule, MatTreeModule, MatDividerModule, MatToolbarModule, MatMenuModule,
   MatProgressBarModule, MatTableModule, MatPaginatorModule, MatSortModule, MatSnackBarModule, MatCheckboxModule, MatInputModule,
   MatSlideToggleModule, MatSelectModule, MatDatepickerModule, MatSliderModule, MatPaginatorIntl, MatSortHeaderIntl,
-  MatTooltipModule, MatProgressSpinnerModule, MatExpansionModule, MatTabsModule, MatChipsModule
+  MatTooltipModule, MatProgressSpinnerModule, MatExpansionModule, MatTabsModule, MatChipsModule, MatDialogModule
 } from '@angular/material';
 
 import { ANYAPP_COMPONENTS_CONFIG, AnyAppComponentsConfig } from './components.config';
-import { ButtonComponent } from './button/button.component';
-import { TableComponent } from './table/table.component';
-import { InputComponent } from './input/input.component';
-import { CheckboxComponent } from './checkbox/checkbox.component';
-import { SelectComponent } from './select/select.component';
-import { DatepickerComponent } from './datepicker/datepicker.component';
-import { SliderComponent } from './slider/slider.component';
-import { IconComponent } from './icon/icon.component';
-import { TextareaComponent } from './textarea/textarea.component';
-import { LabelComponent } from './label/label.component';
-import { FormDirective } from './form/form.directive';
-import { LoadingComponent } from './loading/loading.component';
-import { ErrorComponent } from './error/error.component';
-import { GenericPaginatorIntl } from './table/paginator.intl';
-import { GenericSortHeaderIntl } from './table/sort.intl';
-import { TopMenuComponent } from './top-menu/top-menu.component';
-import { SideMenuComponent } from './side-menu/side-menu/side-menu.component';
-import { SideMenuItemComponent } from './side-menu/side-menu-item/side-menu-item.component';
-import { HeaderComponent } from './header/header.component';
-import { SideMenuGroupComponent } from './side-menu/side-menu-group/side-menu-group.component';
-import { ListComponent } from './list/list.component';
-import { SearchComponent } from './search/search.component';
-import { HintComponent } from './_hint/hint.component';
-import { FilterPipe } from './list/filter.pipe';
-import { SortPipe } from './list/sort.pipe';
-import { PagingPipe } from './list/paging.pipe';
-import { SortLabelPipe } from './list/sort-label.pipe';
-import { TabsComponent } from './tabs/tabs.component';
-import { CalendarComponent } from './calendar/calendar.component';
-import { MenuComponent } from './menu/menu.component';
-import { ChipsComponent } from './chips/chips.component';
-import { BadgeDirective } from './badge/badge.directive';
-import { RaisedButtonComponent } from './button/_raised-button.component';
-import { FlatButtonComponent } from './button/_flat-button.component';
-import { StrokedButtonComponent } from './button/_stroked-button.component';
-import { DefaultButtonComponent } from './button/_default-button.component';
-import { IconButtonComponent } from './button/_icon-button.component';
-import { FabButtonComponent } from './button/_fab-button.component';
-import { FieldComponent } from './field/field.component';
-import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { ButtonComponent } from './controls/button/button.component';
+import { TableComponent } from './controls/table/table.component';
+import { InputComponent } from './fields/input/input.component';
+import { CheckboxComponent } from './fields/checkbox/checkbox.component';
+import { SelectComponent } from './fields/select/select.component';
+import { DatepickerComponent } from './fields/datepicker/datepicker.component';
+import { SliderComponent } from './fields/slider/slider.component';
+import { IconComponent } from './controls/icon/icon.component';
+import { TextareaComponent } from './fields/textarea/textarea.component';
+import { LabelComponent } from './controls/label/label.component';
+import { FormDirective } from './forms/form/form.directive';
+import { LoadingComponent } from './controls/loading/loading.component';
+import { ErrorComponent } from './fields/error/error.component';
+import { GenericPaginatorIntl } from './controls/table/paginator.intl';
+import { GenericSortHeaderIntl } from './controls/table/sort.intl';
+import { TopMenuComponent } from './layout/top-menu/top-menu.component';
+import { SideMenuComponent } from './layout/side-menu/side-menu/side-menu.component';
+import { SideMenuItemComponent } from './layout/side-menu/side-menu-item/side-menu-item.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { SideMenuGroupComponent } from './layout/side-menu/side-menu-group/side-menu-group.component';
+import { ListComponent } from './controls/list/list.component';
+import { SearchComponent } from './controls/search/search.component';
+import { HintComponent } from './fields/_hint/hint.component';
+import { FilterPipe } from './controls/list/filter.pipe';
+import { SortPipe } from './controls/list/sort.pipe';
+import { PagingPipe } from './controls/list/paging.pipe';
+import { SortLabelPipe } from './controls/list/sort-label.pipe';
+import { TabsComponent } from './controls/tabs/tabs.component';
+import { CalendarComponent } from './fields/calendar/calendar.component';
+import { MenuComponent } from './controls/menu/menu.component';
+import { ChipsComponent } from './controls/chips/chips.component';
+import { BadgeDirective } from './controls/badge/badge.directive';
+import { RaisedButtonComponent } from './controls/button/_raised-button.component';
+import { FlatButtonComponent } from './controls/button/_flat-button.component';
+import { StrokedButtonComponent } from './controls/button/_stroked-button.component';
+import { DefaultButtonComponent } from './controls/button/_default-button.component';
+import { IconButtonComponent } from './controls/button/_icon-button.component';
+import { FabButtonComponent } from './controls/button/_fab-button.component';
+import { FieldComponent } from './fields/field/field.component';
+import { DynamicFormComponent } from './forms/dynamic-form/dynamic-form.component';
 import { ComponentsService } from './components.service';
-import { MaskDirective } from './mask/mask.directive';
+import { MaskDirective } from './fields/mask/mask.directive';
 import { NgxMaskModule} from 'ngx-mask';
 import { ViewListComponent } from './views/view-list/view-list.component';
 import { DefaultTemplate } from './views/view-list/default.template';
 import { AnyAppTemplateComponent } from './views/view-list/template';
 import { ViewDetailComponent } from './views/view-detail/view-detail.component';
+import { ConfirmComponent } from './controls/confirm/confirm.component';
 
 // // //import * as maskmod from 'ngx-mask';
 // // let extras = [];
@@ -83,25 +84,26 @@ import { ViewDetailComponent } from './views/view-detail/view-detail.component';
     MatButtonModule, MatIconModule, MatSnackBarModule, MatSidenavModule, MatToolbarModule, MatMenuModule,
     MatIconModule, MatDividerModule, MatProgressBarModule, MatCheckboxModule, MatSlideToggleModule,
     MatSelectModule, MatDatepickerModule, MatSliderModule, MatTableModule, MatPaginatorModule, MatSortModule,
-    MatInputModule, MatTooltipModule, MatProgressSpinnerModule, MatExpansionModule, MatTabsModule, MatChipsModule
+    MatInputModule, MatTooltipModule, MatProgressSpinnerModule, MatExpansionModule, MatTabsModule, MatChipsModule,
+    MatDialogModule
   ],
   declarations: [
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
     TopMenuComponent, SideMenuComponent, SideMenuGroupComponent, HeaderComponent, ListComponent, SearchComponent,
     ListComponent, TabsComponent, CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective, FieldComponent, 
-    DynamicFormComponent, ViewListComponent, DefaultTemplate, ViewDetailComponent,
+    DynamicFormComponent, ViewListComponent, DefaultTemplate, ViewDetailComponent, ConfirmComponent,
     // no export
     SideMenuItemComponent, HintComponent, FilterPipe, SortPipe, PagingPipe, SortLabelPipe, MaskDirective, AnyAppTemplateComponent,
     //
-    RaisedButtonComponent, StrokedButtonComponent, FlatButtonComponent, IconButtonComponent, DefaultButtonComponent, FabButtonComponent//, , //, , 
+    RaisedButtonComponent, StrokedButtonComponent, FlatButtonComponent, IconButtonComponent, DefaultButtonComponent, FabButtonComponent 
   ],
   exports: [
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
     TopMenuComponent, SideMenuComponent, HeaderComponent, ListComponent, SearchComponent, ListComponent, TabsComponent,
     CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective, FieldComponent, DynamicFormComponent, 
-    ViewListComponent, ViewDetailComponent
+    ViewListComponent, ViewDetailComponent, ConfirmComponent
     // material exports
     //MatSidenavModule, MatToolbarModule
   ],
@@ -121,7 +123,8 @@ import { ViewDetailComponent } from './views/view-detail/view-detail.component';
   entryComponents: [
     RaisedButtonComponent, StrokedButtonComponent, FlatButtonComponent, IconButtonComponent, DefaultButtonComponent, FabButtonComponent,
     InputComponent, TextareaComponent, SliderComponent, CheckboxComponent, SelectComponent, DatepickerComponent,
-    DefaultTemplate
+    DefaultTemplate,
+    ConfirmComponent
   ]
 })
 export class ComponentsModule {

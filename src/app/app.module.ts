@@ -17,11 +17,11 @@ import { FormTestComponent } from './components/form-test/form-test.component';
 import { DynamicFormTestComponent } from './components/dynamic-form-test/dynamic-form-test.component';
 import { OverviewComponent } from './pages/overview/overview.component';
 import { DetailComponent } from './pages/detail/detail.component';
-import { CustomTemplate } from './pages/overview/custom.template';
+import { CustomTemplate, CustomTemplate2 } from './pages/overview/custom.template';
 
 export const routes: Routes = [
-  { path: 'components/pages/overview', component: OverviewComponent },
-  { path: 'components/pages/detail', component: DetailComponent },
+  { path: 'components/pages/overview/:type', component: OverviewComponent },
+  { path: 'components/pages/detail/:type/:id', component: DetailComponent },
   { path: 'components/controls/button', component: ButtonTestComponent },
   { path: 'components/controls/field', component: FieldTestComponent },
   { path: 'components/list', component: ListTestComponent },
@@ -62,10 +62,11 @@ export const routes: Routes = [
     DynamicFormTestComponent,
     OverviewComponent,
     DetailComponent,
-    CustomTemplate
+    CustomTemplate,
+    CustomTemplate2
   ],
   entryComponents: [
-    CustomTemplate
+    CustomTemplate,CustomTemplate2
   ],
   bootstrap: [AppComponent]
 })

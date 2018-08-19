@@ -1,13 +1,10 @@
 <aa-header [title]="'Dynamic form'" [subTitle]="'A dynamic form for any app'">
 </aa-header>
 
-<aa-tabs #tabs (onTabChange)="selectedTab = $event;" [tabs]="['General', 'Example', 'API']">
+<aa-tabs #tabs (onTabChange)="selectedTab = $event;" [tabs]="['Example', 'API']">
 </aa-tabs>
 
 <div>
-  <div *ngIf="tabs.getSelectedTabName() == 'General'">
-    This is simply a demo using dynamic reactive forms
-  </div>
   <div *ngIf="tabs.getSelectedTabName() == 'Example'">
     <div style="margin-bottom: 20px;">
         <aa-button [style]="'stroked'" color="primary" (click)="setValues()">Set data</aa-button>
@@ -31,7 +28,8 @@
     <h2>Code</h2>
     <code>
       &lt;aa-dynamic-form<br />
-      &nbsp;&nbsp;[formControls]="controls" [formData]="data"<br />
+      &nbsp;&nbsp;[formControls]="controls"<br /> 
+      &nbsp;&nbsp;[formData]="data"<br />
       &nbsp;&nbsp;(onSubmit)="formSubmit($event)"&gt;<br />
       &lt;/aa-dynamic-form&gt;
     </code>

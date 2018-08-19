@@ -34,7 +34,7 @@ export class FormTestComponent implements OnInit {
 
   ngOnInit() {
      this.dynamicForm = //this.fb.group(
-       this.dfService.createForm(this.fb, this.data);
+       this.dfService.createForm(this.data);
     //);
 
     // this.dynamicForm = this.fb.group({

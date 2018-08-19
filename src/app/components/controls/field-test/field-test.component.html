@@ -1,106 +1,110 @@
 <aa-header [title]="'Field'" [subTitle]="'A simple generic field for any app'">
-  </aa-header>
-  
-  <aa-tabs #tabs (onTabChange)="selectedTab = $event;" [tabs]="['General', 'Example', 'API']">
-  </aa-tabs>
-  
-  <div>
-    <div *ngIf="tabs.getSelectedTabName() == 'General'">
+</aa-header>
+
+<aa-tabs #tabs (onTabChange)="selectedTab = $event;" [tabs]="['Example', 'API']">
+  <!--'General', -->
+</aa-tabs>
+
+<div>
+  <!-- <div *ngIf="tabs.getSelectedTabName() == 'General'">
       Extends modelcontrol? (description about formcontrols)
+    </div> -->
+  <div *ngIf="tabs.getSelectedTabName() == 'Example'">
+    <div>
+      <aa-select [items]="fieldTypeOptions" [placeholder]="'Field type'" [formControl]="fieldTypeControl"></aa-select>
     </div>
-    <div *ngIf="tabs.getSelectedTabName() == 'Example'">
-      <div>
-        <aa-select [items]="fieldTypeOptions" [placeholder]="'Field type'" [formControl]="fieldTypeControl"></aa-select>
-      </div>
-      <aa-field [fieldControl]="{name: 'test1', value: '', fieldType: fieldTypeControl.value, properties: {placeholder: 'ph', required: true, mask: '(000-000)' }}" ></aa-field>  
-      
-      <h2>Code</h2>
-      <code>
-        &lt;aa-field
-          [fieldControl]="fieldControl"&gt;<br />
-        &nbsp;&nbsp;__<br />
-        &lt;/aa-field&gt;
+    <aa-field [fieldControl]="fieldControl"></aa-field>
+
+    <h2>Code</h2>
+
+    <code>
+          &lt;aa-field
+            [fieldControl]="fieldControl"&gt;<br />
+          &lt;/aa-field&gt;
+        </code>
+
+    <br />
+    <br />
+    <div>
+      An any app field expects a fieldcontrol (see API section for more information) which contains details about the field to
+      render.
+    </div>
+
+    <code>
+        fieldControl: 
+        <br />
+        {{fieldControl | json}}
       </code>
-    </div>
-  
-    <div *ngIf="tabs.getSelectedTabName() == 'API'">
-      <table class="options">
-        <thead>
-            <td>Property</td>
-            <td>Type</td>
-            <td>Default value</td>
-            <td>Extra</td>
-        </thead>
-        <tr>
-          <td>fieldType</td>
-          <td><code>string</code></td>
-          <td>-</td>
-          <td><span *ngFor="let s of fieldTypeOptions">{{s}} | </span></td>
-        </tr>
-        <tr>
-          <td>form</td>
-          <td><code>NgForm</code></td>
-          <td>-</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>formControlName</td>
-          <td><code>string</code></td>
-          <td>-</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>formControl</td>
-          <td><code>FormControl</code></td>
-          <td>-</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>disabled</td>
-          <td><code>boolean</code></td>
-          <td>false</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>tooltip</td>
-          <td><code>string</code></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>label</td>
-          <td><code>string</code></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>hint</td>
-          <td><code>string</code></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>typeSpecific</td>
-          <td><code>TypeSpecificProperties</code></td>
-          <td></td>
-          <td>
-            Any or more of the follow (depending on the type):
-              maxLength;
-              placeholder;
-              type;
-              multiple;
-              min;
-              max;
-              step;
-              minlength;
-              maxlength;
-              items;
-              locale;
-          </td>
-        </tr>
-
-
-
-      </table>
-    </div>
   </div>
+
+  <div *ngIf="tabs.getSelectedTabName() == 'API'">
+    <table class="options">
+      <thead>
+        <td>Property</td>
+        <td>Type</td>
+        <td>Default value</td>
+        <td>Extra</td>
+      </thead>
+      <tr>
+        <td>fieldControl</td>
+        <td>
+          <code>AnyAppControl</code>
+        </td>
+        <td>-</td>
+        <td>
+          <b>Properties: </b>
+          <span *ngFor="let s of anyAppControlProperties">{{s}} | </span>
+        </td>
+      </tr>
+      <tr>
+        <td>form</td>
+        <td>
+          <code>NgForm</code>
+        </td>
+        <td>-</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>formControlName</td>
+        <td>
+          <code>string</code>
+        </td>
+        <td>-</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>formControl</td>
+        <td>
+          <code>FormControl</code>
+        </td>
+        <td>-</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>disabled</td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>false</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>required</td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>false</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>tooltip</td>
+        <td>
+          <code>string</code>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+    </table>
+  </div>
+</div>

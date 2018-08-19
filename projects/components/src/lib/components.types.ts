@@ -1,10 +1,10 @@
-import { InputComponent } from "./input/input.component";
-import { TextareaComponent } from "./textarea/textarea.component";
-import { CheckboxComponent } from "./checkbox/checkbox.component";
-import { SelectComponent } from "./select/select.component";
-import { SliderComponent } from "./slider/slider.component";
-import { DatepickerComponent } from "./datepicker/datepicker.component";
-import { CalendarComponent } from "./calendar/calendar.component";
+import { InputComponent } from "./fields/input/input.component";
+import { TextareaComponent } from "./fields/textarea/textarea.component";
+import { CheckboxComponent } from "./fields/checkbox/checkbox.component";
+import { SelectComponent } from "./fields/select/select.component";
+import { SliderComponent } from "./fields/slider/slider.component";
+import { DatepickerComponent } from "./fields/datepicker/datepicker.component";
+import { CalendarComponent } from "./fields/calendar/calendar.component";
 
 // button types
 export type ANYAPP_BUTTON_TYPE = 'default' | 'raised' | 'stroked' | 'flat' | 'icon' | 'fab';

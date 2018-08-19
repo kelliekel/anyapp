@@ -1,27 +1,24 @@
 <aa-header [title]="'Button'" [subTitle]="'A simple button for any app'">
 </aa-header>
 
-<aa-tabs #tabs (onTabChange)="selectedTab = $event;" [tabs]="['General', 'Example', 'API']">
+<aa-tabs #tabs (onTabChange)="selectedTab = $event;" [tabs]="['Example', 'API']">
 </aa-tabs>
 
 <div>
-  <div *ngIf="tabs.getSelectedTabName() == 'General'">
-    Extends formcontrol (description about formcontrols)
-  </div>
   <div *ngIf="tabs.getSelectedTabName() == 'Example'">
     <div>
-      <aa-select [items]="buttonStyleOptions" [placeholder]="'Button style'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonStyle"></aa-select>
-      <aa-select [items]="buttonColorOptions" [placeholder]="'Button color'" [ngModelOptions]="{standalone: true}" [(ngModel)]="buttonColor"></aa-select>
+      <aa-select [items]="buttonStyleOptions" [placeholder]="'Button style'" [formControl]="styleControl"></aa-select>
+      <aa-select [items]="buttonColorOptions" [placeholder]="'Button color'" [formControl]="colorControl"></aa-select>
     </div>
-    <aa-button [color]="buttonColor" [style]="buttonStyle" [tooltip]="'This is the optional tooltip'">This is a {{buttonStyle}} {{buttonColor}} button</aa-button>
+    <aa-button [color]="colorControl.value" [style]="styleControl.value" [tooltip]="'This is the optional tooltip'">This is a {{buttonStyle}} {{buttonColor}} button</aa-button>
 
 
     <h2>Code</h2>
     <code>
       &lt;aa-button
         [tooltip]="'This is the optional tooltip'"
-        [color]="'{{buttonColor}}'"
-        [style]="'{{buttonStyle}}'"&gt;<br />
+        [color]="'{{colorControl.value}}'"
+        [style]="'{{styleControl.value}}'"&gt;<br />
       &nbsp;&nbsp;This is a button<br />
       &lt;/aa-button&gt;
     </code>

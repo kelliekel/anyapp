@@ -54,8 +54,10 @@ import { ComponentsService } from './components.service';
 import { MaskDirective } from './fields/mask/mask.directive';
 import { NgxMaskModule} from 'ngx-mask';
 import { ViewListComponent } from './views/view-list/view-list.component';
-import { DefaultTemplate } from './views/view-list/default.template';
-import { AnyAppTemplateComponent } from './views/view-list/template';
+import { AnyAppListContentTemplate } from './controls/list/templates/content.template';
+import { AnyAppListHeaderTemplate } from './controls/list/templates/header.template';
+import { AnyAppListFooterTemplate } from './controls/list/templates/footer.template';
+import { AnyAppListTemplate } from './controls/list/templates/template';
 import { ViewDetailComponent } from './views/view-detail/view-detail.component';
 import { ConfirmComponent } from './controls/confirm/confirm.component';
 
@@ -92,9 +94,10 @@ import { ConfirmComponent } from './controls/confirm/confirm.component';
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
     TopMenuComponent, SideMenuComponent, SideMenuGroupComponent, HeaderComponent, ListComponent, SearchComponent,
     ListComponent, TabsComponent, CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective, FieldComponent, 
-    DynamicFormComponent, ViewListComponent, DefaultTemplate, ViewDetailComponent, ConfirmComponent,
+    DynamicFormComponent, ViewListComponent, ViewDetailComponent, ConfirmComponent,
+    AnyAppListHeaderTemplate, AnyAppListFooterTemplate, AnyAppListContentTemplate,
     // no export
-    SideMenuItemComponent, HintComponent, FilterPipe, SortPipe, PagingPipe, SortLabelPipe, MaskDirective, AnyAppTemplateComponent,
+    SideMenuItemComponent, HintComponent, FilterPipe, SortPipe, PagingPipe, SortLabelPipe, MaskDirective,
     //
     RaisedButtonComponent, StrokedButtonComponent, FlatButtonComponent, IconButtonComponent, DefaultButtonComponent, FabButtonComponent 
   ],
@@ -123,7 +126,7 @@ import { ConfirmComponent } from './controls/confirm/confirm.component';
   entryComponents: [
     RaisedButtonComponent, StrokedButtonComponent, FlatButtonComponent, IconButtonComponent, DefaultButtonComponent, FabButtonComponent,
     InputComponent, TextareaComponent, SliderComponent, CheckboxComponent, SelectComponent, DatepickerComponent,
-    DefaultTemplate,
+    AnyAppListHeaderTemplate, AnyAppListFooterTemplate, AnyAppListContentTemplate,
     ConfirmComponent
   ]
 })

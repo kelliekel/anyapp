@@ -21,7 +21,6 @@ export * from './lib/fields/checkbox/checkbox.component';
 export * from './lib/fields/datepicker/datepicker.component';
 export * from './lib/fields/calendar/calendar.component';
 export * from './lib/fields/input/input.component';
-export * from './lib/controls/menu/menu.component';
 /*
  * CONTROLS
  */
@@ -34,10 +33,12 @@ export * from './lib/controls/search/search.component';
 export * from './lib/controls/list/list.component';
 export * from './lib/controls/list/list.settings';
 export * from './lib/controls/list/list.items';
+export * from './lib/controls/list/templates/footer.template';
 export * from './lib/controls/tabs/tabs.component';
 export * from './lib/controls/tabs/tab.model';
 export * from './lib/controls/table/table.component';
 export * from './lib/controls/loading/loading.component';
+export * from './lib/controls/menu/menu.component';
 /*
  * VIEWS
  */

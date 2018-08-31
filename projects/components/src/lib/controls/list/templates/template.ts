@@ -1,26 +1,27 @@
 import { Component, OnInit, Input, ComponentFactoryResolver, ComponentRef, ViewChild, ViewContainerRef, OnDestroy, Type } from '@angular/core';
-import { DefaultTemplate } from './default.template';
+import { AnyAppListContentTemplate } from './content.template';
 
-@Component({
-    selector: 'aa-template',
-    template: `<ng-container #container></ng-container>`,
-    styles: ['']
-})
-export class AnyAppTemplateComponent implements OnInit, OnDestroy { // or: implements IButtonComponent
+// @Component({
+//     selector: 'aa-template',
+//     template: `<ng-container #container></ng-container>`,
+//     styles: ['']
+// })
+export abstract class AnyAppListTemplate { // or: implements IButtonComponent
     @Input() item: any;
-    @Input() template: Type<any> = DefaultTemplate;
+    @Input() template: Type<any>;// = AnyAppListContentTemplate;
+    @Input() context: any;
 
-    private componentRef: ComponentRef<any>;
+    componentRef: ComponentRef<any>;
     @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
     
     constructor(
         private componentFactoryResolver: ComponentFactoryResolver) {
     }
 
-    ngOnInit() {
-        if(this.template == null) {
-            this.template = DefaultTemplate;
-        }
+    renderTemplate() {
+        // if(this.template == null) {
+        //     this.template = AnyAppListContentTemplate;
+        // }
         
         if(this.template) {
             let factory = this.componentFactoryResolver.resolveComponentFactory(this.template);
@@ -29,7 +30,7 @@ export class AnyAppTemplateComponent implements OnInit, OnDestroy { // or: imple
         }
     }
 
-    ngOnDestroy() {
+    destroyTemplate() {
         if (this.componentRef) {
             this.componentRef.destroy();
             this.componentRef = null;

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CustomTemplate, CustomTemplate2 } from './overview/custom.template';
-import { AnyAppControl } from '@anyapp/components';
+import { CustomTemplate, CustomTemplate2, InlineTemplate } from './overview/custom.template';
+import { AnyAppControl, AnyAppListFooterTemplate } from '@anyapp/components';
 
 @Injectable({
     providedIn: 'root'
@@ -33,7 +33,7 @@ export class PageTestService {
             templates: {
                 header: undefined,
                 content: CustomTemplate2,
-                footer: undefined,
+                footer: InlineTemplate,
             },
             data: [
                 { id: 1, title: 'Recht_Gebruikers', description: 'Rechten om gebruikers te beheren', icon: null, actief: true },
@@ -43,7 +43,27 @@ export class PageTestService {
                 { id: 5, title: 'Recht_Widgets', description: 'Rechten om widgets te beheren', icon: null, actief: false },
                 { id: 6, title: 'etc', description: null, icon: null, actief: false }
             ]
-        }
+        },
+        // modules: {
+        //     title: 'Modules',
+        //     subTitle: 'Overzicht van alle modules',
+        //     templates: {
+        //         header: undefined,
+        //         content: InlineTemplate,
+        //         footer: undefined,
+        //     },
+        //     data: [
+        //         { id: 1, title: 'Agenda', description: 'Agenda module', icon: null, actief: true },
+        //         { id: 2, title: 'Declaraties', description: 'Declaratie module', icon: null, actief: true },
+        //         { id: 3, title: 'Beheer', description: 'Alles ten aanzien van het beheer', icon: null, actief: false },
+        //         { id: 6, title: 'etc', description: null, icon: null, actief: false }
+        //     ],
+        //     controls: [
+        //         new AnyAppControl('id', '', 'input', null, { placeholder: 'ID', disabled: true}),
+        //         new AnyAppControl('title', '', 'input', null, { placeholder: 'Naam', required: true, hint: 'Naam van de module'}),
+        //         new AnyAppControl('description', '', 'input', null, { placeholder: 'Omschrijving', hint: 'Omschrijving van de module'}),
+        //     ]
+        // }
     };
 
     detailSettings: any = {

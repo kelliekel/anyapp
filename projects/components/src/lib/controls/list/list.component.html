@@ -49,14 +49,12 @@
         <ng-template *ngIf="footerTemplate" ngFor let-item [ngForOf]="[item]" [ngForTemplate]="footerTemplate">
         </ng-template>
 
-        <ng-template *ngIf="!footerTemplate" ngFor let-item [ngForOf]="[item]" [ngForTemplate]="defaultFooterTemplate">          
+        <!-- <ng-template *ngIf="!footerTemplate" ngFor let-item [ngForOf]="[item]" [ngForTemplate]="defaultFooterTemplate">          
         </ng-template>
         
         <ng-template #defaultFooterTemplate>
             <aa-button [style]="'flat'" color="primary" (click)="itemClick(item)">View details</aa-button>
-            <!-- <aa-button color="warn" *ngIf="i > 0" (click)="setOpenedIndex(i-1)">Previous</aa-button>
-            <aa-button *ngIf="i < dataSource.length" (click)="setOpenedIndex(i+1)">Next</aa-button> -->
-        </ng-template>
+        </ng-template> -->
       </mat-action-row>
     </mat-expansion-panel>
 

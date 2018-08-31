@@ -28,8 +28,9 @@ export class AppComponent implements OnInit {
       ], false),
 
       new AnyAppTreeModel('AA_COMPONENTS_PAGES', 'Pages', AnyAppTreeType.Item, [
-        new AnyAppTreeModel('AA_COMPONENTS_PAGES_OVERVIEW', 'Overview gebruikers', AnyAppTreeType.Item, null, false, '/components/pages/overview/gebruikers'),
-        new AnyAppTreeModel('AA_COMPONENTS_PAGES_OVERVIEW', 'Overview rechten', AnyAppTreeType.Item, null, false, '/components/pages/overview/rechten'),
+        new AnyAppTreeModel('AA_COMPONENTS_PAGES_OVERVIEW_GEBRUIKERS', 'Overview gebruikers', AnyAppTreeType.Item, null, false, '/components/pages/overview/gebruikers'),
+        new AnyAppTreeModel('AA_COMPONENTS_PAGES_OVERVIEW_RECHTEN', 'Overview rechten', AnyAppTreeType.Item, null, false, '/components/pages/overview/rechten'),
+        new AnyAppTreeModel('AA_COMPONENTS_PAGES_OVERVIEW_MODULES', 'Overview modules', AnyAppTreeType.Item, null, false, '/components/pages/overview/modules'),
         //new AnyAppTreeModel('AA_COMPONENTS_PAGES_DETAIL', 'Detail', AnyAppTreeType.Item, null, false, '/components/pages/detail')
       ], false)
 

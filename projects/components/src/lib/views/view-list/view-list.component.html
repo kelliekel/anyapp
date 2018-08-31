@@ -2,13 +2,13 @@
 
 <aa-list [data]="data" (onSettingsChanged)="settingsChanged($event)" (onItemClick)="itemClick($event)" [listType]="'client'">
   <ng-template *ngIf="headerTemplate" let-item #header>
-      <aa-template [item]="item" [template]="headerTemplate"></aa-template>
+      <aa-header-template [item]="item" [template]="headerTemplate"></aa-header-template>
   </ng-template>
   <ng-template *ngIf="contentTemplate" let-item #content>
-      <aa-template [item]="item" [template]="contentTemplate"></aa-template>
+      <aa-content-template [item]="item" [template]="contentTemplate"></aa-content-template>
   </ng-template>
   <ng-template *ngIf="footerTemplate" let-item #footer>
-      <aa-template [item]="item" [template]="footerTemplate"></aa-template>
+      <aa-footer-template [item]="item" [template]="footerTemplate"></aa-footer-template>
   </ng-template>
 </aa-list>
 

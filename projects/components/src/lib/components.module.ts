@@ -6,7 +6,7 @@ import {
   MatButtonModule, MatSidenavModule, MatIconModule, MatTreeModule, MatDividerModule, MatToolbarModule, MatMenuModule,
   MatProgressBarModule, MatTableModule, MatPaginatorModule, MatSortModule, MatSnackBarModule, MatCheckboxModule, MatInputModule,
   MatSlideToggleModule, MatSelectModule, MatDatepickerModule, MatSliderModule, MatPaginatorIntl, MatSortHeaderIntl,
-  MatTooltipModule, MatProgressSpinnerModule, MatExpansionModule, MatTabsModule, MatChipsModule, MatDialogModule
+  MatTooltipModule, MatProgressSpinnerModule, MatExpansionModule, MatTabsModule, MatChipsModule, MatDialogModule, MatCardModule
 } from '@angular/material';
 
 import { ANYAPP_COMPONENTS_CONFIG, AnyAppComponentsConfig } from './components.config';
@@ -26,7 +26,7 @@ import { ErrorComponent } from './fields/error/error.component';
 import { GenericPaginatorIntl } from './controls/table/paginator.intl';
 import { GenericSortHeaderIntl } from './controls/table/sort.intl';
 import { TopMenuComponent } from './layout/top-menu/top-menu.component';
-import { SideMenuComponent } from './layout/side-menu/side-menu/side-menu.component';
+import { SideMenuLayoutComponent } from './layout/side-menu-layout/side-menu-layout.component';
 import { SideMenuItemComponent } from './layout/side-menu/side-menu-item/side-menu-item.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { SideMenuGroupComponent } from './layout/side-menu/side-menu-group/side-menu-group.component';
@@ -60,6 +60,7 @@ import { AnyAppListFooterTemplate } from './controls/list/templates/footer.templ
 import { AnyAppListTemplate } from './controls/list/templates/template';
 import { ViewDetailComponent } from './views/view-detail/view-detail.component';
 import { ConfirmComponent } from './controls/confirm/confirm.component';
+import { BreadcrumbComponent } from './layout/breadcrumb/breadcrumb.component';
 
 // // //import * as maskmod from 'ngx-mask';
 // // let extras = [];
@@ -87,26 +88,26 @@ import { ConfirmComponent } from './controls/confirm/confirm.component';
     MatIconModule, MatDividerModule, MatProgressBarModule, MatCheckboxModule, MatSlideToggleModule,
     MatSelectModule, MatDatepickerModule, MatSliderModule, MatTableModule, MatPaginatorModule, MatSortModule,
     MatInputModule, MatTooltipModule, MatProgressSpinnerModule, MatExpansionModule, MatTabsModule, MatChipsModule,
-    MatDialogModule
+    MatDialogModule, MatCardModule
   ],
   declarations: [
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
-    TopMenuComponent, SideMenuComponent, SideMenuGroupComponent, HeaderComponent, ListComponent, SearchComponent,
+    TopMenuComponent, SideMenuLayoutComponent, SideMenuGroupComponent, HeaderComponent, ListComponent, SearchComponent,
     ListComponent, TabsComponent, CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective, FieldComponent, 
     DynamicFormComponent, ViewListComponent, ViewDetailComponent, ConfirmComponent,
-    AnyAppListHeaderTemplate, AnyAppListFooterTemplate, AnyAppListContentTemplate,
+    AnyAppListHeaderTemplate, AnyAppListFooterTemplate, AnyAppListContentTemplate, BreadcrumbComponent,
     // no export
     SideMenuItemComponent, HintComponent, FilterPipe, SortPipe, PagingPipe, SortLabelPipe, MaskDirective,
     //
-    RaisedButtonComponent, StrokedButtonComponent, FlatButtonComponent, IconButtonComponent, DefaultButtonComponent, FabButtonComponent 
+    RaisedButtonComponent, StrokedButtonComponent, FlatButtonComponent, IconButtonComponent, DefaultButtonComponent, FabButtonComponent
   ],
   exports: [
     TableComponent, InputComponent, CheckboxComponent, SelectComponent, ButtonComponent, DatepickerComponent,
     FormDirective, TextareaComponent, LabelComponent, SliderComponent, IconComponent, LoadingComponent, ErrorComponent,
-    TopMenuComponent, SideMenuComponent, HeaderComponent, ListComponent, SearchComponent, ListComponent, TabsComponent,
+    TopMenuComponent, SideMenuLayoutComponent, HeaderComponent, ListComponent, SearchComponent, ListComponent, TabsComponent,
     CalendarComponent, MenuComponent, ChipsComponent, BadgeDirective, FieldComponent, DynamicFormComponent, 
-    ViewListComponent, ViewDetailComponent, ConfirmComponent
+    ViewListComponent, ViewDetailComponent, ConfirmComponent, BreadcrumbComponent
     // material exports
     //MatSidenavModule, MatToolbarModule
   ],

@@ -1,8 +1,8 @@
 <aa-top-menu [sideNav]="true" [title]="title" [showPersonal]="true" [showNotification]="true" [menu]="[{text: 'Settings', key: 'SETTINGS'}, {text: 'Log out', key: 'LOGOUT'}]"></aa-top-menu>
 
-<aa-side-menu [items]="menu" (onEvent)="menuItemClick($event);">
-  
+<aa-side-menu-layout [items]="menu" (onEvent)="menuItemClick($event);">
+    
   <!--main routing outlet-->
   <router-outlet></router-outlet>
 
-</aa-side-menu>
+</aa-side-menu-layout>

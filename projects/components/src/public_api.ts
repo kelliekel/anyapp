@@ -49,7 +49,7 @@ export * from './lib/views/view-list/view-list.component';
  */
 export * from './lib/layout/header/header.component';
 export * from './lib/layout/top-menu/top-menu.component';
-export * from './lib/layout/side-menu/side-menu/side-menu.component';
+export * from './lib/layout/side-menu-layout/side-menu-layout.component';
 /*
  * FORMS
  */

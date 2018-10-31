@@ -1,17 +1,19 @@
 import { Component, OnInit, Injector, Input, ViewChild, OnDestroy } from '@angular/core';
-import { AnyAppBaseControl } from '../../../base-control';
-import { AnyAppEventModel, AnyAppTreeModel } from '../../../components.model';
+import { AnyAppBaseControl } from '../../base-control';
+import { AnyAppEventModel, AnyAppTreeModel } from '../../components.model';
 import { MatSidenav } from '@angular/material';
 import { Subscription } from 'rxjs';
+import { BreadcrumbComponent } from '../breadcrumb/breadcrumb.component';
 
 @Component({
-  selector: 'aa-side-menu',
-  templateUrl: './side-menu.component.html',
-  styleUrls: ['./side-menu.component.scss']
+  selector: 'aa-side-menu-layout',
+  templateUrl: './side-menu-layout.component.html',
+  styleUrls: ['./side-menu-layout.component.scss']
 })
-export class SideMenuComponent extends AnyAppBaseControl implements OnInit, OnDestroy {
+export class SideMenuLayoutComponent extends AnyAppBaseControl implements OnInit, OnDestroy {
   @Input() items: AnyAppTreeModel[];  
   @ViewChild('sideNav') sideNav: MatSidenav;
+  @ViewChild('breadcrumb') breadcrumb: BreadcrumbComponent;
 
   private _sideNav$: Subscription;
 
@@ -32,8 +34,12 @@ export class SideMenuComponent extends AnyAppBaseControl implements OnInit, OnDe
 
   // pass event emitter to the app
   onItemClick(model: any) {
-    if(model)
+    if(model) {
+      // update breadcrumb aswell
+      this.breadcrumb.reset(model.value.text);
+      //
       this.onEvent.emit(model);
+    }
   }
 
 }

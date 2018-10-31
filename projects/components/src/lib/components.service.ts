@@ -10,6 +10,8 @@ import { ConfirmComponent } from './controls/confirm/confirm.component';
 export class ComponentsService {  
   public config: AnyAppComponentsConfig;
   public sideNavToggle: Subject<boolean> = new Subject<boolean>();
+  
+  public breadcrumbChange: Subject<any> = new Subject<any>();
 
   constructor(
     _config: ANYAPP_COMPONENTS_CONFIG,
@@ -34,6 +36,14 @@ export class ComponentsService {
       callbackFn(result);
       confirmationDialogRef = null;
     });
+  }
+
+  public addBreadCrumb(bc: string) {
+    this.breadcrumbChange.next({key: 'Add', value: bc});
+  }
+  
+  public removeBreadCrumb(bc: string) {
+    this.breadcrumbChange.next({key: 'Remove', value: bc});
   }
 
   private _mergeConfig(config: AnyAppComponentsConfig): AnyAppComponentsConfig {
